@@ -1,0 +1,12 @@
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\bin\Debug\Unify DPO Tool.exe.config
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\bin\Debug\Unify DPO Tool.exe
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\bin\Debug\Unify DPO Tool.pdb
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify DPO Tool.csprojResolveAssemblyReference.cache
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.Form1.resources
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.Properties.Resources.resources
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify DPO Tool.csproj.GenerateResource.Cache
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify DPO Tool.exe
+c:\users\peter\documents\visual studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify DPO Tool.pdb
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.IBMDispoForm.resources
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.UnifyDispoIntern.resources
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.FruAbfrage.resources
