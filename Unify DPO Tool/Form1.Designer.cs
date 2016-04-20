@@ -211,9 +211,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(297, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 52);
+            this.label9.Size = new System.Drawing.Size(133, 52);
             this.label9.TabIndex = 8;
-            this.label9.Text = "FremdEQ:\r\nCisco= CIO:\r\nExtreme= EXN:\r\nJuniper= DE_DEUBA_JUI_";
+            this.label9.Text = "FremdEQ:\r\nCisco= CIO:\r\nExtreme= EXN:\r\nJuniper= DE:DEUBA_JUI_";
             // 
             // sparepartchance
             // 
@@ -259,9 +259,9 @@
             // 
             this.sachnummer.Items.AddRange(new object[] {
             "n/a",
-            "DE_DEUBA_JUI_SSG-5-SH",
-            "DE_DEUBA_JUI_SRX100B",
-            "DE_DEUBA_JUI_NS-5GT-005",
+            "DE:DEUBA_JUI_SSG-5-SH",
+            "DE:DEUBA_JUI_SRX100B",
+            "DE:DEUBA_JUI_NS-5GT-005",
             "CIO:AIR-LAP1142N-E-K9"});
             this.sachnummer.Location = new System.Drawing.Point(109, 40);
             this.sachnummer.Name = "sachnummer";
