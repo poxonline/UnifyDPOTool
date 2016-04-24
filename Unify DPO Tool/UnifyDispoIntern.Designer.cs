@@ -65,7 +65,7 @@
             this.groupBox1.Size = new System.Drawing.Size(319, 75);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "FS_DEU_GERSI/FS_GERCONS Incident";
+            this.groupBox1.Text = "FS_DEU_RM Incident";
             // 
             // linkLabel2
             // 
@@ -118,7 +118,7 @@
             this.groupBox2.Size = new System.Drawing.Size(319, 75);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FS_DEU_GERSI/FS_GERCONS MAC";
+            this.groupBox2.Text = "FS_DEU_RM MAC";
             // 
             // linkLabel4
             // 
