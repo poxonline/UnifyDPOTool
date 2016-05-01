@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Unify_DPO_Tool
 {
@@ -19,6 +20,7 @@ namespace Unify_DPO_Tool
         string maillinkEskalation = "mailto:unifydp@de.ibm.com?subject=GER_FRU? - Eskalation bei Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com&body=Hallo%20Dispo,%0A%0D%0Abei%20Ticket%20NAxxxxxx%20liegt%20eine%20Eskalation%20vor.%0A%0DWir%20bitten%20um%20eine%20schnelle%20Dispostion%20bzw.%20eine%20schnelle%20Anfahrt%20des%20Technikers.";
         string maillinkKomplett="";
         string maillinkEskalationKomplett="";
+        static string ordner = Environment.GetEnvironmentVariable("userprofile") + "\\DPOToolSettings";
         public Form1()
         {
             InitializeComponent();
@@ -29,9 +31,11 @@ namespace Unify_DPO_Tool
             onsitenein.Checked = true;
             onsitevissibilitychange();
             MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@unify.com).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
-            version.Text = "Version: 0.2.1.1 b";
+            version.Text = "Version: 0.2.2 b";
             Gruppenauswahl.Text = "SSD DEU Data SLA Controlling";
             notifyIcon1.ContextMenuStrip = TryIconMenue;
+            //OrdnerAbfrage();
+            //ConfDateien();
         }
         private void sparepartja_CheckedChanged(object sender, EventArgs e)
         {
@@ -295,6 +299,91 @@ namespace Unify_DPO_Tool
         {
             FruAbfrage IBMFru = new FruAbfrage();
             IBMFru.Show();
+        }
+
+        private void fRUBildToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRUKarte IBMKarte = new FRUKarte();
+            IBMKarte.Show();
+        }
+
+        public void OrdnerAbfrage()
+        {
+            bool existiert = Directory.Exists(ordner);
+            if (!existiert)
+            {
+                Directory.CreateDirectory(ordner);
+            }
+        }
+
+        public void ConfDateien()
+        {
+            //Pfade für Configdateien zusammensetzen
+            string gruppenconf = ordner + "\\gruppe.conf";
+            string sachconf = ordner+"\\sachnummern.conf";
+            string actionconf = ordner+"\\actionremote.conf";
+            string requestedconf = ordner+"\\requestedfromfield.conf";
+            //Prüfen ob Gruppenconfigurationsdatei vorhanden
+            if (File.Exists(gruppenconf))
+            {
+                //Wenn vorhanden wird hier gelesen
+                FileStream Pfad = new FileStream(gruppenconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(gruppenconf);
+                while (!lesen.EndOfStream)
+                {
+                    Gruppenauswahl.Text = lesen.ReadLine();
+                }
+                lesen.Close();
+            }
+            else
+            {
+                //Wenn nicht vorhanden wird hier geschrieben
+                FileStream Pfad = new FileStream(gruppenconf, FileMode.Create, FileAccess.Write);
+                StreamWriter schreiben = new StreamWriter(Pfad);
+                schreiben.WriteLine("SSD DEU Data Allgemein");//Setzen der ersten Gruppe bei Datei Anlegen
+                schreiben.Close();
+            }
+
+            if (File.Exists(sachconf))
+            { }
+            else
+            {
+                FileStream Pfad = new FileStream(sachconf, FileMode.Create, FileAccess.Write);
+                StreamWriter schreiben = new StreamWriter(Pfad);
+                schreiben.WriteLine("n/a");
+                schreiben.WriteLine("DE:DEUBA_JUI_SSG-5-SH");
+                schreiben.WriteLine("DE:DEUBA_JUI_SRX100B");
+                schreiben.WriteLine("DE:DEUBA_JUI_NS-5GT-005");
+                schreiben.WriteLine("CIO:AIR-LAP1142N-E-K9");
+
+                schreiben.Close();
+            }
+            if (File.Exists(actionconf))
+            { }
+            else
+            {
+                FileStream Pfad = new FileStream(actionconf, FileMode.Create, FileAccess.Write);
+                StreamWriter schreiben = new StreamWriter(Pfad);
+                schreiben.WriteLine("Kein Remote erlaubt.");
+                schreiben.WriteLine("Kein Remote möglich.");
+                schreiben.WriteLine("Prüfung des Endgerätes, es wurde ein Hardware defekt festgestellt.");
+                schreiben.Close();
+            }
+            if (File.Exists(requestedconf))
+            { }
+            else
+            {
+                FileStream Pfad = new FileStream(requestedconf, FileMode.Create, FileAccess.Write);
+                StreamWriter schreiben = new StreamWriter(Pfad);
+                schreiben.WriteLine("Tauschen des OpenStage Endgerätes.");
+                schreiben.WriteLine("Tauschen der Juniper und ggf. Konfiguration dieser (Konsolenkabel benötigt)");
+                schreiben.WriteLine("Tauschen des Netzteils");
+                schreiben.WriteLine("Tauschen der Festplatte");
+                schreiben.WriteLine("Tauschen des AccessPoints AP_XXXX am Switch XXXXXXX");
+                schreiben.WriteLine("Tauschen des Switches, inklusive einspielen der BackUp Konfiguration (Konsolenkabel benötigt)");
+                schreiben.Close();
+            }
+            
         }
     }
 }

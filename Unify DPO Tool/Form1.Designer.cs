@@ -735,8 +735,9 @@
             // fRUBildToolStripMenuItem
             // 
             this.fRUBildToolStripMenuItem.Name = "fRUBildToolStripMenuItem";
-            this.fRUBildToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.fRUBildToolStripMenuItem.Text = "FRU Bild (ausstehend)";
+            this.fRUBildToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fRUBildToolStripMenuItem.Text = "FRU Bild";
+            this.fRUBildToolStripMenuItem.Click += new System.EventHandler(this.fRUBildToolStripMenuItem_Click);
             // 
             // TryIconMenue
             // 

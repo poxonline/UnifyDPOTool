@@ -82,6 +82,12 @@
     <Compile Include="FruAbfrage.Designer.cs">
       <DependentUpon>FruAbfrage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRUKarte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRUKarte.Designer.cs">
+      <DependentUpon>FRUKarte.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBMDispoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FruAbfrage.resx">
       <DependentUpon>FruAbfrage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRUKarte.resx">
+      <DependentUpon>FRUKarte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IBMDispoForm.resx">
       <DependentUpon>IBMDispoForm.cs</DependentUpon>
