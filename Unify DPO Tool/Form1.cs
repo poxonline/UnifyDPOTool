@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 namespace Unify_DPO_Tool
 {
@@ -31,7 +32,7 @@ namespace Unify_DPO_Tool
             onsitenein.Checked = true;
             onsitevissibilitychange();
             MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@unify.com).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
-            version.Text = "Version: 0.2.2 b";
+            version.Text = "Version: 0.2.3.5 b";
             Gruppenauswahl.Text = "SSD DEU Data SLA Controlling";
             notifyIcon1.ContextMenuStrip = TryIconMenue;
             //OrdnerAbfrage();
@@ -334,6 +335,7 @@ namespace Unify_DPO_Tool
                     Gruppenauswahl.Text = lesen.ReadLine();
                 }
                 lesen.Close();
+                Pfad.Close();
             }
             else
             {
@@ -342,10 +344,26 @@ namespace Unify_DPO_Tool
                 StreamWriter schreiben = new StreamWriter(Pfad);
                 schreiben.WriteLine("SSD DEU Data Allgemein");//Setzen der ersten Gruppe bei Datei Anlegen
                 schreiben.Close();
+                Pfad.Close();
             }
 
             if (File.Exists(sachconf))
-            { }
+            {
+                ArrayList gelesen=new ArrayList();
+                //Wenn vorhanden wird hier gelesen
+                FileStream Pfad = new FileStream(sachconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(sachconf);
+                while (!lesen.EndOfStream)
+                {
+                     gelesen.Add(lesen.ReadLine());
+                }
+                lesen.Close();
+                Pfad.Close();
+                foreach (string i in gelesen)
+                {
+                    sachnummer.Items.Add(i);
+                }
+            }
             else
             {
                 FileStream Pfad = new FileStream(sachconf, FileMode.Create, FileAccess.Write);
@@ -355,11 +373,27 @@ namespace Unify_DPO_Tool
                 schreiben.WriteLine("DE:DEUBA_JUI_SRX100B");
                 schreiben.WriteLine("DE:DEUBA_JUI_NS-5GT-005");
                 schreiben.WriteLine("CIO:AIR-LAP1142N-E-K9");
-
+                schreiben.WriteLine("EXN:15107");
                 schreiben.Close();
+                Pfad.Close();
             }
             if (File.Exists(actionconf))
-            { }
+            {
+                ArrayList gelesen = new ArrayList();
+                //Wenn vorhanden wird hier gelesen
+                FileStream Pfad = new FileStream(actionconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(actionconf);
+                while (!lesen.EndOfStream)
+                {
+                    gelesen.Add(lesen.ReadLine());
+                }
+                lesen.Close();
+                Pfad.Close();
+                foreach (string i in gelesen)
+                {
+                    activitiessofarremote.Items.Add(i);
+                }
+            }
             else
             {
                 FileStream Pfad = new FileStream(actionconf, FileMode.Create, FileAccess.Write);
@@ -370,7 +404,22 @@ namespace Unify_DPO_Tool
                 schreiben.Close();
             }
             if (File.Exists(requestedconf))
-            { }
+            {
+                ArrayList gelesen = new ArrayList();
+                //Wenn vorhanden wird hier gelesen
+                FileStream Pfad = new FileStream(requestedconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(requestedconf);
+                while (!lesen.EndOfStream)
+                {
+                    gelesen.Add(lesen.ReadLine());
+                }
+                lesen.Close();
+                Pfad.Close();
+                foreach (string i in gelesen)
+                {
+                    requestedfromfield.Items.Add(i);
+                }
+            }
             else
             {
                 FileStream Pfad = new FileStream(requestedconf, FileMode.Create, FileAccess.Write);
@@ -382,8 +431,29 @@ namespace Unify_DPO_Tool
                 schreiben.WriteLine("Tauschen des AccessPoints AP_XXXX am Switch XXXXXXX");
                 schreiben.WriteLine("Tauschen des Switches, inklusive einspielen der BackUp Konfiguration (Konsolenkabel benötigt)");
                 schreiben.Close();
+                Pfad.Close();
             }
             
+        }
+
+        private void gruppeÄndernToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string gruppenconf = ordner + "\\gruppe.conf";
+            gruppeaendern fenster = new gruppeaendern();
+            if (fenster.ShowDialog(this) == DialogResult.Yes)
+            {
+                MessageBox.Show("Gruppe erfolgreich gespeichert");
+                FileStream Pfad = new FileStream(gruppenconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(gruppenconf);
+                while (!lesen.EndOfStream)
+                {
+                    Gruppenauswahl.Text = lesen.ReadLine();
+                }
+                lesen.Close();
+                Pfad.Close();
+            }
+            else
+            { MessageBox.Show("Gruppe wurde nicht gespeichert"); }
         }
     }
 }
