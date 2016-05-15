@@ -32,11 +32,11 @@ namespace Unify_DPO_Tool
             onsitenein.Checked = true;
             onsitevissibilitychange();
             MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@unify.com).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
-            version.Text = "Version: 0.2.3.5 b";
+            version.Text = "Version: 0.2.4 b";
             Gruppenauswahl.Text = "SSD DEU Data SLA Controlling";
             notifyIcon1.ContextMenuStrip = TryIconMenue;
-            //OrdnerAbfrage();
-            //ConfDateien();
+            OrdnerAbfrage();
+            ConfDateien();
         }
         private void sparepartja_CheckedChanged(object sender, EventArgs e)
         {
@@ -454,6 +454,69 @@ namespace Unify_DPO_Tool
             }
             else
             { MessageBox.Show("Gruppe wurde nicht gespeichert"); }
+        }
+
+        private void sachnummernToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string sachconf = ordner + "\\sachnummern.conf";
+            vorDefTexte_aendern fenster = new vorDefTexte_aendern(sachconf);
+            if (fenster.ShowDialog(this) == DialogResult.Yes)
+            {
+                MessageBox.Show("Sachnummern erfolgreich gespeichert");
+                sachnummer.Items.Clear();
+                FileStream Pfad = new FileStream(sachconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(sachconf);
+                while (!lesen.EndOfStream)
+                {
+                    sachnummer.Items.Add(lesen.ReadLine());
+                }
+                lesen.Close();
+                Pfad.Close();
+            }
+            else
+            { MessageBox.Show("Sachnummern wurden nicht gespeichert"); }
+        }
+
+        private void activitiesSoFarInRemoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string actionconf = ordner + "\\actionremote.conf";
+            vorDefTexte_aendern fenster = new vorDefTexte_aendern(actionconf);
+            if (fenster.ShowDialog(this) == DialogResult.Yes)
+            {
+                MessageBox.Show("Action so far in Remote erfolgreich gespeichert");
+                activitiessofarremote.Items.Clear();
+                FileStream Pfad = new FileStream(actionconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(actionconf);
+                while (!lesen.EndOfStream)
+                {
+                    activitiessofarremote.Items.Add(lesen.ReadLine());
+                }
+                lesen.Close();
+                Pfad.Close();
+            }
+            else
+            { MessageBox.Show("Action so far in Remote wurde nicht gespeichert"); }
+        }
+
+        private void requestedActionFromFieldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string requestedconf = ordner + "\\requestedfromfield.conf";
+            vorDefTexte_aendern fenster = new vorDefTexte_aendern(requestedconf);
+            if (fenster.ShowDialog(this) == DialogResult.Yes)
+            {
+                MessageBox.Show("Requested Action from Field erfolgreich gespeichert");
+                requestedfromfield.Items.Clear();
+                FileStream Pfad = new FileStream(requestedconf, FileMode.Open, FileAccess.Read);
+                StreamReader lesen = new StreamReader(requestedconf);
+                while (!lesen.EndOfStream)
+                {
+                    requestedfromfield.Items.Add(lesen.ReadLine());
+                }
+                lesen.Close();
+                Pfad.Close();
+            }
+            else
+            { MessageBox.Show("Requested Action from Field wurde nicht gespeichert"); }
         }
     }
 }

@@ -68,6 +68,7 @@ namespace Unify_DPO_Tool
             if (uc.Checked) { schreiben.WriteLine(uc.Text); }
             if (security.Checked) { schreiben.WriteLine(security.Checked); }
             schreiben.Close();
+            Pfad.Close();
             this.Close();
         }
 

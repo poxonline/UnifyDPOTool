@@ -94,13 +94,13 @@
             this.fRUAbfrageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fRUBildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vorauswahlenÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sachnummernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesSoFarInRemoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requestedActionFromFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruppeÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.FremdRemote.SuspendLayout();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
@@ -263,12 +263,6 @@
             // 
             // sachnummer
             // 
-            this.sachnummer.Items.AddRange(new object[] {
-            "n/a",
-            "DE:DEUBA_JUI_SSG-5-SH",
-            "DE:DEUBA_JUI_SRX100B",
-            "DE:DEUBA_JUI_NS-5GT-005",
-            "CIO:AIR-LAP1142N-E-K9"});
             this.sachnummer.Location = new System.Drawing.Point(109, 40);
             this.sachnummer.Name = "sachnummer";
             this.sachnummer.Size = new System.Drawing.Size(182, 21);
@@ -542,10 +536,6 @@
             this.activitiessofarremote.AutoCompleteCustomSource.AddRange(new string[] {
             "Kein Remote erlaubt.",
             "Kein Remote möglich."});
-            this.activitiessofarremote.Items.AddRange(new object[] {
-            "Kein Remote erlaubt.",
-            "Kein Remote möglich.",
-            "Prüfung des Endgerätes, es wurde ein Hardware defekt festgestellt."});
             this.activitiessofarremote.Location = new System.Drawing.Point(152, 170);
             this.activitiessofarremote.Name = "activitiessofarremote";
             this.activitiessofarremote.Size = new System.Drawing.Size(314, 21);
@@ -572,14 +562,6 @@
             // requestedfromfield
             // 
             this.requestedfromfield.FormattingEnabled = true;
-            this.requestedfromfield.Items.AddRange(new object[] {
-            "Tauschen des OpenStage Endgerätes.",
-            "Tauschen der Juniper und ggf. Konfiguration dieser (Konsolenkabel benötigt)",
-            "Tauschen des Netzteils",
-            "Tauschen der Festplatte",
-            "Tauschen des AccessPoints AP_ am Switch ",
-            "Tauschen des Switches, inklusive einspielen der BackUp Konfiguration (Konsolenkab" +
-                "el benötigt)"});
             this.requestedfromfield.Location = new System.Drawing.Point(152, 197);
             this.requestedfromfield.Name = "requestedfromfield";
             this.requestedfromfield.Size = new System.Drawing.Size(314, 21);
@@ -754,21 +736,6 @@
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
             this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.einstellungenToolStripMenuItem.Text = "Einstellungen";
-            this.einstellungenToolStripMenuItem.Visible = false;
-            // 
-            // TryIconMenue
-            // 
-            this.TryIconMenue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.beendenToolStripMenuItem1});
-            this.TryIconMenue.Name = "TryIconMenue";
-            this.TryIconMenue.Size = new System.Drawing.Size(121, 26);
-            // 
-            // beendenToolStripMenuItem1
-            // 
-            this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
-            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
-            this.beendenToolStripMenuItem1.Text = "Beenden";
-            this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // vorauswahlenÄndernToolStripMenuItem
             // 
@@ -785,18 +752,21 @@
             this.sachnummernToolStripMenuItem.Name = "sachnummernToolStripMenuItem";
             this.sachnummernToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.sachnummernToolStripMenuItem.Text = "Sachnummern";
+            this.sachnummernToolStripMenuItem.Click += new System.EventHandler(this.sachnummernToolStripMenuItem_Click);
             // 
             // activitiesSoFarInRemoteToolStripMenuItem
             // 
             this.activitiesSoFarInRemoteToolStripMenuItem.Name = "activitiesSoFarInRemoteToolStripMenuItem";
             this.activitiesSoFarInRemoteToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.activitiesSoFarInRemoteToolStripMenuItem.Text = "Activities so far in Remote";
+            this.activitiesSoFarInRemoteToolStripMenuItem.Click += new System.EventHandler(this.activitiesSoFarInRemoteToolStripMenuItem_Click);
             // 
             // requestedActionFromFieldToolStripMenuItem
             // 
             this.requestedActionFromFieldToolStripMenuItem.Name = "requestedActionFromFieldToolStripMenuItem";
             this.requestedActionFromFieldToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.requestedActionFromFieldToolStripMenuItem.Text = "Requested Action from Field";
+            this.requestedActionFromFieldToolStripMenuItem.Click += new System.EventHandler(this.requestedActionFromFieldToolStripMenuItem_Click);
             // 
             // gruppeÄndernToolStripMenuItem
             // 
@@ -804,6 +774,20 @@
             this.gruppeÄndernToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.gruppeÄndernToolStripMenuItem.Text = "Gruppe ändern";
             this.gruppeÄndernToolStripMenuItem.Click += new System.EventHandler(this.gruppeÄndernToolStripMenuItem_Click);
+            // 
+            // TryIconMenue
+            // 
+            this.TryIconMenue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.beendenToolStripMenuItem1});
+            this.TryIconMenue.Name = "TryIconMenue";
+            this.TryIconMenue.Size = new System.Drawing.Size(121, 26);
+            // 
+            // beendenToolStripMenuItem1
+            // 
+            this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
+            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.beendenToolStripMenuItem1.Text = "Beenden";
+            this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // Form1
             // 

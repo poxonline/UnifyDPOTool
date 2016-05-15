@@ -12,3 +12,4 @@ C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.FruAbfrage.resources
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.FRUKarte.resources
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.gruppeaendern.resources
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.vorDefTexte_aendern.resources
