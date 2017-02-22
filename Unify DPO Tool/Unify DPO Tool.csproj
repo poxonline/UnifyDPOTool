@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sql_aufrufe.cs" />
     <Compile Include="team.cs" />
     <Compile Include="ueber.cs">
       <SubType>Form</SubType>
