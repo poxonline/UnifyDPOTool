@@ -55,6 +55,10 @@ namespace Unify_DPO_Tool
             {
                 security.Checked = true;
             }
+            if (vorher == ba.Text)
+            {
+                ba.Checked = true;
+            }
         }
 
         private void speichern_Click(object sender, EventArgs e)
@@ -66,7 +70,8 @@ namespace Unify_DPO_Tool
             if (data.Checked) { schreiben.WriteLine(data.Text); }
             if (voice.Checked) { schreiben.WriteLine(voice.Text); }
             if (uc.Checked) { schreiben.WriteLine(uc.Text); }
-            if (security.Checked) { schreiben.WriteLine(security.Checked); }
+            if (security.Checked) { schreiben.WriteLine(security.Text); }
+            if (ba.Checked) { schreiben.WriteLine(ba.Text); }
             schreiben.Close();
             Pfad.Close();
             this.Close();

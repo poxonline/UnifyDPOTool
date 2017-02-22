@@ -99,8 +99,12 @@
             this.activitiesSoFarInRemoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requestedActionFromFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruppeÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.konfigurationKomplettNeuEinlesenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hilfesoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FremdRemote.SuspendLayout();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
@@ -133,7 +137,8 @@
             "SSD DEU Data Allgemein",
             "SSD DEU Voice",
             "SSD DEU UC",
-            "SSD DEU Security"});
+            "SSD DEU Security",
+            "SSD DEU BA"});
             this.Gruppenauswahl.Location = new System.Drawing.Point(407, 130);
             this.Gruppenauswahl.Name = "Gruppenauswahl";
             this.Gruppenauswahl.Size = new System.Drawing.Size(422, 21);
@@ -600,7 +605,7 @@
             // version
             // 
             this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(49, 17);
+            this.version.Size = new System.Drawing.Size(48, 17);
             this.version.Text = "Version:";
             // 
             // UnifyDPOWiki
@@ -660,7 +665,8 @@
             this.menüToolStripMenuItem,
             this.rufnummernToolStripMenuItem,
             this.iBMFRUToolStripMenuItem,
-            this.einstellungenToolStripMenuItem});
+            this.einstellungenToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(853, 24);
@@ -732,7 +738,8 @@
             // 
             this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vorauswahlenÄndernToolStripMenuItem,
-            this.gruppeÄndernToolStripMenuItem});
+            this.gruppeÄndernToolStripMenuItem,
+            this.konfigurationKomplettNeuEinlesenToolStripMenuItem});
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
             this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.einstellungenToolStripMenuItem.Text = "Einstellungen";
@@ -744,7 +751,7 @@
             this.activitiesSoFarInRemoteToolStripMenuItem,
             this.requestedActionFromFieldToolStripMenuItem});
             this.vorauswahlenÄndernToolStripMenuItem.Name = "vorauswahlenÄndernToolStripMenuItem";
-            this.vorauswahlenÄndernToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.vorauswahlenÄndernToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.vorauswahlenÄndernToolStripMenuItem.Text = "Vorauswahlen ändern";
             // 
             // sachnummernToolStripMenuItem
@@ -771,9 +778,16 @@
             // gruppeÄndernToolStripMenuItem
             // 
             this.gruppeÄndernToolStripMenuItem.Name = "gruppeÄndernToolStripMenuItem";
-            this.gruppeÄndernToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.gruppeÄndernToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.gruppeÄndernToolStripMenuItem.Text = "Gruppe ändern";
             this.gruppeÄndernToolStripMenuItem.Click += new System.EventHandler(this.gruppeÄndernToolStripMenuItem_Click);
+            // 
+            // konfigurationKomplettNeuEinlesenToolStripMenuItem
+            // 
+            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Name = "konfigurationKomplettNeuEinlesenToolStripMenuItem";
+            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Text = "Konfiguration komplett neu einlesen";
+            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Click += new System.EventHandler(this.konfigurationKomplettNeuEinlesenToolStripMenuItem_Click);
             // 
             // TryIconMenue
             // 
@@ -788,6 +802,28 @@
             this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem1.Text = "Beenden";
             this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hilfesoonToolStripMenuItem,
+            this.überToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
+            this.toolStripMenuItem1.Text = "?";
+            // 
+            // hilfesoonToolStripMenuItem
+            // 
+            this.hilfesoonToolStripMenuItem.Name = "hilfesoonToolStripMenuItem";
+            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfesoonToolStripMenuItem.Text = "Hilfe (soon)";
+            // 
+            // überToolStripMenuItem
+            // 
+            this.überToolStripMenuItem.Name = "überToolStripMenuItem";
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Text = "Über";
+            this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -913,6 +949,10 @@
         private System.Windows.Forms.ToolStripMenuItem activitiesSoFarInRemoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem requestedActionFromFieldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gruppeÄndernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem konfigurationKomplettNeuEinlesenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem hilfesoonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
     }
 }
 

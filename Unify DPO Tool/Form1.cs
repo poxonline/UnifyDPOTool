@@ -9,9 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+//Ab hier für selbst öffnen
+using System.Threading;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Reflection;
+using System.Text.RegularExpressions;
+
+
 
 namespace Unify_DPO_Tool
 {
+    using HWND = IntPtr;
     public partial class Form1 : Form
     {
         string hotline;
@@ -31,13 +40,143 @@ namespace Unify_DPO_Tool
             fremdvissibilitychange();
             onsitenein.Checked = true;
             onsitevissibilitychange();
-            MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@unify.com).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
-            version.Text = "Version: 0.2.4 b";
-            Gruppenauswahl.Text = "SSD DEU Data SLA Controlling";
+            //MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@unify.com).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
+            version.Text = "Version: 0.5 b";
             notifyIcon1.ContextMenuStrip = TryIconMenue;
             OrdnerAbfrage();
             ConfDateien();
+            //Selbst öffnen
+            lol_init();
+            //bmc_running(); auskommentiert weil Programm dann nur mit BMC an läuft
         }
+
+        #region Selbstoeffnen
+        // Variablen / Konstanten Deklaration
+            #region Deklaration
+                private Thread Check_open_closed = null;
+                private Thread Check_open_advanced = null;
+                public bool check_if_window_open = false;
+                public const string bmc_name = "aruser";
+                public const string dpof_name = "IMSA:MAIN:TASK:DPO (prd-node.global-intra.net)";
+            #endregion
+                protected override CreateParams CreateParams
+                {
+                    get
+                    {
+                        CreateParams cp = base.CreateParams;
+                        cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                        return cp;
+                    }
+                }
+
+        // Initialisierung einiger Variablen und der Threads für die Fenstersuchfunktion
+        void lol_init()
+        {
+
+            // Thread 1 - Closed window
+            Check_open_closed = new Thread(() =>
+            {
+                bool window_found = false;
+
+                while (check_if_window_open)
+                {
+
+                    foreach (KeyValuePair<IntPtr, string> window in OpenWindowGetter.GetOpenWindows())
+                    {
+
+                        IntPtr handle = window.Key;
+                        string title = window.Value;
+                        if (title.ToLower().Equals(dpof_name.ToLower()))
+                        {
+                            window_found = true;
+                            break;
+                        }
+                    }
+                    if (window_found == true)
+                    {
+                        this.BeginInvoke((Action)delegate
+                        {
+                            this.Show();
+                            this.Activate();
+                        });
+                        Thread.Sleep(295000); //55000 <- 1 min / 295.000 <- 5 min
+                    }
+                    Thread.Sleep(5000);
+                    window_found = false;
+                }
+            });
+
+            // Thread 2 - Advanced KM Search window
+            Check_open_advanced = new Thread(() =>
+            {
+
+                bool window_found = false;
+                while (check_if_window_open)
+                {
+
+                    foreach (KeyValuePair<IntPtr, string> window in OpenWindowGetter.GetOpenWindows())
+                    {
+                        IntPtr handle = window.Key;
+                        string title = window.Value;
+
+                        // Console.WriteLine("{0}: {1}", handle, title);
+
+                        if (title.ToLower().Equals(dpof_name.ToLower()))
+                        {
+                            window_found = true;
+                            break;
+                        }
+                    }
+                    if (window_found == true)
+                    {
+                        this.BeginInvoke((Action)delegate
+                        {
+                            noticemesenpai();
+                        });
+                        Thread.Sleep(55000); //55000
+                    }
+                    Thread.Sleep(5000);
+                    window_found = false;
+
+
+                }
+
+            });
+
+        }
+        // Checks if BMC Remedy is even running every 5 seconds (lässt das Programm solange zu bis BMC als Process gestartet ist)
+        //public void bmc_running()
+        //{
+        //    bool bmc = false;
+        //    while (bmc == false)
+        //    {
+        //        Process[] processlist = Process.GetProcesses();
+        //        foreach (Process process in processlist)
+        //        {
+        //            if (!String.IsNullOrEmpty(process.MainWindowTitle))
+        //            {
+        //                Debug.WriteLine("=====> Process: {0} ID: {1} Window title: {2}", process.ProcessName, process.Id, process.MainWindowTitle);
+        //                if (bmc_name.ToLower().Equals(process.ProcessName.ToLower()))
+        //                {
+        //                    Debug.WriteLine("\n BMC LAEUFT\n");
+        //                    bmc = true;
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //        if (bmc == true)
+        //        {
+        //            break;
+        //        }
+        //        Thread.Sleep(5000);
+        //    }
+        //    check_if_window_open = true;
+        //    Check_open_closed.Start();
+        //    Check_open_advanced.Start();
+        //}
+        #endregion
+
+
         private void sparepartja_CheckedChanged(object sender, EventArgs e)
         {
             sparepartvissibilitychange();
@@ -139,6 +278,13 @@ namespace Unify_DPO_Tool
                 maillinkKomplett = maillink + "&cc=security.hotline@unify.com";
                 maillinkEskalationKomplett=maillinkEskalation+"&cc=security.hotline@unify.com,michael.wessolleck@unify.com";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU Security";
+            }
+            else if (Gruppenauswahl.Text == "SSD DEU BA")
+            {
+                hotline = "Unify MSD 08007373622 E-Mail: ba-servicedesk@unify.com";
+                maillinkKomplett = maillink + "&cc=ba-servicedesk@unify.com";
+                maillinkEskalationKomplett = maillinkEskalation + "&cc=ba-servicedesk@unify.com.com,michael.wessolleck@unify.com";
+                aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU BA";
             }
         }
 
@@ -433,6 +579,8 @@ namespace Unify_DPO_Tool
                 schreiben.Close();
                 Pfad.Close();
             }
+
+            confreload();
             
         }
 
@@ -518,5 +666,140 @@ namespace Unify_DPO_Tool
             else
             { MessageBox.Show("Requested Action from Field wurde nicht gespeichert"); }
         }
+
+        private void confreload()
+        {
+            //Alle configs neu ein lesen
+            string gruppenconf = ordner + "\\gruppe.conf";
+            string sachconf = ordner + "\\sachnummern.conf";
+            string actionconf = ordner + "\\actionremote.conf";
+            string requestedconf = ordner + "\\requestedfromfield.conf";
+
+            //Gruppenkonfiguration
+            FileStream Pfad = new FileStream(gruppenconf, FileMode.Open, FileAccess.Read);
+            StreamReader lesen = new StreamReader(gruppenconf);
+            while (!lesen.EndOfStream)
+            {
+                Gruppenauswahl.Text = lesen.ReadLine();
+            }
+            lesen.Close();
+            Pfad.Close();
+
+            //Sachnummern
+            sachnummer.Items.Clear();
+            ArrayList gelesen2 = new ArrayList();
+            FileStream Pfad2 = new FileStream(sachconf, FileMode.Open, FileAccess.Read);
+            StreamReader lesen2 = new StreamReader(sachconf);
+            while (!lesen2.EndOfStream)
+            {
+                gelesen2.Add(lesen2.ReadLine());
+            }
+            lesen2.Close();
+            Pfad2.Close();
+            foreach (string i in gelesen2)
+            {
+                sachnummer.Items.Add(i);
+            }
+
+            //Bisher durchgeführte Remoteaktionen
+            activitiessofarremote.Items.Clear();
+            ArrayList gelesen3 = new ArrayList();
+            FileStream Pfad3 = new FileStream(actionconf, FileMode.Open, FileAccess.Read);
+            StreamReader lesen3 = new StreamReader(actionconf);
+            while (!lesen3.EndOfStream)
+            {
+                gelesen3.Add(lesen3.ReadLine());
+            }
+            lesen3.Close();
+            Pfad3.Close();
+            foreach (string i in gelesen3)
+            {
+                activitiessofarremote.Items.Add(i);
+            }
+
+            //Erwartete Technikeraktionen
+            requestedfromfield.Items.Clear();
+            ArrayList gelesen4 = new ArrayList();
+            FileStream Pfad4 = new FileStream(requestedconf, FileMode.Open, FileAccess.Read);
+            StreamReader lesen4 = new StreamReader(requestedconf);
+            while (!lesen4.EndOfStream)
+            {
+                gelesen4.Add(lesen4.ReadLine());
+            }
+            lesen4.Close();
+            Pfad4.Close();
+            foreach (string i in gelesen4)
+            {
+                requestedfromfield.Items.Add(i);
+            }
+        }
+
+        private void konfigurationKomplettNeuEinlesenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            confreload();
+        }
+
+        //Jonas Klassen
+        /// Contains functionality to get all the open windows.
+    public static class OpenWindowGetter
+    {
+        /// <summary>Returns a dictionary that contains the handle and title of all the open windows.</summary>
+        /// <returns>A dictionary that contains the handle and title of all the open windows.</returns>
+        public static IDictionary<HWND, string> GetOpenWindows()
+        {
+            HWND shellWindow = GetShellWindow();
+            Dictionary<HWND, string> windows = new Dictionary<HWND, string>();
+
+            EnumWindows(delegate(HWND hWnd, int lParam)
+            {
+                if (hWnd == shellWindow) return true;
+                if (!IsWindowVisible(hWnd)) return true;
+
+                int length = GetWindowTextLength(hWnd);
+                if (length == 0) return true;
+
+                StringBuilder builder = new StringBuilder(length);
+                GetWindowText(hWnd, builder, length + 1);
+
+                windows[hWnd] = builder.ToString();
+                return true;
+
+            }, 0);
+
+            return windows;
+        }
+
+        delegate bool EnumWindowsProc(HWND hWnd, int lParam);
+
+        [DllImport("USER32.DLL")]
+        static extern bool EnumWindows(EnumWindowsProc enumFunc, int lParam);
+
+        [DllImport("USER32.DLL")]
+        static extern int GetWindowText(HWND hWnd, StringBuilder lpString, int nMaxCount);
+
+        [DllImport("USER32.DLL")]
+        static extern int GetWindowTextLength(HWND hWnd);
+
+        [DllImport("USER32.DLL")]
+        static extern bool IsWindowVisible(HWND hWnd);
+
+        [DllImport("USER32.DLL")]
+        static extern IntPtr GetShellWindow();
+    }
+
+    // Tells what to do if the Closed-window is existent
+    public void noticemesenpai()
+    {
+        this.Show();
+        this.Activate();
+        Thread.Sleep(1000);
+    }
+
+    private void überToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        ueber fenster = new ueber();
+        fenster.Show();
+    }
+
     }
 }

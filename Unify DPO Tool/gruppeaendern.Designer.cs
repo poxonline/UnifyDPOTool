@@ -37,12 +37,13 @@
             this.voice = new System.Windows.Forms.RadioButton();
             this.uc = new System.Windows.Forms.RadioButton();
             this.security = new System.Windows.Forms.RadioButton();
+            this.ba = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // speichern
             // 
             this.speichern.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.speichern.Location = new System.Drawing.Point(12, 150);
+            this.speichern.Location = new System.Drawing.Point(12, 182);
             this.speichern.Name = "speichern";
             this.speichern.Size = new System.Drawing.Size(75, 23);
             this.speichern.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             // abbrechen
             // 
-            this.abbrechen.Location = new System.Drawing.Point(165, 150);
+            this.abbrechen.Location = new System.Drawing.Point(165, 182);
             this.abbrechen.Name = "abbrechen";
             this.abbrechen.Size = new System.Drawing.Size(75, 23);
             this.abbrechen.TabIndex = 1;
@@ -126,12 +127,24 @@
             this.security.Text = "SSD DEU Security";
             this.security.UseVisualStyleBackColor = true;
             // 
+            // ba
+            // 
+            this.ba.AutoSize = true;
+            this.ba.Location = new System.Drawing.Point(12, 150);
+            this.ba.Name = "ba";
+            this.ba.Size = new System.Drawing.Size(90, 17);
+            this.ba.TabIndex = 8;
+            this.ba.TabStop = true;
+            this.ba.Text = "SSD DEU BA";
+            this.ba.UseVisualStyleBackColor = true;
+            // 
             // gruppeaendern
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 176);
+            this.ClientSize = new System.Drawing.Size(302, 217);
+            this.Controls.Add(this.ba);
             this.Controls.Add(this.security);
             this.Controls.Add(this.uc);
             this.Controls.Add(this.voice);
@@ -162,5 +175,6 @@
         private System.Windows.Forms.RadioButton voice;
         private System.Windows.Forms.RadioButton uc;
         private System.Windows.Forms.RadioButton security;
+        private System.Windows.Forms.RadioButton ba;
     }
 }
