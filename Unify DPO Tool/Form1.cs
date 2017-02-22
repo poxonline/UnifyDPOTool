@@ -41,7 +41,7 @@ namespace Unify_DPO_Tool
             onsitenein.Checked = true;
             onsitevissibilitychange();
             //MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@unify.com).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
-            version.Text = "Version: 0.5 b";
+            version.Text = "Version: 0.5 b "+ProductVersion;
             notifyIcon1.ContextMenuStrip = TryIconMenue;
             OrdnerAbfrage();
             ConfDateien();

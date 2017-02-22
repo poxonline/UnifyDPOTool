@@ -100,11 +100,12 @@
             this.requestedActionFromFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruppeÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfesoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FremdRemote.SuspendLayout();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
@@ -666,6 +667,7 @@
             this.rufnummernToolStripMenuItem,
             this.iBMFRUToolStripMenuItem,
             this.einstellungenToolStripMenuItem,
+            this.adminToolStripMenuItem,
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -789,6 +791,29 @@
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Text = "Konfiguration komplett neu einlesen";
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Click += new System.EventHandler(this.konfigurationKomplettNeuEinlesenToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hilfesoonToolStripMenuItem,
+            this.überToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
+            this.toolStripMenuItem1.Text = "?";
+            // 
+            // hilfesoonToolStripMenuItem
+            // 
+            this.hilfesoonToolStripMenuItem.Enabled = false;
+            this.hilfesoonToolStripMenuItem.Name = "hilfesoonToolStripMenuItem";
+            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfesoonToolStripMenuItem.Text = "Hilfe (soon)";
+            // 
+            // überToolStripMenuItem
+            // 
+            this.überToolStripMenuItem.Name = "überToolStripMenuItem";
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Text = "Über";
+            this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
+            // 
             // TryIconMenue
             // 
             this.TryIconMenue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -803,27 +828,12 @@
             this.beendenToolStripMenuItem1.Text = "Beenden";
             this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // adminToolStripMenuItem
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hilfesoonToolStripMenuItem,
-            this.überToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
-            this.toolStripMenuItem1.Text = "?";
-            // 
-            // hilfesoonToolStripMenuItem
-            // 
-            this.hilfesoonToolStripMenuItem.Name = "hilfesoonToolStripMenuItem";
-            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.hilfesoonToolStripMenuItem.Text = "Hilfe (soon)";
-            // 
-            // überToolStripMenuItem
-            // 
-            this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.überToolStripMenuItem.Text = "Über";
-            this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
+            this.adminToolStripMenuItem.Enabled = false;
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
             // 
             // Form1
             // 
@@ -953,6 +963,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem hilfesoonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
     }
 }
 
