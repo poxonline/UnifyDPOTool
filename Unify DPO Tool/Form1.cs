@@ -241,49 +241,49 @@ namespace Unify_DPO_Tool
             {
                 hotline = "Für Netzpläne und Remote Support: Unify MSD 01806020905 Auswahl 2 E-Mail: noc-koeln@unify.com";
                 maillinkKomplett = maillink + "&cc=noc-koeln@unify.com";
-                maillinkEskalationKomplett=maillinkEskalation+"&cc=noc-koeln@unify.com,michael.wessolleck@unify.com";
+                maillinkEskalationKomplett=maillinkEskalation+"&cc=noc-koeln@unify.com,michael.wessolleck@atos.net";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU Data";
             }
             else if(Gruppenauswahl.Text=="SSD DEU Data SLA Controlling")
             {
                 hotline = "Unify MSD 01806020905 Auswahl 2 E-Mail: noc-koeln@unify.com (Hier bitte bei Ankunft und Abfahrt wegen Zeitkontrolle melden!)";
                 maillinkKomplett = maillink + "&cc=noc-koeln@unify.com";
-                maillinkEskalationKomplett=maillinkEskalation+"&cc=noc-koeln@unify.com,michael.wessolleck@unify.com";
+                maillinkEskalationKomplett = maillinkEskalation + "&cc=noc-koeln@unify.com,michael.wessolleck@atos.net";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU Data";
             }
             else if(Gruppenauswahl.Text=="SSD DEU Data Allgemein")
             {
                 hotline = "Unify MSD 01806020905 Auswahl 2 E-Mail: noc-koeln@unify.com";
                 maillinkKomplett = maillink + "&cc=noc-koeln@unify.com";
-                maillinkEskalationKomplett=maillinkEskalation+"&cc=noc-koeln@unify.com,michael.wessolleck@unify.com";
+                maillinkEskalationKomplett = maillinkEskalation + "&cc=noc-koeln@unify.com,michael.wessolleck@atos.net";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU Data";
             }
             else if(Gruppenauswahl.Text=="SSD DEU Voice")
             {
                 hotline = "Unify MSD 01806020905 Auswahl 3 E-Mail: noc-voise.svs@unify.com";
                 maillinkKomplett = maillink + "&cc=noc-voise.svs@unify.com";
-                maillinkEskalationKomplett=maillinkEskalation+"&cc=noc-voise.svs@unify.com,michael.wessolleck@unify.com";
+                maillinkEskalationKomplett = maillinkEskalation + "&cc=noc-voise.svs@unify.com,michael.wessolleck@atos.net";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU Voice";
             }
             else if(Gruppenauswahl.Text=="SSD DEU UC")
             {
                 hotline = "Unify MSD 01806020905 Auswahl 4 E-Mail: gsi.sd-h8k@unify.com";
                 maillinkKomplett = maillink + "&cc=gsi.sd-h8k@unify.com";
-                maillinkEskalationKomplett=maillinkEskalation+"&cc=gsi.sd-h8k@unify.com,michael.wessolleck@unify.com";
+                maillinkEskalationKomplett = maillinkEskalation + "&cc=gsi.sd-h8k@unify.com,michael.wessolleck@atos.net";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU UC";
             }
             else if(Gruppenauswahl.Text=="SSD DEU Security")
             {
                 hotline = "Unify MSD 01806020905 Auswahl 5 E-Mail: security.hotline@unify.com";
                 maillinkKomplett = maillink + "&cc=security.hotline@unify.com";
-                maillinkEskalationKomplett=maillinkEskalation+"&cc=security.hotline@unify.com,michael.wessolleck@unify.com";
+                maillinkEskalationKomplett = maillinkEskalation + "&cc=security.hotline@unify.com,michael.wessolleck@atos.net";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU Security";
             }
             else if (Gruppenauswahl.Text == "SSD DEU BA")
             {
                 hotline = "Unify MSD 08007373622 E-Mail: ba-servicedesk@unify.com";
                 maillinkKomplett = maillink + "&cc=ba-servicedesk@unify.com";
-                maillinkEskalationKomplett = maillinkEskalation + "&cc=ba-servicedesk@unify.com.com,michael.wessolleck@unify.com";
+                maillinkEskalationKomplett = maillinkEskalation + "&cc=ba-servicedesk@unify.com.com,michael.wessolleck@atos.net";
                 aktuelleWorkgroup.Text = "Aktuelle Workgroup: SSD DEU BA";
             }
         }
