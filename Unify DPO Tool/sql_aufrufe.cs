@@ -203,7 +203,7 @@ namespace Unify_DPO_Tool
                 {
                     verbindung.ConnectionString = connection;
                     MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO benutzer (windowskennung,name,recht,passwort) VALUES (@windows,@name,@recht,@passwort)", verbindung);
-                    SQL_Befehl.Parameters.AddWithValue("@windowskennung", useradd.prop_windowsk);
+                    SQL_Befehl.Parameters.AddWithValue("@windows", useradd.prop_windowsk);
                     SQL_Befehl.Parameters.AddWithValue("@name", useradd.prop_name);
                     SQL_Befehl.Parameters.AddWithValue("@recht", useradd.prop_recht);
                     SQL_Befehl.Parameters.AddWithValue("@passwort", useradd.prop_pw);
@@ -219,8 +219,9 @@ namespace Unify_DPO_Tool
                     }
                     MessageBox.Show("Benutzer erfoglreich angelegt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch
+                catch(Exception ex)
                 {
+                    MessageBox.Show(Convert.ToString(ex));
                     MessageBox.Show("Es ist ein Fehler aufgetreten, der Benutzer konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
@@ -318,11 +319,11 @@ namespace Unify_DPO_Tool
                         MessageBox.Show(ex.Message);
                     }
                     verbindung.Close();
-                    MessageBox.Show("Benutzer PW erfoglreich gesetzt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Benutzer erfoglreich ohne PW geändert.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
                 {
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Benutzer PW konnte nicht gesetzt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Benutzer konnte nicht bearbeitet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
