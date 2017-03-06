@@ -88,6 +88,13 @@
     <Compile Include="ueber.Designer.cs">
       <DependentUpon>ueber.cs</DependentUpon>
     </Compile>
+    <Compile Include="user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="user.Designer.cs">
+      <DependentUpon>user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="users.cs" />
     <Compile Include="vorDefTexte_aender.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ueber.resx">
       <DependentUpon>ueber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user.resx">
+      <DependentUpon>user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vorDefTexte_aender.resx">
       <DependentUpon>vorDefTexte_aender.cs</DependentUpon>

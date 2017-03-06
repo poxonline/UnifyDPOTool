@@ -42,7 +42,7 @@ namespace Unify_DPO_Tool
             onsitenein.Checked = true;
             onsitevissibilitychange();
             //MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@unify.com).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
-            version.Text = "Version: 0.5 b "+ProductVersion;
+            version.Text = "Version: "+ProductVersion;
             notifyIcon1.ContextMenuStrip = TryIconMenue;
             OrdnerAbfrage();
             ConfDateien();
@@ -836,6 +836,17 @@ namespace Unify_DPO_Tool
         teamsVerwaltenToolStripMenuItem.Enabled = false;
         ausloggenToolStripMenuItem.Enabled = false;
         einloggenToolStripMenuItem.Enabled = true;
+    }
+
+    private void neuToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void bearbeitenToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        user fenster = new user();
+        fenster.Show();
     }
 
     }

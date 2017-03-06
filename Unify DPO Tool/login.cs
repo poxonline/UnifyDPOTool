@@ -28,7 +28,7 @@ namespace Unify_DPO_Tool
         {
             MD5 md5Hash = MD5.Create();
             pw_rueckgabe = sql_aufrufe.SQL_pwabfrage(tb_benutzer_ein.Text);
-            wert = GetMd5Hash(md5Hash, tb_pw_ein.Text);
+            wert = sql_aufrufe.GetMd5Hash(md5Hash, tb_pw_ein.Text);
             if (wert == pw_rueckgabe)
             {
                 MessageBox.Show("Login erfolgreich");
@@ -43,26 +43,6 @@ namespace Unify_DPO_Tool
                 tb_pw_ein.Text = "";
             }
 
-        }
-        /// <summary>
-        /// MD5 Hash erzeugen und als string zurückgeben.
-        /// </summary>
-        /// <param name="md5Hash">md5Hash Objekt</param>
-        /// <param name="input">Passwort das als MD5 umgeandelt werden soll.</param>
-        /// <returns>String mit MD5 vom Passwortfeld als Inhalt</returns>
-        public static string GetMd5Hash(MD5 md5Hash, string input)
-        {
-
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            StringBuilder sBuilder = new StringBuilder();
-
-            for (int i = 0; i < data.Length; i++)
-            {
-                sBuilder.Append(data[i].ToString("x2"));
-            }
-            
-            return sBuilder.ToString();
         }
     }
 }
