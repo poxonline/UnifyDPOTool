@@ -41,6 +41,10 @@
             this.bt_pw_setzen = new System.Windows.Forms.Button();
             this.cb_recht = new System.Windows.Forms.ComboBox();
             this.cb_userauswahl = new System.Windows.Forms.ComboBox();
+            this.bt_user_anlegen = new System.Windows.Forms.Button();
+            this.bt_schliessen = new System.Windows.Forms.Button();
+            this.bt_user_loeschen = new System.Windows.Forms.Button();
+            this.bt_edit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -127,6 +131,7 @@
             this.bt_pw_setzen.TabIndex = 9;
             this.bt_pw_setzen.Text = "PW setzen";
             this.bt_pw_setzen.UseVisualStyleBackColor = true;
+            this.bt_pw_setzen.Click += new System.EventHandler(this.bt_pw_setzen_Click);
             // 
             // cb_recht
             // 
@@ -150,11 +155,55 @@
             this.cb_userauswahl.TabIndex = 11;
             this.cb_userauswahl.SelectedIndexChanged += new System.EventHandler(this.cb_userauswahl_SelectedIndexChanged);
             // 
+            // bt_user_anlegen
+            // 
+            this.bt_user_anlegen.Location = new System.Drawing.Point(84, 191);
+            this.bt_user_anlegen.Name = "bt_user_anlegen";
+            this.bt_user_anlegen.Size = new System.Drawing.Size(98, 23);
+            this.bt_user_anlegen.TabIndex = 12;
+            this.bt_user_anlegen.Text = "Benutzer anlegen";
+            this.bt_user_anlegen.UseVisualStyleBackColor = true;
+            this.bt_user_anlegen.Click += new System.EventHandler(this.bt_user_anlegen_Click);
+            // 
+            // bt_schliessen
+            // 
+            this.bt_schliessen.Location = new System.Drawing.Point(5, 191);
+            this.bt_schliessen.Name = "bt_schliessen";
+            this.bt_schliessen.Size = new System.Drawing.Size(73, 23);
+            this.bt_schliessen.TabIndex = 13;
+            this.bt_schliessen.Text = "Schließen";
+            this.bt_schliessen.UseVisualStyleBackColor = true;
+            this.bt_schliessen.Click += new System.EventHandler(this.bt_schliessen_Click);
+            // 
+            // bt_user_loeschen
+            // 
+            this.bt_user_loeschen.Location = new System.Drawing.Point(292, 191);
+            this.bt_user_loeschen.Name = "bt_user_loeschen";
+            this.bt_user_loeschen.Size = new System.Drawing.Size(107, 23);
+            this.bt_user_loeschen.TabIndex = 14;
+            this.bt_user_loeschen.Text = "Benutzer löschen";
+            this.bt_user_loeschen.UseVisualStyleBackColor = true;
+            this.bt_user_loeschen.Click += new System.EventHandler(this.bt_user_loeschen_Click);
+            // 
+            // bt_edit
+            // 
+            this.bt_edit.Location = new System.Drawing.Point(188, 191);
+            this.bt_edit.Name = "bt_edit";
+            this.bt_edit.Size = new System.Drawing.Size(98, 23);
+            this.bt_edit.TabIndex = 15;
+            this.bt_edit.Text = "Benutzer ändern";
+            this.bt_edit.UseVisualStyleBackColor = true;
+            this.bt_edit.Click += new System.EventHandler(this.bt_edit_Click);
+            // 
             // user
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 188);
+            this.ClientSize = new System.Drawing.Size(400, 226);
+            this.Controls.Add(this.bt_edit);
+            this.Controls.Add(this.bt_user_loeschen);
+            this.Controls.Add(this.bt_schliessen);
+            this.Controls.Add(this.bt_user_anlegen);
             this.Controls.Add(this.cb_userauswahl);
             this.Controls.Add(this.cb_recht);
             this.Controls.Add(this.bt_pw_setzen);
@@ -190,5 +239,9 @@
         private System.Windows.Forms.Button bt_pw_setzen;
         private System.Windows.Forms.ComboBox cb_recht;
         private System.Windows.Forms.ComboBox cb_userauswahl;
+        private System.Windows.Forms.Button bt_user_anlegen;
+        private System.Windows.Forms.Button bt_schliessen;
+        private System.Windows.Forms.Button bt_user_loeschen;
+        private System.Windows.Forms.Button bt_edit;
     }
 }

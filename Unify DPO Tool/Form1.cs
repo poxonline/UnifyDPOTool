@@ -840,12 +840,13 @@ namespace Unify_DPO_Tool
 
     private void neuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        user fenster = new user("neu");
+        fenster.Show();
     }
 
     private void bearbeitenToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        user fenster = new user();
+        user fenster = new user("edit");
         fenster.Show();
     }
 

@@ -57,6 +57,7 @@
             resources.ApplyResources(this.tb_pw_ein, "tb_pw_ein");
             this.tb_pw_ein.Name = "tb_pw_ein";
             this.tb_pw_ein.UseSystemPasswordChar = true;
+            this.tb_pw_ein.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_pw_ein_KeyPress);
             // 
             // bt_login
             // 

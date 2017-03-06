@@ -17,11 +17,14 @@ namespace Unify_DPO_Tool
             InitializeComponent();
             tb_benutzer_ein.Text = Environment.UserName;
             hauptfenster = fenster;
+            tb_pw_ein.Focus();
         }
 
         private void bt_abenutzer_Click(object sender, EventArgs e)
         {
             tb_benutzer_ein.Enabled = true;
+            tb_benutzer_ein.Focus();
+
         }
 
         private void bt_login_Click(object sender, EventArgs e)
@@ -43,6 +46,14 @@ namespace Unify_DPO_Tool
                 tb_pw_ein.Text = "";
             }
 
+        }
+
+        private void tb_pw_ein_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                bt_login_Click(sender as Object, e as EventArgs);
+            }
         }
     }
 }

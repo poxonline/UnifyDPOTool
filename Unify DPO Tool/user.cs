@@ -1,26 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Security.Cryptography;
 
 namespace Unify_DPO_Tool
 {
     public partial class user : Form
     {
         ArrayList userliste = new ArrayList();
-        public user()
+        public user(string typ)
         {
             InitializeComponent();
-            userliste = sql_aufrufe.SQL_userabrufen();
-            foreach(users element in userliste)
+            if(typ=="neu")
             {
-                cb_userauswahl.Items.Add(element);
+                cb_userauswahl.Visible = false;
+                bt_pw_setzen.Visible = false;
+                bt_user_loeschen.Visible = false;
+                bt_edit.Visible = false;
+            }
+            else
+            {
+                bt_user_anlegen.Visible = false;
+                userliste = sql_aufrufe.SQL_userabrufen();
+                foreach (users element in userliste)
+                {
+                    cb_userauswahl.Items.Add(element);
+                }
+
             }
         }
 
@@ -29,8 +37,44 @@ namespace Unify_DPO_Tool
             tb_id.Text = Convert.ToString(((users)cb_userauswahl.SelectedItem).prop_id);
             tb_windowsk.Text = ((users)cb_userauswahl.SelectedItem).prop_windowsk;
             tb_name.Text = ((users)cb_userauswahl.SelectedItem).prop_name;
-            cb_recht.SelectedItem = ((users)cb_userauswahl.SelectedItem).prop_recht;
+            cb_recht.SelectedItem = Convert.ToString(((users)cb_userauswahl.SelectedItem).prop_recht);
             tb_passwort.Text = "";
+        }
+
+        private void bt_schliessen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bt_user_anlegen_Click(object sender, EventArgs e)
+        {
+            MD5 md5Hash = MD5.Create();
+            users useradd = new users();
+            useradd.prop_name = tb_name.Text;
+            useradd.prop_windowsk = tb_windowsk.Text;
+            useradd.prop_recht = Convert.ToInt32(cb_recht.SelectedItem);
+            useradd.prop_pw = sql_aufrufe.GetMd5Hash(md5Hash, tb_passwort.Text);
+            sql_aufrufe.SQL_benutzeradd(useradd);
+            useradd = null;
+        }
+
+        private void bt_user_loeschen_Click(object sender, EventArgs e)
+        {
+            sql_aufrufe.SQL_benutzerdel(((users)cb_userauswahl.SelectedItem).prop_id);
+        }
+
+        private void bt_pw_setzen_Click(object sender, EventArgs e)
+        {
+            MD5 md5Hash = MD5.Create();
+            sql_aufrufe.SQL_benutzer_pwedit(((users)cb_userauswahl.SelectedItem).prop_id, sql_aufrufe.GetMd5Hash(md5Hash, tb_passwort.Text));
+        }
+
+        private void bt_edit_Click(object sender, EventArgs e)
+        {
+            ((users)cb_userauswahl.SelectedItem).prop_name = tb_name.Text;
+            ((users)cb_userauswahl.SelectedItem).prop_windowsk = tb_windowsk.Text;
+            ((users)cb_userauswahl.SelectedItem).prop_recht = Convert.ToInt32(cb_recht.SelectedItem);
+            sql_aufrufe.SQL_benutzer_edit_ohne_pw((users)cb_userauswahl.SelectedItem);
         }
     }
 }

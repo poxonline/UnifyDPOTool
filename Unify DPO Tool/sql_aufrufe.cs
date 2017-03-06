@@ -195,5 +195,140 @@ namespace Unify_DPO_Tool
 
             }
         }
+        public static void SQL_benutzeradd(users useradd)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO benutzer (windowskennung,name,recht,passwort) VALUES (@windows,@name,@recht,@passwort)", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@windowskennung", useradd.prop_windowsk);
+                    SQL_Befehl.Parameters.AddWithValue("@name", useradd.prop_name);
+                    SQL_Befehl.Parameters.AddWithValue("@recht", useradd.prop_recht);
+                    SQL_Befehl.Parameters.AddWithValue("@passwort", useradd.prop_pw);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Benutzer erfoglreich angelegt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Benutzer konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_benutzerdel(int u_id)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM benutzer where id=@uid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uid", u_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Benutzer erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Benutzer konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_benutzer_pwedit(int u_id,string u_pw)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE benutzer SET passwort=@pw where id=@uid ", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uid", u_id);
+                    SQL_Befehl.Parameters.AddWithValue("@pw", u_pw);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    verbindung.Close();
+                    MessageBox.Show("Benutzer PW erfoglreich gesetzt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Benutzer PW konnte nicht gesetzt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_benutzer_edit_ohne_pw(users useredit)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE benutzer SET windowskennung=@windowsk and name=@nm and recht=@urecht where id=@uid ", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uid", useredit.prop_id);
+                    SQL_Befehl.Parameters.AddWithValue("@windowsk", useredit.prop_windowsk);
+                    SQL_Befehl.Parameters.AddWithValue("@nm", useredit.prop_name);
+                    SQL_Befehl.Parameters.AddWithValue("@urecht", useredit.prop_recht);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    verbindung.Close();
+                    MessageBox.Show("Benutzer PW erfoglreich gesetzt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Benutzer PW konnte nicht gesetzt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
     }
 }

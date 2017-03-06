@@ -53,7 +53,7 @@ namespace Unify_DPO_Tool
 
         public override string ToString()
         {
-            return name+"("+windowsk+")";
+            return name+" ("+windowsk+")";
         }
     }
 }
