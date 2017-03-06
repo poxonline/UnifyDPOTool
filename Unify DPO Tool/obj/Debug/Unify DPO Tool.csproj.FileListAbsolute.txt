@@ -14,3 +14,7 @@ C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.gruppeaendern.resources
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.vorDefTexte_aendern.resources
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.ueber.resources
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\bin\Debug\de-DE\Unify DPO Tool.resources.dll
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.login.resources
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.login.de-DE.resources
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\de-DE\Unify DPO Tool.resources.dll

@@ -31,6 +31,7 @@ namespace Unify_DPO_Tool
         string maillinkKomplett="";
         string maillinkEskalationKomplett="";
         static string ordner = Environment.GetEnvironmentVariable("userprofile") + "\\DPOToolSettings";
+        string user = "";
         public Form1()
         {
             InitializeComponent();
@@ -799,6 +800,42 @@ namespace Unify_DPO_Tool
     {
         ueber fenster = new ueber();
         fenster.Show();
+    }
+
+    private void einloggenToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        login fenster = new login(this);
+        if(fenster.ShowDialog()==DialogResult.OK)
+        {
+            einloggenToolStripMenuItem.Enabled = false;
+            ausloggenToolStripMenuItem.Enabled = true;
+            user = fenster.Return1;
+            if(fenster.Return2==1)
+            {
+                teamsVerwaltenToolStripMenuItem.Enabled = true;
+            }
+            else if(fenster.Return2==2)
+            {
+                teamsVerwaltenToolStripMenuItem.Enabled = true;
+                userToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Fehler bei den Rechten bitte erneut anmelden oder User prüfen!");
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    private void ausloggenToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        userToolStripMenuItem.Enabled = false;
+        teamsVerwaltenToolStripMenuItem.Enabled = false;
+        ausloggenToolStripMenuItem.Enabled = false;
+        einloggenToolStripMenuItem.Enabled = true;
     }
 
     }

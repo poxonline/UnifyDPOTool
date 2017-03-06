@@ -12,7 +12,9 @@ namespace Unify_DPO_Tool
         private string name;
         private string telefon;
         private string email;
+        private string modemail;
         private string workgroup;
         private string zusatztext;
+        private DateTime lastmod;
     }
 }
