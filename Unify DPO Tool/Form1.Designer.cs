@@ -100,12 +100,20 @@
             this.requestedActionFromFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruppeÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfesoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teamsVerwaltenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bearbeitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.einloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FremdRemote.SuspendLayout();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
@@ -791,6 +799,18 @@
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Text = "Konfiguration komplett neu einlesen";
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Click += new System.EventHandler(this.konfigurationKomplettNeuEinlesenToolStripMenuItem_Click);
             // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.einloggenToolStripMenuItem,
+            this.ausloggenToolStripMenuItem,
+            this.teamsVerwaltenToolStripMenuItem,
+            this.userToolStripMenuItem});
+            this.adminToolStripMenuItem.Enabled = false;
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -804,13 +824,13 @@
             // 
             this.hilfesoonToolStripMenuItem.Enabled = false;
             this.hilfesoonToolStripMenuItem.Name = "hilfesoonToolStripMenuItem";
-            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.hilfesoonToolStripMenuItem.Text = "Hilfe (soon)";
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.überToolStripMenuItem.Text = "Über";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
@@ -828,12 +848,62 @@
             this.beendenToolStripMenuItem1.Text = "Beenden";
             this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
-            // adminToolStripMenuItem
+            // userToolStripMenuItem
             // 
-            this.adminToolStripMenuItem.Enabled = false;
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem.Text = "Admin";
+            this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.bearbeitenToolStripMenuItem});
+            this.userToolStripMenuItem.Enabled = false;
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.userToolStripMenuItem.Text = "User";
+            // 
+            // teamsVerwaltenToolStripMenuItem
+            // 
+            this.teamsVerwaltenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem1,
+            this.bearbeitenToolStripMenuItem1});
+            this.teamsVerwaltenToolStripMenuItem.Enabled = false;
+            this.teamsVerwaltenToolStripMenuItem.Name = "teamsVerwaltenToolStripMenuItem";
+            this.teamsVerwaltenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.teamsVerwaltenToolStripMenuItem.Text = "Teams verwalten";
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            // 
+            // bearbeitenToolStripMenuItem
+            // 
+            this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
+            // 
+            // neuToolStripMenuItem1
+            // 
+            this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
+            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem1.Text = "Neu";
+            // 
+            // bearbeitenToolStripMenuItem1
+            // 
+            this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem1.Text = "Bearbeiten";
+            // 
+            // einloggenToolStripMenuItem
+            // 
+            this.einloggenToolStripMenuItem.Name = "einloggenToolStripMenuItem";
+            this.einloggenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.einloggenToolStripMenuItem.Text = "Einloggen";
+            // 
+            // ausloggenToolStripMenuItem
+            // 
+            this.ausloggenToolStripMenuItem.Enabled = false;
+            this.ausloggenToolStripMenuItem.Name = "ausloggenToolStripMenuItem";
+            this.ausloggenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.ausloggenToolStripMenuItem.Text = "Ausloggen";
             // 
             // Form1
             // 
@@ -964,6 +1034,14 @@
         private System.Windows.Forms.ToolStripMenuItem hilfesoonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teamsVerwaltenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem einloggenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ausloggenToolStripMenuItem;
     }
 }
 
