@@ -302,7 +302,7 @@ namespace Unify_DPO_Tool
                 try
                 {
                     verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE benutzer SET windowskennung=@windowsk and name=@nm and recht=@urecht where id=@uid ", verbindung);
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE benutzer SET windowskennung=@windowsk, name=@nm, recht=@urecht where id=@uid ", verbindung);
                     SQL_Befehl.Parameters.AddWithValue("@uid", useredit.prop_id);
                     SQL_Befehl.Parameters.AddWithValue("@windowsk", useredit.prop_windowsk);
                     SQL_Befehl.Parameters.AddWithValue("@nm", useredit.prop_name);
