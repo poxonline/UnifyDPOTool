@@ -2,6 +2,7 @@
 using System.Text;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Unify_DPO_Tool
 {
@@ -87,6 +88,46 @@ namespace Unify_DPO_Tool
                 {
                     MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return gesamt;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+
+            }
+        }
+        public static ArrayList SQL_teamsabrufen(string ue_user)
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT recht from benutzer where windowskennung=@user", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@user", ue_user);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
                 }
                 finally
                 {
