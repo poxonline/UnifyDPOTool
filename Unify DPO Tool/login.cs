@@ -31,7 +31,7 @@ namespace Unify_DPO_Tool
             wert = sql_aufrufe.GetMd5Hash(md5Hash, tb_pw_ein.Text);
             if (wert == pw_rueckgabe)
             {
-                MessageBox.Show("Login erfolgreich");
+                MessageBox.Show("Login erfolgreich","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Return1 = tb_benutzer_ein.Text;
                 Return2 = sql_aufrufe.SQL_benutzerrecht(tb_benutzer_ein.Text);
@@ -39,7 +39,7 @@ namespace Unify_DPO_Tool
             }
             else
             {
-                MessageBox.Show("Login falsch","Fehler",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Login falsch!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 tb_pw_ein.Text = "";
             }
 
