@@ -25,9 +25,7 @@ namespace Unify_DPO_Tool
                 bt_user_anlegen.Visible = false;
                 userliste = sql_aufrufe.SQL_userabrufen();
                 foreach (users element in userliste)
-                {
                     cb_userauswahl.Items.Add(element);
-                }
 
             }
         }
@@ -61,12 +59,14 @@ namespace Unify_DPO_Tool
         private void bt_user_loeschen_Click(object sender, EventArgs e)
         {
             sql_aufrufe.SQL_benutzerdel(((users)cb_userauswahl.SelectedItem).prop_id);
+            aktualiasieren();
         }
 
         private void bt_pw_setzen_Click(object sender, EventArgs e)
         {
             MD5 md5Hash = MD5.Create();
             sql_aufrufe.SQL_benutzer_pwedit(((users)cb_userauswahl.SelectedItem).prop_id, sql_aufrufe.GetMd5Hash(md5Hash, tb_passwort.Text));
+            aktualiasieren();
         }
 
         private void bt_edit_Click(object sender, EventArgs e)
@@ -75,6 +75,19 @@ namespace Unify_DPO_Tool
             ((users)cb_userauswahl.SelectedItem).prop_windowsk = tb_windowsk.Text;
             ((users)cb_userauswahl.SelectedItem).prop_recht = Convert.ToInt32(cb_recht.SelectedItem);
             sql_aufrufe.SQL_benutzer_edit_ohne_pw((users)cb_userauswahl.SelectedItem);
+            aktualiasieren();
+        }
+        private void aktualiasieren()
+        {
+            cb_userauswahl.Items.Clear();
+            userliste.Clear();
+            tb_id.Text = "";
+            tb_name.Text = "";
+            tb_passwort.Text = "";
+            tb_windowsk.Text = "";
+            userliste = sql_aufrufe.SQL_userabrufen();
+            foreach (users element in userliste)
+                cb_userauswahl.Items.Add(element);
         }
     }
 }
