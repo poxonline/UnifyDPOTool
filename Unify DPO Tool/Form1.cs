@@ -813,11 +813,13 @@ namespace Unify_DPO_Tool
             if(fenster.Return2==1)
             {
                 teamsVerwaltenToolStripMenuItem.Enabled = true;
+                workgroupsToolStripMenuItem.Enabled = true;
             }
             else if(fenster.Return2==2)
             {
                 teamsVerwaltenToolStripMenuItem.Enabled = true;
                 userToolStripMenuItem.Enabled = true;
+                workgroupsToolStripMenuItem.Enabled = true;
             }
             else
             {
@@ -836,6 +838,7 @@ namespace Unify_DPO_Tool
         teamsVerwaltenToolStripMenuItem.Enabled = false;
         ausloggenToolStripMenuItem.Enabled = false;
         einloggenToolStripMenuItem.Enabled = true;
+        workgroupsToolStripMenuItem.Enabled = false;
     }
 
     private void neuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -848,6 +851,16 @@ namespace Unify_DPO_Tool
     {
         user fenster = new user("edit");
         fenster.Show();
+    }
+
+    private void neuToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void bearbeitenToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
     }
 
     }
