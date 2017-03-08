@@ -49,6 +49,7 @@ namespace Unify_DPO_Tool
             //Selbst öffnen
             lol_init();
             //bmc_running(); auskommentiert weil Programm dann nur mit BMC an läuft
+            lb_LDAP_ausgabe.Text = sql_aufrufe.LDAP_telabfragen(Environment.UserName);
         }
 
         #region Selbstoeffnen

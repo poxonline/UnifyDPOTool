@@ -109,14 +109,16 @@
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workgroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bearbeitenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfesoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.workgroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bearbeitenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label_LDAP = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lb_LDAP_ausgabe = new System.Windows.Forms.ToolStripStatusLabel();
             this.FremdRemote.SuspendLayout();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
@@ -599,7 +601,9 @@
             this.statusStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aktuelleWorkgroup,
-            this.version});
+            this.version,
+            this.label_LDAP,
+            this.lb_LDAP_ausgabe});
             this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.statusStrip1.Location = new System.Drawing.Point(0, 458);
             this.statusStrip1.Name = "statusStrip1";
@@ -842,14 +846,14 @@
             // neuToolStripMenuItem1
             // 
             this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
-            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.neuToolStripMenuItem1.Text = "Neu";
             this.neuToolStripMenuItem1.Click += new System.EventHandler(this.neuToolStripMenuItem1_Click);
             // 
             // bearbeitenToolStripMenuItem1
             // 
             this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
-            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem1.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
             // 
@@ -876,6 +880,28 @@
             this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
+            // 
+            // workgroupsToolStripMenuItem
+            // 
+            this.workgroupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem2,
+            this.bearbeitenToolStripMenuItem2});
+            this.workgroupsToolStripMenuItem.Enabled = false;
+            this.workgroupsToolStripMenuItem.Name = "workgroupsToolStripMenuItem";
+            this.workgroupsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.workgroupsToolStripMenuItem.Text = "Workgroups";
+            // 
+            // neuToolStripMenuItem2
+            // 
+            this.neuToolStripMenuItem2.Name = "neuToolStripMenuItem2";
+            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
+            this.neuToolStripMenuItem2.Text = "Neu";
+            // 
+            // bearbeitenToolStripMenuItem2
+            // 
+            this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
+            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
+            this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
             // 
             // toolStripMenuItem1
             // 
@@ -914,27 +940,17 @@
             this.beendenToolStripMenuItem1.Text = "Beenden";
             this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
-            // workgroupsToolStripMenuItem
+            // label_LDAP
             // 
-            this.workgroupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem2,
-            this.bearbeitenToolStripMenuItem2});
-            this.workgroupsToolStripMenuItem.Enabled = false;
-            this.workgroupsToolStripMenuItem.Name = "workgroupsToolStripMenuItem";
-            this.workgroupsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.workgroupsToolStripMenuItem.Text = "Workgroups";
+            this.label_LDAP.Name = "label_LDAP";
+            this.label_LDAP.Size = new System.Drawing.Size(73, 17);
+            this.label_LDAP.Text = "LDAP Daten:";
             // 
-            // neuToolStripMenuItem2
+            // lb_LDAP_ausgabe
             // 
-            this.neuToolStripMenuItem2.Name = "neuToolStripMenuItem2";
-            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.neuToolStripMenuItem2.Text = "Neu";
-            // 
-            // bearbeitenToolStripMenuItem2
-            // 
-            this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
-            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
+            this.lb_LDAP_ausgabe.Name = "lb_LDAP_ausgabe";
+            this.lb_LDAP_ausgabe.Size = new System.Drawing.Size(12, 17);
+            this.lb_LDAP_ausgabe.Text = "-";
             // 
             // Form1
             // 
@@ -1076,6 +1092,8 @@
         private System.Windows.Forms.ToolStripMenuItem workgroupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripStatusLabel label_LDAP;
+        private System.Windows.Forms.ToolStripStatusLabel lb_LDAP_ausgabe;
     }
 }
 

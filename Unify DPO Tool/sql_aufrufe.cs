@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Collections;
 using System.Security.Cryptography;
+using System.DirectoryServices;
 
 namespace Unify_DPO_Tool
 {
@@ -329,6 +330,32 @@ namespace Unify_DPO_Tool
                 {
                 }
 
+            }
+        }
+        public static string LDAP_telabfragen(string domainuser)
+        {
+            string rueckgabe = "";
+            DirectoryEntry entry = new DirectoryEntry("LDAP://" + Environment.UserDomainName);
+            MessageBox.Show(entry.Path);
+            DirectorySearcher mySearcher = new DirectorySearcher(entry);
+            mySearcher.Filter = "(&(ObjectClass=user)(sAMAccountName="+Environment.UserName+"))";
+            mySearcher.PropertiesToLoad.Add("displayName");
+            mySearcher.PropertiesToLoad.Add("telephoneNumber");
+            try
+            {
+                SearchResult result = mySearcher.FindOne();
+                if (result != null)
+                {
+                    DirectoryEntry result_entry = result.GetDirectoryEntry();
+                    rueckgabe = "Name: " + result_entry.Properties["displayName"][0].ToString() + " Telefon Nr: " + result_entry.Properties["telephoneNumber"][0].ToString();
+                    return rueckgabe;
+                }
+                else
+                    return "Kein Treffer bei der Usersuche";
+            }
+            catch
+            {
+                return "Fehler beim Verbindungsaufbau mit LDAP";
             }
         }
     }
