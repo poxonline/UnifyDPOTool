@@ -22,6 +22,27 @@ namespace Unify_DPO_Tool
             name = u_name;
             kuerzel = u_kuerzel;
         }
+
+        public int prop_id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string prop_name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string prop_kuerzel
+        {
+            get { return kuerzel; }
+            set { kuerzel = value; }
+        }
+        
+        
+        
         public override string ToString()
         {
             return name;

@@ -60,6 +60,7 @@
             this.cb_teamauswahl.Name = "cb_teamauswahl";
             this.cb_teamauswahl.Size = new System.Drawing.Size(271, 21);
             this.cb_teamauswahl.TabIndex = 0;
+            this.cb_teamauswahl.SelectedIndexChanged += new System.EventHandler(this.cb_teamauswahl_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -213,6 +214,7 @@
             this.bt_anlegen.TabIndex = 18;
             this.bt_anlegen.Text = "Anlegen";
             this.bt_anlegen.UseVisualStyleBackColor = true;
+            this.bt_anlegen.Click += new System.EventHandler(this.bt_anlegen_Click);
             // 
             // bt_speichern
             // 
@@ -222,6 +224,7 @@
             this.bt_speichern.TabIndex = 19;
             this.bt_speichern.Text = "Speichern";
             this.bt_speichern.UseVisualStyleBackColor = true;
+            this.bt_speichern.Click += new System.EventHandler(this.bt_speichern_Click);
             // 
             // bt_loeschen
             // 
@@ -231,6 +234,7 @@
             this.bt_loeschen.TabIndex = 20;
             this.bt_loeschen.Text = "Löschen";
             this.bt_loeschen.UseVisualStyleBackColor = true;
+            this.bt_loeschen.Click += new System.EventHandler(this.bt_loeschen_Click);
             // 
             // team_form
             // 

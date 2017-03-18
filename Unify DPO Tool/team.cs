@@ -33,5 +33,47 @@ namespace Unify_DPO_Tool
         {
             return name;
         }
+
+        public int prop_id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public string prop_name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public string prop_telefon
+        {
+            get { return telefon; }
+            set { telefon = value; }
+        }
+        public string prop_email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        public string prop_modemail
+        {
+            get { return modemail; }
+            set { modemail = value; }
+        }
+        public string prop_workgroup
+        {
+            get { return workgroup; }
+            set { workgroup = value; }
+        }
+        public string prop_zusatztext
+        {
+            get { return zusatztext; }
+            set { zusatztext = value; }
+        }
+        public DateTime prop_lastmod
+        {
+            get { return lastmod; }
+            set { lastmod = value; }
+        }
+
     }
 }
