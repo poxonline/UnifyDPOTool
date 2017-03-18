@@ -42,7 +42,14 @@ namespace Unify_DPO_Tool
 
         private void bt_anlegen_Click(object sender, EventArgs e)
         {
-
+            team teamobj = new team();
+            teamobj.prop_name = tb_anzeige_name.Text;
+            teamobj.prop_workgroup = Convert.ToString(cb_workgroupauswahl.SelectedItem);
+            teamobj.prop_telefon = tb_hotliner.Text;
+            teamobj.prop_email = tb_email.Text;
+            teamobj.prop_modemail = tb_modmail.Text;
+            teamobj.prop_zusatztext = tb_zusatztext.Text;
+            teamobj.prop_lastmod = DateTime.Now;
         }
 
         private void bt_speichern_Click(object sender, EventArgs e)
