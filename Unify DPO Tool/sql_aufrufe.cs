@@ -373,6 +373,44 @@ namespace Unify_DPO_Tool
 
             }
         }
+        public static void SQL_teamedit(team teamadd)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO teams (name,hotlinetel,email,modmail,workgroup,speztext,lastmod) VALUES (@azeigname,@hotline,@mail,@modemail,@wgroup,@stext,@lastedit)", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@azeigname", teamadd.prop_name);
+                    SQL_Befehl.Parameters.AddWithValue("@hotline", teamadd.prop_telefon);
+                    SQL_Befehl.Parameters.AddWithValue("@mail", teamadd.prop_email);
+                    SQL_Befehl.Parameters.AddWithValue("@modemail", teamadd.prop_modemail);
+                    SQL_Befehl.Parameters.AddWithValue("@wgroup", teamadd.prop_workgroup);
+                    SQL_Befehl.Parameters.AddWithValue("@stext", teamadd.prop_zusatztext);
+                    SQL_Befehl.Parameters.AddWithValue("@lastedit", teamadd.prop_lastmod);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Team erfoglreich angelegt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Benutzer konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
         public static string LDAP_telabfragen(string domainuser)
         {
             string rueckgabe = "";
