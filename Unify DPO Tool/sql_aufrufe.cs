@@ -157,6 +157,47 @@ namespace Unify_DPO_Tool
 
             }
         }
+
+        public static ArrayList SQL_workgroupsabrufen()
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from workgroups;", verbindung);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(new Workgroup(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2)));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+
+            }
+        }
+
         public static ArrayList SQL_userabrufen()
         {
             MySqlDataReader rdr = null;
@@ -336,7 +377,7 @@ namespace Unify_DPO_Tool
         {
             string rueckgabe = "";
             DirectoryEntry entry = new DirectoryEntry("LDAP://" + Environment.UserDomainName);
-            MessageBox.Show(entry.Path);
+            MessageBox.Show("Debug Fenster: LDAP-Pfad: "+entry.Path);
             DirectorySearcher mySearcher = new DirectorySearcher(entry);
             mySearcher.Filter = "(&(ObjectClass=user)(sAMAccountName="+Environment.UserName+"))";
             mySearcher.PropertiesToLoad.Add("displayName");

@@ -46,6 +46,10 @@
             this.tb_zusatztext = new System.Windows.Forms.TextBox();
             this.tb_lastedit = new System.Windows.Forms.TextBox();
             this.cb_workgroupauswahl = new System.Windows.Forms.ComboBox();
+            this.lb_autohinweis = new System.Windows.Forms.Label();
+            this.bt_anlegen = new System.Windows.Forms.Button();
+            this.bt_speichern = new System.Windows.Forms.Button();
+            this.bt_loeschen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cb_teamauswahl
@@ -191,11 +195,52 @@
             this.cb_workgroupauswahl.Size = new System.Drawing.Size(136, 21);
             this.cb_workgroupauswahl.TabIndex = 16;
             // 
+            // lb_autohinweis
+            // 
+            this.lb_autohinweis.AutoSize = true;
+            this.lb_autohinweis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.23F);
+            this.lb_autohinweis.Location = new System.Drawing.Point(69, 52);
+            this.lb_autohinweis.Name = "lb_autohinweis";
+            this.lb_autohinweis.Size = new System.Drawing.Size(70, 13);
+            this.lb_autohinweis.TabIndex = 17;
+            this.lb_autohinweis.Text = "(automatisch)";
+            // 
+            // bt_anlegen
+            // 
+            this.bt_anlegen.Location = new System.Drawing.Point(12, 265);
+            this.bt_anlegen.Name = "bt_anlegen";
+            this.bt_anlegen.Size = new System.Drawing.Size(75, 23);
+            this.bt_anlegen.TabIndex = 18;
+            this.bt_anlegen.Text = "Anlegen";
+            this.bt_anlegen.UseVisualStyleBackColor = true;
+            // 
+            // bt_speichern
+            // 
+            this.bt_speichern.Location = new System.Drawing.Point(109, 265);
+            this.bt_speichern.Name = "bt_speichern";
+            this.bt_speichern.Size = new System.Drawing.Size(75, 23);
+            this.bt_speichern.TabIndex = 19;
+            this.bt_speichern.Text = "Speichern";
+            this.bt_speichern.UseVisualStyleBackColor = true;
+            // 
+            // bt_loeschen
+            // 
+            this.bt_loeschen.Location = new System.Drawing.Point(208, 265);
+            this.bt_loeschen.Name = "bt_loeschen";
+            this.bt_loeschen.Size = new System.Drawing.Size(75, 23);
+            this.bt_loeschen.TabIndex = 20;
+            this.bt_loeschen.Text = "Löschen";
+            this.bt_loeschen.UseVisualStyleBackColor = true;
+            // 
             // team_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 284);
+            this.ClientSize = new System.Drawing.Size(301, 294);
+            this.Controls.Add(this.bt_loeschen);
+            this.Controls.Add(this.bt_speichern);
+            this.Controls.Add(this.bt_anlegen);
+            this.Controls.Add(this.lb_autohinweis);
             this.Controls.Add(this.cb_workgroupauswahl);
             this.Controls.Add(this.tb_lastedit);
             this.Controls.Add(this.tb_zusatztext);
@@ -215,6 +260,7 @@
             this.Controls.Add(this.cb_teamauswahl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "team_form";
             this.Text = "Unify DPO Tool - Teams";
             this.ResumeLayout(false);
@@ -241,5 +287,9 @@
         private System.Windows.Forms.TextBox tb_zusatztext;
         private System.Windows.Forms.TextBox tb_lastedit;
         private System.Windows.Forms.ComboBox cb_workgroupauswahl;
+        private System.Windows.Forms.Label lb_autohinweis;
+        private System.Windows.Forms.Button bt_anlegen;
+        private System.Windows.Forms.Button bt_speichern;
+        private System.Windows.Forms.Button bt_loeschen;
     }
 }

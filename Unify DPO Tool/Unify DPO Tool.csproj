@@ -146,6 +146,7 @@
     <Compile Include="UnifyDispoIntern.Designer.cs">
       <DependentUpon>UnifyDispoIntern.cs</DependentUpon>
     </Compile>
+    <Compile Include="Workgroup.cs" />
     <EmbeddedResource Include="login.de-DE.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>

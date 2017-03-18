@@ -856,12 +856,14 @@ namespace Unify_DPO_Tool
 
     private void neuToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-
+        team_form fenster = new team_form("neu");
+        fenster.Show();
     }
 
     private void bearbeitenToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-
+        team_form fenster = new team_form("edit");
+        fenster.Show();
     }
 
     }
