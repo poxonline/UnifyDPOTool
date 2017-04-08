@@ -866,5 +866,17 @@ namespace Unify_DPO_Tool
         fenster.Show();
     }
 
+    private void neuToolStripMenuItem2_Click(object sender, EventArgs e)
+    {
+        workgroup_form fenster = new workgroup_form("neu");
+        fenster.Show();
+    }
+
+    private void bearbeitenToolStripMenuItem2_Click(object sender, EventArgs e)
+    {
+        workgroup_form fenster = new workgroup_form("edit");
+        fenster.Show();
+    }
+
     }
 }

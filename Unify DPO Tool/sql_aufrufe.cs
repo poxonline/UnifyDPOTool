@@ -179,7 +179,7 @@ namespace Unify_DPO_Tool
                     rdr = SQL_Befehl.ExecuteReader();
                     while (rdr.Read())
                     {
-                        liste.Add(new Workgroup(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2)));
+                        liste.Add(new Workgroup(rdr.GetInt32(0), rdr.GetString(1)));
                     }
                     rdr.Close();
                     verbindung.Close();

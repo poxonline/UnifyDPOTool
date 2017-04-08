@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Unify_DPO_Tool
 {
@@ -14,16 +15,24 @@ namespace Unify_DPO_Tool
     {
         public workgroup_form(string modus)
         {
-            if(modus=="neu")
+            InitializeComponent();
+            if (modus == "neu")
             {
                 bt_speichern.Visible = false;
                 bt_del.Visible = false;
+                cb_workgauswahl.Visible = false;
             }
             else
             {
+                ArrayList workgroups = new ArrayList();
                 bt_anlegen.Visible = false;
+                workgroups = sql_aufrufe.SQL_workgroupsabrufen();
+                foreach(Workgroup element in workgroups)
+                {
+                    cb_workgauswahl.Items.Add(element);
+                }
+                workgroups.Clear();
             }
-            InitializeComponent();
         }
 
         private void bt_anlegen_Click(object sender, EventArgs e)
@@ -46,6 +55,20 @@ namespace Unify_DPO_Tool
         private void update_workgroups()
         {
             cb_workgauswahl.Items.Clear();
+            ArrayList workgroups = new ArrayList();
+            bt_anlegen.Visible = false;
+            workgroups = sql_aufrufe.SQL_workgroupsabrufen();
+            foreach (Workgroup element in workgroups)
+            {
+                cb_workgauswahl.Items.Add(element);
+            }
+            workgroups.Clear();
+        }
+
+        private void cb_workgauswahl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tb_id.Text = Convert.ToString(((Workgroup)cb_workgauswahl.SelectedItem).prop_id);
+            tb_workgroup.Text = ((Workgroup)cb_workgauswahl.SelectedItem).prop_name;
         }
     }
 }

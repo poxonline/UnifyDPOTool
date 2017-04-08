@@ -10,17 +10,15 @@ namespace Unify_DPO_Tool
     {
         private int id;
         private string name;
-        private string kuerzel;
 
         public Workgroup()
         {
 
         }
-        public Workgroup(int u_id,string u_name,string u_kuerzel)
+        public Workgroup(int u_id,string u_name)
         {
             id = u_id;
             name = u_name;
-            kuerzel = u_kuerzel;
         }
 
         public int prop_id

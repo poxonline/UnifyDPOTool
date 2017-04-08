@@ -79,6 +79,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.aktuelleWorkgroup = new System.Windows.Forms.ToolStripStatusLabel();
             this.version = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label_LDAP = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lb_LDAP_ausgabe = new System.Windows.Forms.ToolStripStatusLabel();
             this.UnifyDPOWiki = new System.Windows.Forms.LinkLabel();
             this.IBMTechniker = new System.Windows.Forms.LinkLabel();
             this.IBMDispoMail = new System.Windows.Forms.LinkLabel();
@@ -117,8 +119,6 @@
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label_LDAP = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lb_LDAP_ausgabe = new System.Windows.Forms.ToolStripStatusLabel();
             this.FremdRemote.SuspendLayout();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
@@ -624,6 +624,18 @@
             this.version.Size = new System.Drawing.Size(48, 17);
             this.version.Text = "Version:";
             // 
+            // label_LDAP
+            // 
+            this.label_LDAP.Name = "label_LDAP";
+            this.label_LDAP.Size = new System.Drawing.Size(73, 17);
+            this.label_LDAP.Text = "LDAP Daten:";
+            // 
+            // lb_LDAP_ausgabe
+            // 
+            this.lb_LDAP_ausgabe.Name = "lb_LDAP_ausgabe";
+            this.lb_LDAP_ausgabe.Size = new System.Drawing.Size(12, 17);
+            this.lb_LDAP_ausgabe.Text = "-";
+            // 
             // UnifyDPOWiki
             // 
             this.UnifyDPOWiki.AutoSize = true;
@@ -870,14 +882,14 @@
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.neuToolStripMenuItem.Text = "Neu";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // bearbeitenToolStripMenuItem
             // 
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
             // 
@@ -894,14 +906,16 @@
             // neuToolStripMenuItem2
             // 
             this.neuToolStripMenuItem2.Name = "neuToolStripMenuItem2";
-            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
+            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.neuToolStripMenuItem2.Text = "Neu";
+            this.neuToolStripMenuItem2.Click += new System.EventHandler(this.neuToolStripMenuItem2_Click);
             // 
             // bearbeitenToolStripMenuItem2
             // 
             this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
-            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
+            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
+            this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -939,18 +953,6 @@
             this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem1.Text = "Beenden";
             this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
-            // 
-            // label_LDAP
-            // 
-            this.label_LDAP.Name = "label_LDAP";
-            this.label_LDAP.Size = new System.Drawing.Size(73, 17);
-            this.label_LDAP.Text = "LDAP Daten:";
-            // 
-            // lb_LDAP_ausgabe
-            // 
-            this.lb_LDAP_ausgabe.Name = "lb_LDAP_ausgabe";
-            this.lb_LDAP_ausgabe.Size = new System.Drawing.Size(12, 17);
-            this.lb_LDAP_ausgabe.Text = "-";
             // 
             // Form1
             // 

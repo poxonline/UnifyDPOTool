@@ -65,6 +65,7 @@
             this.cb_workgauswahl.Name = "cb_workgauswahl";
             this.cb_workgauswahl.Size = new System.Drawing.Size(225, 21);
             this.cb_workgauswahl.TabIndex = 2;
+            this.cb_workgauswahl.SelectedIndexChanged += new System.EventHandler(this.cb_workgauswahl_SelectedIndexChanged);
             // 
             // tb_id
             // 
