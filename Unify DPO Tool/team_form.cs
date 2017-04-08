@@ -80,7 +80,7 @@ namespace Unify_DPO_Tool
             tb_hotliner.Text = ((team)cb_teamauswahl.SelectedItem).prop_telefon;
             tb_modmail.Text = ((team)cb_teamauswahl.SelectedItem).prop_modemail;
             tb_zusatztext.Text = ((team)cb_teamauswahl.SelectedItem).prop_zusatztext;
-            cb_workgroupauswahl.SelectedItem = Convert.ToString(((team)cb_teamauswahl.SelectedItem).prop_workgroup);
+            cb_workgroupauswahl.SelectedIndex = cb_workgroupauswahl.FindString(((team)cb_teamauswahl.SelectedItem).prop_workgroup);
             tb_lastedit.Text = Convert.ToString(((team)cb_teamauswahl.SelectedItem).prop_lastmod);
         }
         public void update_teams()

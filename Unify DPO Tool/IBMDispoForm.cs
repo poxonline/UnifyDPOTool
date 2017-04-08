@@ -21,7 +21,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("mmo:dial?tel1=+498005116352");
+                System.Diagnostics.Process.Start("tel://+498005116352");
             }
             catch 
             {
@@ -33,7 +33,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("mmo:dial?tel1=+493415607549");
+                System.Diagnostics.Process.Start("tel://+493415607549");
             }
             catch
             {
