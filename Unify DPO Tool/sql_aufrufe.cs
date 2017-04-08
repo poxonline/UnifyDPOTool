@@ -482,6 +482,103 @@ namespace Unify_DPO_Tool
 
             }
         }
+        public static void SQL_wgadd(Workgroup wgadd)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO workgroups (name) VALUES (@aname)", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@aname", wgadd.prop_name);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Workgroup erfoglreich angelegt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_wgedit(Workgroup wgedit)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE workgroups SET name=@anzeigname WHERE ID=@wid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@anzeigname", wgedit.prop_name);
+                    SQL_Befehl.Parameters.AddWithValue("@wid", wgedit.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Workgroup erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht bearbeitet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_wgdel(Workgroup wgdel)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM workgroups where id=@tid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tid", wgdel.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Workgroup erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, doe Workgroup konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
         public static string LDAP_telabfragen(string domainuser)
         {
             string rueckgabe = "";

@@ -34,14 +34,6 @@ namespace Unify_DPO_Tool
             get { return name; }
             set { name = value; }
         }
-
-        public string prop_kuerzel
-        {
-            get { return kuerzel; }
-            set { kuerzel = value; }
-        }
-        
-        
         
         public override string ToString()
         {
