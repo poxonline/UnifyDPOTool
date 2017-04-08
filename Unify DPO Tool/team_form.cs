@@ -50,17 +50,26 @@ namespace Unify_DPO_Tool
             teamobj.prop_modemail = tb_modmail.Text;
             teamobj.prop_zusatztext = tb_zusatztext.Text;
             teamobj.prop_lastmod = DateTime.Now;
+            sql_aufrufe.SQL_teamadd(teamobj);
         }
 
         private void bt_speichern_Click(object sender, EventArgs e)
         {
-
+            ((team)cb_teamauswahl.SelectedItem).prop_name=tb_anzeige_name.Text;
+            ((team)cb_teamauswahl.SelectedItem).prop_workgroup = Convert.ToString(cb_workgroupauswahl.SelectedItem);
+            ((team)cb_teamauswahl.SelectedItem).prop_telefon = tb_hotliner.Text;
+            ((team)cb_teamauswahl.SelectedItem).prop_email = tb_email.Text;
+            ((team)cb_teamauswahl.SelectedItem).prop_modemail=tb_modmail.Text;
+            ((team)cb_teamauswahl.SelectedItem).prop_zusatztext = tb_zusatztext.Text;
+            ((team)cb_teamauswahl.SelectedItem).prop_lastmod = DateTime.Now;
+            sql_aufrufe.SQL_teamedit((team)cb_teamauswahl.SelectedItem);
             update_teams();
         }
 
         private void bt_loeschen_Click(object sender, EventArgs e)
         {
-
+            sql_aufrufe.SQL_teamdel((team)cb_teamauswahl.SelectedItem);
+            update_teams();
         }
 
         private void cb_teamauswahl_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +85,7 @@ namespace Unify_DPO_Tool
         }
         public void update_teams()
         {
+            cb_teamauswahl.Items.Clear();
             ArrayList teams = new ArrayList();
             teams = sql_aufrufe.SQL_teamsabrufen();
             foreach (team element in teams)

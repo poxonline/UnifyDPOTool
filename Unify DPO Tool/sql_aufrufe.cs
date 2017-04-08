@@ -373,7 +373,7 @@ namespace Unify_DPO_Tool
 
             }
         }
-        public static void SQL_teamedit(team teamadd)
+        public static void SQL_teamadd(team teamadd)
         {
             using (MySqlConnection verbindung = new MySqlConnection())
             {
@@ -403,7 +403,78 @@ namespace Unify_DPO_Tool
                 catch (Exception ex)
                 {
                     MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Benutzer konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_teamedit(team teamadd)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE teams  SET name=@anzeigname,hotlinetel=@hotline,email=@mail,modmail=@modemail,workgroup=@wgroup,speztext=@stext,lastmod=@lastedit WHERE ID=@tid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@anzeigname", teamadd.prop_name);
+                    SQL_Befehl.Parameters.AddWithValue("@hotline", teamadd.prop_telefon);
+                    SQL_Befehl.Parameters.AddWithValue("@mail", teamadd.prop_email);
+                    SQL_Befehl.Parameters.AddWithValue("@modemail", teamadd.prop_modemail);
+                    SQL_Befehl.Parameters.AddWithValue("@wgroup", teamadd.prop_workgroup);
+                    SQL_Befehl.Parameters.AddWithValue("@stext", teamadd.prop_zusatztext);
+                    SQL_Befehl.Parameters.AddWithValue("@lastedit", teamadd.prop_lastmod);
+                    SQL_Befehl.Parameters.AddWithValue("@tid",teamadd.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Team erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht bearbeitet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_teamdel(team teamadd)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM teams where id=@tid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tid", teamadd.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Team erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
