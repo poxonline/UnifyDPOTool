@@ -481,8 +481,17 @@ namespace Unify_DPO_Tool
             lesen.Close();
             Pfad.Close();
             //sachnummern neu laden
-            //remote neu laden
-            //field neu laden
+            ArrayList liste = new ArrayList();
+            cb_activitiessofarremote.Items.Clear();
+            liste = sql_aufrufe.SQL_sel_multiple_table_wi_filter("remoteactivity", lb_workgroup.Text, "ALL");
+            foreach (a_texte element in liste)
+                cb_activitiessofarremote.Items.Add(element);
+            liste.Clear();
+            cb_requestedfromfield.Items.Clear();
+            liste=sql_aufrufe.SQL_sel_multiple_table_wi_filter("reqactionfield", lb_workgroup.Text, "ALL");
+            foreach (a_texte element in liste)
+                cb_requestedfromfield.Items.Add(element);
+            liste.Clear();
         }
 
         private void konfigurationKomplettNeuEinlesenToolStripMenuItem_Click(object sender, EventArgs e)

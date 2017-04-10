@@ -31,7 +31,7 @@ namespace Unify_DPO_Tool
             {
                 lb_Sachnummer.Visible = false;
                 lb_sBeschreibung.Visible = false;
-                liste = sql_aufrufe.SQL_multipletable("remoteactivity");
+                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("remoteactivity");
                 foreach (a_texte element in liste)
                     cb_auswahl.Items.Add(element);
                 liste.Clear();
@@ -40,7 +40,7 @@ namespace Unify_DPO_Tool
             {
                 lb_Sachnummer.Visible = false;
                 lb_sBeschreibung.Visible = false;
-                liste = sql_aufrufe.SQL_multipletable("reqactionfield");
+                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("reqactionfield");
                 foreach (a_texte element in liste)
                     cb_auswahl.Items.Add(element);
                 liste.Clear();

@@ -578,7 +578,7 @@ namespace Unify_DPO_Tool
 
             }
         }
-        public static ArrayList SQL_multipletable(string tabelle)
+        public static ArrayList SQL_sel_multiple_table_wo_filter(string tabelle)
         {
             MySqlDataReader rdr = null;
             using (MySqlConnection verbindung = new MySqlConnection())
@@ -686,6 +686,48 @@ namespace Unify_DPO_Tool
                 }
                 finally
                 {
+                }
+
+            }
+        }
+        public static ArrayList SQL_sel_multiple_table_wi_filter(string tabelle, string wg1, string wg2)
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from @tabelle WHERE WORKGROUP='@filter1' or WORKGROUP='@filter2' ", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tabelle", tabelle);
+                    SQL_Befehl.Parameters.AddWithValue("@filter1", wg1);
+                    SQL_Befehl.Parameters.AddWithValue("@filter2", wg2);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(new a_texte(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2)));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
                 }
 
             }

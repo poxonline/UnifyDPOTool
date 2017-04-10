@@ -12,6 +12,28 @@ namespace Unify_DPO_Tool
         private string sachnummer;
         private string beschreibung;
         private string workgroup;
+
+        public int prop_id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public string prop_sach
+        {
+            get { return sachnummer; }
+            set { sachnummer = value; }
+        }
+        public string prop_beschreibung
+        {
+            get { return beschreibung; }
+            set { beschreibung = value; }
+        }
+        public string prop_workgroup
+        {
+            get { return workgroup; }
+            set { workgroup = value; }
+        }
+        
         public spareparts()
         {
 
