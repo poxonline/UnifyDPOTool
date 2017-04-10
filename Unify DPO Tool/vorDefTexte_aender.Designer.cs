@@ -29,60 +29,62 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(vorDefTexte_aendern));
-            this.speichern = new System.Windows.Forms.Button();
-            this.abbrechen = new System.Windows.Forms.Button();
-            this.VorDefText = new System.Windows.Forms.RichTextBox();
-            this.hinweis = new System.Windows.Forms.Label();
+            this.tb_sBeschreibung = new System.Windows.Forms.TextBox();
+            this.tb_sname = new System.Windows.Forms.TextBox();
+            this.tb_Text = new System.Windows.Forms.TextBox();
+            this.tb_id = new System.Windows.Forms.TextBox();
+            this.cb_auswahl = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // speichern
+            // tb_sBeschreibung
             // 
-            this.speichern.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.speichern.Location = new System.Drawing.Point(12, 222);
-            this.speichern.Name = "speichern";
-            this.speichern.Size = new System.Drawing.Size(75, 23);
-            this.speichern.TabIndex = 1;
-            this.speichern.Text = "Speichern";
-            this.speichern.UseVisualStyleBackColor = true;
-            this.speichern.Click += new System.EventHandler(this.speichern_Click);
+            this.tb_sBeschreibung.Location = new System.Drawing.Point(76, 121);
+            this.tb_sBeschreibung.Name = "tb_sBeschreibung";
+            this.tb_sBeschreibung.Size = new System.Drawing.Size(205, 20);
+            this.tb_sBeschreibung.TabIndex = 0;
             // 
-            // abbrechen
+            // tb_sname
             // 
-            this.abbrechen.Location = new System.Drawing.Point(370, 222);
-            this.abbrechen.Name = "abbrechen";
-            this.abbrechen.Size = new System.Drawing.Size(75, 23);
-            this.abbrechen.TabIndex = 2;
-            this.abbrechen.Text = "Abbrechen";
-            this.abbrechen.UseVisualStyleBackColor = true;
-            this.abbrechen.Click += new System.EventHandler(this.abbrechen_Click);
+            this.tb_sname.Location = new System.Drawing.Point(76, 95);
+            this.tb_sname.Name = "tb_sname";
+            this.tb_sname.Size = new System.Drawing.Size(369, 20);
+            this.tb_sname.TabIndex = 1;
             // 
-            // VorDefText
+            // tb_Text
             // 
-            this.VorDefText.Location = new System.Drawing.Point(4, 12);
-            this.VorDefText.Name = "VorDefText";
-            this.VorDefText.Size = new System.Drawing.Size(441, 178);
-            this.VorDefText.TabIndex = 3;
-            this.VorDefText.Text = "";
+            this.tb_Text.Location = new System.Drawing.Point(76, 69);
+            this.tb_Text.Name = "tb_Text";
+            this.tb_Text.Size = new System.Drawing.Size(369, 20);
+            this.tb_Text.TabIndex = 2;
             // 
-            // hinweis
+            // tb_id
             // 
-            this.hinweis.AutoSize = true;
-            this.hinweis.Location = new System.Drawing.Point(12, 193);
-            this.hinweis.Name = "hinweis";
-            this.hinweis.Size = new System.Drawing.Size(417, 13);
-            this.hinweis.TabIndex = 4;
-            this.hinweis.Text = "Hinweis: Ein neuer Punkt im Dropdown Menü wird durch einen Zeilenumbruch erkannt." +
-    "";
+            this.tb_id.Enabled = false;
+            this.tb_id.Location = new System.Drawing.Point(76, 43);
+            this.tb_id.Name = "tb_id";
+            this.tb_id.ReadOnly = true;
+            this.tb_id.Size = new System.Drawing.Size(35, 20);
+            this.tb_id.TabIndex = 3;
+            // 
+            // cb_auswahl
+            // 
+            this.cb_auswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_auswahl.FormattingEnabled = true;
+            this.cb_auswahl.Location = new System.Drawing.Point(76, 16);
+            this.cb_auswahl.Name = "cb_auswahl";
+            this.cb_auswahl.Size = new System.Drawing.Size(369, 21);
+            this.cb_auswahl.TabIndex = 4;
             // 
             // vorDefTexte_aendern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 257);
-            this.Controls.Add(this.hinweis);
-            this.Controls.Add(this.VorDefText);
-            this.Controls.Add(this.abbrechen);
-            this.Controls.Add(this.speichern);
+            this.ClientSize = new System.Drawing.Size(457, 200);
+            this.Controls.Add(this.cb_auswahl);
+            this.Controls.Add(this.tb_id);
+            this.Controls.Add(this.tb_Text);
+            this.Controls.Add(this.tb_sname);
+            this.Controls.Add(this.tb_sBeschreibung);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -95,9 +97,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button speichern;
-        private System.Windows.Forms.Button abbrechen;
-        private System.Windows.Forms.RichTextBox VorDefText;
-        private System.Windows.Forms.Label hinweis;
+        private System.Windows.Forms.TextBox tb_sBeschreibung;
+        private System.Windows.Forms.TextBox tb_sname;
+        private System.Windows.Forms.TextBox tb_Text;
+        private System.Windows.Forms.TextBox tb_id;
+        private System.Windows.Forms.ComboBox cb_auswahl;
+
     }
 }

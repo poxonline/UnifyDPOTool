@@ -50,6 +50,7 @@
             this.bt_anlegen = new System.Windows.Forms.Button();
             this.bt_speichern = new System.Windows.Forms.Button();
             this.bt_loeschen = new System.Windows.Forms.Button();
+            this.lb_info = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cb_teamauswahl
@@ -208,7 +209,7 @@
             // 
             // bt_anlegen
             // 
-            this.bt_anlegen.Location = new System.Drawing.Point(12, 265);
+            this.bt_anlegen.Location = new System.Drawing.Point(12, 294);
             this.bt_anlegen.Name = "bt_anlegen";
             this.bt_anlegen.Size = new System.Drawing.Size(75, 23);
             this.bt_anlegen.TabIndex = 18;
@@ -218,7 +219,7 @@
             // 
             // bt_speichern
             // 
-            this.bt_speichern.Location = new System.Drawing.Point(109, 265);
+            this.bt_speichern.Location = new System.Drawing.Point(106, 294);
             this.bt_speichern.Name = "bt_speichern";
             this.bt_speichern.Size = new System.Drawing.Size(75, 23);
             this.bt_speichern.TabIndex = 19;
@@ -228,7 +229,7 @@
             // 
             // bt_loeschen
             // 
-            this.bt_loeschen.Location = new System.Drawing.Point(208, 265);
+            this.bt_loeschen.Location = new System.Drawing.Point(208, 294);
             this.bt_loeschen.Name = "bt_loeschen";
             this.bt_loeschen.Size = new System.Drawing.Size(75, 23);
             this.bt_loeschen.TabIndex = 20;
@@ -236,11 +237,21 @@
             this.bt_loeschen.UseVisualStyleBackColor = true;
             this.bt_loeschen.Click += new System.EventHandler(this.bt_loeschen_Click);
             // 
+            // lb_info
+            // 
+            this.lb_info.AutoSize = true;
+            this.lb_info.Location = new System.Drawing.Point(12, 269);
+            this.lb_info.Name = "lb_info";
+            this.lb_info.Size = new System.Drawing.Size(265, 13);
+            this.lb_info.TabIndex = 21;
+            this.lb_info.Text = "Info: Es werden im Client maximal 20 Teams angezeigt!";
+            // 
             // team_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 294);
+            this.ClientSize = new System.Drawing.Size(301, 329);
+            this.Controls.Add(this.lb_info);
             this.Controls.Add(this.bt_loeschen);
             this.Controls.Add(this.bt_speichern);
             this.Controls.Add(this.bt_anlegen);
@@ -295,5 +306,6 @@
         private System.Windows.Forms.Button bt_anlegen;
         private System.Windows.Forms.Button bt_speichern;
         private System.Windows.Forms.Button bt_loeschen;
+        private System.Windows.Forms.Label lb_info;
     }
 }

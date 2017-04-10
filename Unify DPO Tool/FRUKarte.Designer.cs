@@ -52,6 +52,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FRUKarte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FRUKarte";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

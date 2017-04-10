@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Text;
+using System.Collections;
 using System.Windows.Forms;
 using System.IO;
 
@@ -17,6 +14,11 @@ namespace Unify_DPO_Tool
         public gruppeaendern()
         {
             InitializeComponent();
+            ArrayList teams = new ArrayList();
+            teams = sql_aufrufe.SQL_teamsabrufen();
+            foreach (team element in teams)
+                cb_groupwahlfest.Items.Add(element);
+            teams.Clear();
         }
 
         private void gruppeaendern_Load(object sender, EventArgs e)
@@ -29,47 +31,14 @@ namespace Unify_DPO_Tool
             }
             lesen.Close();
             Pfad.Close();
-            if(vorher==dataNetzplan.Text)
-            {
-                dataNetzplan.Checked = true;
-            }
-            if(vorher==dataSLA.Text)
-            {
-                dataSLA.Checked = true;
-            }
-            if(vorher==data.Text)
-            {
-                data.Checked = true;
-            }
-            if(vorher==voice.Text)
-            {
-                voice.Checked = true;
-            }
-            if(vorher==uc.Text)
-            {
-                uc.Checked = true;
-            }
-            if(vorher==security.Text)
-            {
-                security.Checked = true;
-            }
-            if (vorher == ba.Text)
-            {
-                ba.Checked = true;
-            }
+            cb_groupwahlfest.SelectedIndex = cb_groupwahlfest.FindString(vorher);
         }
 
         private void speichern_Click(object sender, EventArgs e)
         {
             FileStream Pfad = new FileStream(gruppenconf, FileMode.Create, FileAccess.Write);
             StreamWriter schreiben = new StreamWriter(Pfad);
-            if (dataNetzplan.Checked) { schreiben.WriteLine(dataNetzplan.Text); }
-            if (dataSLA.Checked) { schreiben.WriteLine(dataSLA.Text); }
-            if (data.Checked) { schreiben.WriteLine(data.Text); }
-            if (voice.Checked) { schreiben.WriteLine(voice.Text); }
-            if (uc.Checked) { schreiben.WriteLine(uc.Text); }
-            if (security.Checked) { schreiben.WriteLine(security.Text); }
-            if (ba.Checked) { schreiben.WriteLine(ba.Text); }
+            schreiben.WriteLine(cb_groupwahlfest.SelectedItem.ToString());
             schreiben.Close();
             Pfad.Close();
             this.Close();

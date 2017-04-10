@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.texterzeugen = new System.Windows.Forms.Button();
-            this.Gruppenauswahl = new System.Windows.Forms.ComboBox();
+            this.cb_gruppenauswahl = new System.Windows.Forms.ComboBox();
             this.FremdRemote = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,10 +40,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.sparepart = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.sparepartchance = new System.Windows.Forms.ComboBox();
+            this.cb_sparepartchance = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.sachnummer = new System.Windows.Forms.ComboBox();
+            this.cb_sachnummer = new System.Windows.Forms.ComboBox();
             this.sparepartnein = new System.Windows.Forms.RadioButton();
             this.sparepartja = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
@@ -71,16 +71,19 @@
             this.onsiteja = new System.Windows.Forms.RadioButton();
             this.issuediscription = new System.Windows.Forms.TextBox();
             this.requestedalternativefield = new System.Windows.Forms.TextBox();
-            this.activitiessofarremote = new System.Windows.Forms.ComboBox();
+            this.cb_activitiessofarremote = new System.Windows.Forms.ComboBox();
             this.ausgabe = new System.Windows.Forms.RichTextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.requestedfromfield = new System.Windows.Forms.ComboBox();
+            this.cb_requestedfromfield = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lb_workgroup = new System.Windows.Forms.ToolStripStatusLabel();
             this.aktuelleWorkgroup = new System.Windows.Forms.ToolStripStatusLabel();
             this.version = new System.Windows.Forms.ToolStripStatusLabel();
             this.label_LDAP = new System.Windows.Forms.ToolStripStatusLabel();
             this.lb_LDAP_ausgabe = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lb_user = new System.Windows.Forms.ToolStripStatusLabel();
             this.UnifyDPOWiki = new System.Windows.Forms.LinkLabel();
             this.IBMTechniker = new System.Windows.Forms.LinkLabel();
             this.IBMDispoMail = new System.Windows.Forms.LinkLabel();
@@ -132,32 +135,24 @@
             // 
             // texterzeugen
             // 
-            this.texterzeugen.Location = new System.Drawing.Point(645, 408);
+            this.texterzeugen.Location = new System.Drawing.Point(748, 408);
             this.texterzeugen.Name = "texterzeugen";
             this.texterzeugen.Size = new System.Drawing.Size(199, 23);
-            this.texterzeugen.TabIndex = 0;
+            this.texterzeugen.TabIndex = 10;
             this.texterzeugen.Text = "DPO Text erzeugen + Zwischenablage";
             this.texterzeugen.UseVisualStyleBackColor = true;
             this.texterzeugen.Click += new System.EventHandler(this.texterzeugen_Click);
             // 
-            // Gruppenauswahl
+            // cb_gruppenauswahl
             // 
-            this.Gruppenauswahl.DisplayMember = "1";
-            this.Gruppenauswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Gruppenauswahl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Gruppenauswahl.Items.AddRange(new object[] {
-            "SSD DEU Data Netzpläne+Remotesupport",
-            "SSD DEU Data SLA Controlling",
-            "SSD DEU Data Allgemein",
-            "SSD DEU Voice",
-            "SSD DEU UC",
-            "SSD DEU Security",
-            "SSD DEU BA"});
-            this.Gruppenauswahl.Location = new System.Drawing.Point(407, 130);
-            this.Gruppenauswahl.Name = "Gruppenauswahl";
-            this.Gruppenauswahl.Size = new System.Drawing.Size(422, 21);
-            this.Gruppenauswahl.TabIndex = 18;
-            this.Gruppenauswahl.SelectedIndexChanged += new System.EventHandler(this.Gruppenauswahl_SelectedIndexChanged);
+            this.cb_gruppenauswahl.DisplayMember = "1";
+            this.cb_gruppenauswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_gruppenauswahl.Location = new System.Drawing.Point(407, 130);
+            this.cb_gruppenauswahl.MaxDropDownItems = 20;
+            this.cb_gruppenauswahl.Name = "cb_gruppenauswahl";
+            this.cb_gruppenauswahl.Size = new System.Drawing.Size(528, 21);
+            this.cb_gruppenauswahl.TabIndex = 9;
+            this.cb_gruppenauswahl.SelectedIndexChanged += new System.EventHandler(this.Gruppenauswahl_SelectedIndexChanged);
             // 
             // FremdRemote
             // 
@@ -218,16 +213,16 @@
             // sparepart
             // 
             this.sparepart.Controls.Add(this.label9);
-            this.sparepart.Controls.Add(this.sparepartchance);
+            this.sparepart.Controls.Add(this.cb_sparepartchance);
             this.sparepart.Controls.Add(this.label8);
             this.sparepart.Controls.Add(this.label7);
-            this.sparepart.Controls.Add(this.sachnummer);
+            this.sparepart.Controls.Add(this.cb_sachnummer);
             this.sparepart.Controls.Add(this.sparepartnein);
             this.sparepart.Controls.Add(this.sparepartja);
             this.sparepart.Location = new System.Drawing.Point(12, 40);
             this.sparepart.Name = "sparepart";
             this.sparepart.Size = new System.Drawing.Size(449, 99);
-            this.sparepart.TabIndex = 6;
+            this.sparepart.TabIndex = 1;
             this.sparepart.TabStop = false;
             this.sparepart.Text = "Spare Part";
             // 
@@ -240,12 +235,12 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "FremdEQ:\r\nCisco= CIO:\r\nExtreme= EXN:\r\nJuniper= DE:DEUBA_JUI_";
             // 
-            // sparepartchance
+            // cb_sparepartchance
             // 
-            this.sparepartchance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sparepartchance.FormatString = "N0";
-            this.sparepartchance.FormattingEnabled = true;
-            this.sparepartchance.Items.AddRange(new object[] {
+            this.cb_sparepartchance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_sparepartchance.FormatString = "N0";
+            this.cb_sparepartchance.FormattingEnabled = true;
+            this.cb_sparepartchance.Items.AddRange(new object[] {
             "0",
             "10",
             "20",
@@ -257,10 +252,10 @@
             "80",
             "90",
             "100"});
-            this.sparepartchance.Location = new System.Drawing.Point(109, 72);
-            this.sparepartchance.Name = "sparepartchance";
-            this.sparepartchance.Size = new System.Drawing.Size(121, 21);
-            this.sparepartchance.TabIndex = 3;
+            this.cb_sparepartchance.Location = new System.Drawing.Point(109, 72);
+            this.cb_sparepartchance.Name = "cb_sparepartchance";
+            this.cb_sparepartchance.Size = new System.Drawing.Size(121, 21);
+            this.cb_sparepartchance.TabIndex = 3;
             // 
             // label8
             // 
@@ -280,16 +275,17 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Sachnummer:";
             // 
-            // sachnummer
+            // cb_sachnummer
             // 
-            this.sachnummer.Location = new System.Drawing.Point(109, 40);
-            this.sachnummer.Name = "sachnummer";
-            this.sachnummer.Size = new System.Drawing.Size(182, 21);
-            this.sachnummer.TabIndex = 2;
+            this.cb_sachnummer.Location = new System.Drawing.Point(109, 40);
+            this.cb_sachnummer.Name = "cb_sachnummer";
+            this.cb_sachnummer.Size = new System.Drawing.Size(182, 21);
+            this.cb_sachnummer.TabIndex = 2;
             // 
             // sparepartnein
             // 
             this.sparepartnein.AutoSize = true;
+            this.sparepartnein.Checked = true;
             this.sparepartnein.Location = new System.Drawing.Point(46, 19);
             this.sparepartnein.Name = "sparepartnein";
             this.sparepartnein.Size = new System.Drawing.Size(47, 17);
@@ -305,7 +301,6 @@
             this.sparepartja.Name = "sparepartja";
             this.sparepartja.Size = new System.Drawing.Size(36, 17);
             this.sparepartja.TabIndex = 0;
-            this.sparepartja.TabStop = true;
             this.sparepartja.Text = "Ja";
             this.sparepartja.UseVisualStyleBackColor = true;
             this.sparepartja.CheckedChanged += new System.EventHandler(this.sparepartja_CheckedChanged);
@@ -353,11 +348,11 @@
             this.CustomerSpecificInformationgroup.Controls.Add(this.fremdremotesupport);
             this.CustomerSpecificInformationgroup.Controls.Add(this.onsitecontact);
             this.CustomerSpecificInformationgroup.Controls.Add(this.FremdRemote);
-            this.CustomerSpecificInformationgroup.Controls.Add(this.Gruppenauswahl);
+            this.CustomerSpecificInformationgroup.Controls.Add(this.cb_gruppenauswahl);
             this.CustomerSpecificInformationgroup.Location = new System.Drawing.Point(6, 245);
             this.CustomerSpecificInformationgroup.Name = "CustomerSpecificInformationgroup";
-            this.CustomerSpecificInformationgroup.Size = new System.Drawing.Size(835, 157);
-            this.CustomerSpecificInformationgroup.TabIndex = 11;
+            this.CustomerSpecificInformationgroup.Size = new System.Drawing.Size(947, 157);
+            this.CustomerSpecificInformationgroup.TabIndex = 6;
             this.CustomerSpecificInformationgroup.TabStop = false;
             this.CustomerSpecificInformationgroup.Text = "Customer Specific Information:";
             // 
@@ -366,7 +361,7 @@
             this.CSIfreitext.Location = new System.Drawing.Point(13, 33);
             this.CSIfreitext.Name = "CSIfreitext";
             this.CSIfreitext.Size = new System.Drawing.Size(388, 118);
-            this.CSIfreitext.TabIndex = 8;
+            this.CSIfreitext.TabIndex = 6;
             this.CSIfreitext.Text = "";
             // 
             // label18
@@ -388,8 +383,8 @@
             this.fremdremotesupport.Controls.Add(this.fremdremoteja);
             this.fremdremotesupport.Location = new System.Drawing.Point(407, 11);
             this.fremdremotesupport.Name = "fremdremotesupport";
-            this.fremdremotesupport.Size = new System.Drawing.Size(216, 114);
-            this.fremdremotesupport.TabIndex = 2;
+            this.fremdremotesupport.Size = new System.Drawing.Size(257, 114);
+            this.fremdremotesupport.TabIndex = 7;
             this.fremdremotesupport.TabStop = false;
             this.fremdremotesupport.Text = "Fremd Remote Support Contact";
             // 
@@ -415,23 +410,24 @@
             // 
             this.fremdremotetel.Location = new System.Drawing.Point(51, 68);
             this.fremdremotetel.Name = "fremdremotetel";
-            this.fremdremotetel.Size = new System.Drawing.Size(155, 20);
-            this.fremdremotetel.TabIndex = 12;
+            this.fremdremotetel.Size = new System.Drawing.Size(200, 20);
+            this.fremdremotetel.TabIndex = 10;
             // 
             // fremdremoteName
             // 
             this.fremdremoteName.Location = new System.Drawing.Point(51, 42);
             this.fremdremoteName.Name = "fremdremoteName";
-            this.fremdremoteName.Size = new System.Drawing.Size(155, 20);
-            this.fremdremoteName.TabIndex = 11;
+            this.fremdremoteName.Size = new System.Drawing.Size(200, 20);
+            this.fremdremoteName.TabIndex = 9;
             // 
             // fremdremotenein
             // 
             this.fremdremotenein.AutoSize = true;
+            this.fremdremotenein.Checked = true;
             this.fremdremotenein.Location = new System.Drawing.Point(49, 19);
             this.fremdremotenein.Name = "fremdremotenein";
             this.fremdremotenein.Size = new System.Drawing.Size(47, 17);
-            this.fremdremotenein.TabIndex = 10;
+            this.fremdremotenein.TabIndex = 8;
             this.fremdremotenein.TabStop = true;
             this.fremdremotenein.Text = "Nein";
             this.fremdremotenein.UseVisualStyleBackColor = true;
@@ -442,8 +438,7 @@
             this.fremdremoteja.Location = new System.Drawing.Point(7, 19);
             this.fremdremoteja.Name = "fremdremoteja";
             this.fremdremoteja.Size = new System.Drawing.Size(36, 17);
-            this.fremdremoteja.TabIndex = 9;
-            this.fremdremoteja.TabStop = true;
+            this.fremdremoteja.TabIndex = 7;
             this.fremdremoteja.Text = "Ja";
             this.fremdremoteja.UseVisualStyleBackColor = true;
             this.fremdremoteja.CheckedChanged += new System.EventHandler(this.fremdremoteja_CheckedChanged);
@@ -458,10 +453,10 @@
             this.onsitecontact.Controls.Add(this.onsitename);
             this.onsitecontact.Controls.Add(this.onsitenein);
             this.onsitecontact.Controls.Add(this.onsiteja);
-            this.onsitecontact.Location = new System.Drawing.Point(629, 11);
+            this.onsitecontact.Location = new System.Drawing.Point(670, 12);
             this.onsitecontact.Name = "onsitecontact";
-            this.onsitecontact.Size = new System.Drawing.Size(200, 113);
-            this.onsitecontact.TabIndex = 3;
+            this.onsitecontact.Size = new System.Drawing.Size(271, 113);
+            this.onsitecontact.TabIndex = 8;
             this.onsitecontact.TabStop = false;
             this.onsitecontact.Text = "On-Site Contact";
             // 
@@ -478,8 +473,8 @@
             // 
             this.onsitemobil.Location = new System.Drawing.Point(48, 89);
             this.onsitemobil.Name = "onsitemobil";
-            this.onsitemobil.Size = new System.Drawing.Size(146, 20);
-            this.onsitemobil.TabIndex = 17;
+            this.onsitemobil.Size = new System.Drawing.Size(217, 20);
+            this.onsitemobil.TabIndex = 15;
             // 
             // label14
             // 
@@ -503,23 +498,24 @@
             // 
             this.onsitetel.Location = new System.Drawing.Point(48, 66);
             this.onsitetel.Name = "onsitetel";
-            this.onsitetel.Size = new System.Drawing.Size(146, 20);
-            this.onsitetel.TabIndex = 16;
+            this.onsitetel.Size = new System.Drawing.Size(217, 20);
+            this.onsitetel.TabIndex = 14;
             // 
             // onsitename
             // 
             this.onsitename.Location = new System.Drawing.Point(48, 40);
             this.onsitename.Name = "onsitename";
-            this.onsitename.Size = new System.Drawing.Size(146, 20);
-            this.onsitename.TabIndex = 15;
+            this.onsitename.Size = new System.Drawing.Size(217, 20);
+            this.onsitename.TabIndex = 13;
             // 
             // onsitenein
             // 
             this.onsitenein.AutoSize = true;
+            this.onsitenein.Checked = true;
             this.onsitenein.Location = new System.Drawing.Point(49, 19);
             this.onsitenein.Name = "onsitenein";
             this.onsitenein.Size = new System.Drawing.Size(47, 17);
-            this.onsitenein.TabIndex = 14;
+            this.onsitenein.TabIndex = 12;
             this.onsitenein.TabStop = true;
             this.onsitenein.Text = "Nein";
             this.onsitenein.UseVisualStyleBackColor = true;
@@ -530,8 +526,7 @@
             this.onsiteja.Location = new System.Drawing.Point(7, 20);
             this.onsiteja.Name = "onsiteja";
             this.onsiteja.Size = new System.Drawing.Size(36, 17);
-            this.onsiteja.TabIndex = 13;
-            this.onsiteja.TabStop = true;
+            this.onsiteja.TabIndex = 11;
             this.onsiteja.Text = "Ja";
             this.onsiteja.UseVisualStyleBackColor = true;
             this.onsiteja.CheckedChanged += new System.EventHandler(this.onsiteja_CheckedChanged);
@@ -541,32 +536,32 @@
             this.issuediscription.Location = new System.Drawing.Point(152, 144);
             this.issuediscription.Name = "issuediscription";
             this.issuediscription.Size = new System.Drawing.Size(314, 20);
-            this.issuediscription.TabIndex = 12;
+            this.issuediscription.TabIndex = 2;
             // 
             // requestedalternativefield
             // 
             this.requestedalternativefield.Location = new System.Drawing.Point(152, 224);
             this.requestedalternativefield.Name = "requestedalternativefield";
             this.requestedalternativefield.Size = new System.Drawing.Size(314, 20);
-            this.requestedalternativefield.TabIndex = 15;
+            this.requestedalternativefield.TabIndex = 5;
             // 
-            // activitiessofarremote
+            // cb_activitiessofarremote
             // 
-            this.activitiessofarremote.AutoCompleteCustomSource.AddRange(new string[] {
+            this.cb_activitiessofarremote.AutoCompleteCustomSource.AddRange(new string[] {
             "Kein Remote erlaubt.",
             "Kein Remote möglich."});
-            this.activitiessofarremote.Location = new System.Drawing.Point(152, 170);
-            this.activitiessofarremote.Name = "activitiessofarremote";
-            this.activitiessofarremote.Size = new System.Drawing.Size(314, 21);
-            this.activitiessofarremote.TabIndex = 9;
+            this.cb_activitiessofarremote.Location = new System.Drawing.Point(152, 170);
+            this.cb_activitiessofarremote.Name = "cb_activitiessofarremote";
+            this.cb_activitiessofarremote.Size = new System.Drawing.Size(314, 21);
+            this.cb_activitiessofarremote.TabIndex = 3;
             // 
             // ausgabe
             // 
             this.ausgabe.Location = new System.Drawing.Point(5, 18);
             this.ausgabe.Name = "ausgabe";
             this.ausgabe.ReadOnly = true;
-            this.ausgabe.Size = new System.Drawing.Size(366, 186);
-            this.ausgabe.TabIndex = 16;
+            this.ausgabe.Size = new System.Drawing.Size(475, 186);
+            this.ausgabe.TabIndex = 23;
             this.ausgabe.Text = "";
             // 
             // label20
@@ -578,20 +573,20 @@
             this.label20.TabIndex = 18;
             this.label20.Text = "Wichtige Links:";
             // 
-            // requestedfromfield
+            // cb_requestedfromfield
             // 
-            this.requestedfromfield.FormattingEnabled = true;
-            this.requestedfromfield.Location = new System.Drawing.Point(152, 197);
-            this.requestedfromfield.Name = "requestedfromfield";
-            this.requestedfromfield.Size = new System.Drawing.Size(314, 21);
-            this.requestedfromfield.TabIndex = 19;
+            this.cb_requestedfromfield.FormattingEnabled = true;
+            this.cb_requestedfromfield.Location = new System.Drawing.Point(152, 197);
+            this.cb_requestedfromfield.Name = "cb_requestedfromfield";
+            this.cb_requestedfromfield.Size = new System.Drawing.Size(314, 21);
+            this.cb_requestedfromfield.TabIndex = 4;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ausgabe);
             this.groupBox1.Location = new System.Drawing.Point(467, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(377, 210);
+            this.groupBox1.Size = new System.Drawing.Size(486, 210);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vorschau:";
@@ -600,23 +595,32 @@
             // 
             this.statusStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lb_workgroup,
             this.aktuelleWorkgroup,
             this.version,
             this.label_LDAP,
-            this.lb_LDAP_ausgabe});
+            this.lb_LDAP_ausgabe,
+            this.labelUser,
+            this.lb_user});
             this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.statusStrip1.Location = new System.Drawing.Point(0, 458);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(853, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(965, 22);
             this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 21;
+            this.statusStrip1.TabIndex = 15;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lb_workgroup
+            // 
+            this.lb_workgroup.Name = "lb_workgroup";
+            this.lb_workgroup.Size = new System.Drawing.Size(70, 17);
+            this.lb_workgroup.Text = "Workgroup:";
             // 
             // aktuelleWorkgroup
             // 
             this.aktuelleWorkgroup.Name = "aktuelleWorkgroup";
-            this.aktuelleWorkgroup.Size = new System.Drawing.Size(70, 17);
-            this.aktuelleWorkgroup.Text = "Workgroup:";
+            this.aktuelleWorkgroup.Size = new System.Drawing.Size(12, 17);
+            this.aktuelleWorkgroup.Text = "-";
             // 
             // version
             // 
@@ -636,13 +640,25 @@
             this.lb_LDAP_ausgabe.Size = new System.Drawing.Size(12, 17);
             this.lb_LDAP_ausgabe.Text = "-";
             // 
+            // labelUser
+            // 
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(33, 17);
+            this.labelUser.Text = "User:";
+            // 
+            // lb_user
+            // 
+            this.lb_user.Name = "lb_user";
+            this.lb_user.Size = new System.Drawing.Size(12, 17);
+            this.lb_user.Text = "-";
+            // 
             // UnifyDPOWiki
             // 
             this.UnifyDPOWiki.AutoSize = true;
             this.UnifyDPOWiki.Location = new System.Drawing.Point(6, 422);
             this.UnifyDPOWiki.Name = "UnifyDPOWiki";
             this.UnifyDPOWiki.Size = new System.Drawing.Size(135, 13);
-            this.UnifyDPOWiki.TabIndex = 22;
+            this.UnifyDPOWiki.TabIndex = 11;
             this.UnifyDPOWiki.TabStop = true;
             this.UnifyDPOWiki.Text = "DPO Handlungsanweisung";
             this.UnifyDPOWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UnifyDPOWiki_LinkClicked);
@@ -653,7 +669,7 @@
             this.IBMTechniker.Location = new System.Drawing.Point(145, 422);
             this.IBMTechniker.Name = "IBMTechniker";
             this.IBMTechniker.Size = new System.Drawing.Size(134, 13);
-            this.IBMTechniker.TabIndex = 23;
+            this.IBMTechniker.TabIndex = 12;
             this.IBMTechniker.TabStop = true;
             this.IBMTechniker.Text = "IBM Techniker Verzeichnis";
             this.IBMTechniker.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMTechniker_LinkClicked);
@@ -664,7 +680,7 @@
             this.IBMDispoMail.Location = new System.Drawing.Point(285, 422);
             this.IBMDispoMail.Name = "IBMDispoMail";
             this.IBMDispoMail.Size = new System.Drawing.Size(93, 13);
-            this.IBMDispoMail.TabIndex = 24;
+            this.IBMDispoMail.TabIndex = 13;
             this.IBMDispoMail.TabStop = true;
             this.IBMDispoMail.Text = "Mail an IBM Dispo";
             this.IBMDispoMail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMDispoMail_LinkClicked);
@@ -682,7 +698,7 @@
             this.IBMDispoEskalation.Location = new System.Drawing.Point(384, 422);
             this.IBMDispoEskalation.Name = "IBMDispoEskalation";
             this.IBMDispoEskalation.Size = new System.Drawing.Size(123, 13);
-            this.IBMDispoEskalation.TabIndex = 25;
+            this.IBMDispoEskalation.TabIndex = 14;
             this.IBMDispoEskalation.TabStop = true;
             this.IBMDispoEskalation.Text = "Eskalation an IBM Dispo";
             this.IBMDispoEskalation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMDispoEskalation_LinkClicked);
@@ -698,8 +714,8 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(853, 24);
-            this.menuStrip1.TabIndex = 26;
+            this.menuStrip1.Size = new System.Drawing.Size(965, 24);
+            this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menüToolStripMenuItem
@@ -882,14 +898,14 @@
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.neuToolStripMenuItem.Text = "Neu";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // bearbeitenToolStripMenuItem
             // 
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
             // 
@@ -906,14 +922,14 @@
             // neuToolStripMenuItem2
             // 
             this.neuToolStripMenuItem2.Name = "neuToolStripMenuItem2";
-            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.neuToolStripMenuItem2.Text = "Neu";
             this.neuToolStripMenuItem2.Click += new System.EventHandler(this.neuToolStripMenuItem2_Click);
             // 
             // bearbeitenToolStripMenuItem2
             // 
             this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
-            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
             // 
@@ -958,7 +974,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 480);
+            this.ClientSize = new System.Drawing.Size(965, 480);
             this.Controls.Add(this.IBMDispoEskalation);
             this.Controls.Add(this.IBMDispoMail);
             this.Controls.Add(this.IBMTechniker);
@@ -966,9 +982,9 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.requestedfromfield);
+            this.Controls.Add(this.cb_requestedfromfield);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.activitiessofarremote);
+            this.Controls.Add(this.cb_activitiessofarremote);
             this.Controls.Add(this.requestedalternativefield);
             this.Controls.Add(this.issuediscription);
             this.Controls.Add(this.CustomerSpecificInformationgroup);
@@ -1008,7 +1024,7 @@
         #endregion
 
         private System.Windows.Forms.Button texterzeugen;
-        private System.Windows.Forms.ComboBox Gruppenauswahl;
+        private System.Windows.Forms.ComboBox cb_gruppenauswahl;
         private System.Windows.Forms.GroupBox FremdRemote;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -1020,7 +1036,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton sparepartnein;
         private System.Windows.Forms.RadioButton sparepartja;
-        private System.Windows.Forms.ComboBox sparepartchance;
+        private System.Windows.Forms.ComboBox cb_sparepartchance;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -1047,10 +1063,10 @@
         private System.Windows.Forms.RadioButton onsiteja;
         private System.Windows.Forms.TextBox issuediscription;
         private System.Windows.Forms.TextBox requestedalternativefield;
-        private System.Windows.Forms.ComboBox activitiessofarremote;
+        private System.Windows.Forms.ComboBox cb_activitiessofarremote;
         private System.Windows.Forms.RichTextBox ausgabe;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox requestedfromfield;
+        private System.Windows.Forms.ComboBox cb_requestedfromfield;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel version;
@@ -1065,7 +1081,7 @@
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip TryIconMenue;
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem1;
-        private System.Windows.Forms.ComboBox sachnummer;
+        private System.Windows.Forms.ComboBox cb_sachnummer;
         private System.Windows.Forms.ToolStripMenuItem rufnummernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iBMDispoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unifyInternToolStripMenuItem;
@@ -1096,6 +1112,9 @@
         private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem2;
         private System.Windows.Forms.ToolStripStatusLabel label_LDAP;
         private System.Windows.Forms.ToolStripStatusLabel lb_LDAP_ausgabe;
+        private System.Windows.Forms.ToolStripStatusLabel lb_workgroup;
+        private System.Windows.Forms.ToolStripStatusLabel labelUser;
+        private System.Windows.Forms.ToolStripStatusLabel lb_user;
     }
 }
 
