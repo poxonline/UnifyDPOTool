@@ -8,8 +8,10 @@ namespace Unify_DPO_Tool
 {
     public partial class vorDefTexte_aendern : Form
     {
+        static string modi = "";
         public vorDefTexte_aendern(string einstellung)
         {
+            modi = einstellung;
             InitializeComponent();
             ArrayList liste = new ArrayList();
             liste = sql_aufrufe.SQL_workgroupsabrufen();
@@ -20,6 +22,10 @@ namespace Unify_DPO_Tool
             {
                 tb_Text.Visible = false;
                 lb_text.Visible = false;
+                liste = sql_aufrufe.SQL_req_sparepart();
+                foreach (spareparts element in liste)
+                    cb_auswahl.Items.Add(element);
+                liste.Clear();
             }
             if (einstellung=="remote")
             {
@@ -38,6 +44,32 @@ namespace Unify_DPO_Tool
                 foreach (a_texte element in liste)
                     cb_auswahl.Items.Add(element);
                 liste.Clear();
+            }
+        }
+
+        private void bt_anlegen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_speichern_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_loeschen_Click(object sender, EventArgs e)
+        {
+            if (modi == "sachnummern")
+            {
+                sql_aufrufe.SQL_multipel_del("sparepart", Convert.ToInt32(tb_Text.Text));
+            }
+            if (modi == "remote")
+            {
+                sql_aufrufe.SQL_multipel_del("remoteactivity", Convert.ToInt32(tb_Text.Text));
+            }
+            if (modi == "field")
+            {
+                sql_aufrufe.SQL_multipel_del("reqactionfield", Convert.ToInt32(tb_Text.Text));
             }
         }
     }

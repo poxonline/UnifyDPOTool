@@ -570,7 +570,7 @@ namespace Unify_DPO_Tool
                 catch (Exception ex)
                 {
                     MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, doe Workgroup konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -586,7 +586,8 @@ namespace Unify_DPO_Tool
                 try
                 {
                     verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from "+tabelle, verbindung);
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from @tabelle", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tabelle", tabelle);
                     ArrayList liste = new ArrayList();
                     try
                     {
@@ -652,6 +653,39 @@ namespace Unify_DPO_Tool
                 finally
                 {
                     verbindung.Close();
+                }
+
+            }
+        }
+        public static void SQL_multipel_del(string tabelle, int id)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM @tabelle where id=@tid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tid", id);
+                    SQL_Befehl.Parameters.AddWithValue("@tabelle", tabelle);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Workgroup erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, doe Workgroup konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
                 }
 
             }

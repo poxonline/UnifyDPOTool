@@ -152,7 +152,6 @@
             // tb_hinweis
             // 
             this.tb_hinweis.Cursor = System.Windows.Forms.Cursors.No;
-            this.tb_hinweis.Enabled = false;
             this.tb_hinweis.Location = new System.Drawing.Point(12, 174);
             this.tb_hinweis.Multiline = true;
             this.tb_hinweis.Name = "tb_hinweis";
@@ -170,6 +169,7 @@
             this.bt_anlegen.TabIndex = 13;
             this.bt_anlegen.Text = "Anlegen";
             this.bt_anlegen.UseVisualStyleBackColor = true;
+            this.bt_anlegen.Click += new System.EventHandler(this.bt_anlegen_Click);
             // 
             // bt_speichern
             // 
@@ -179,6 +179,7 @@
             this.bt_speichern.TabIndex = 14;
             this.bt_speichern.Text = "Bearbeitung speichern";
             this.bt_speichern.UseVisualStyleBackColor = true;
+            this.bt_speichern.Click += new System.EventHandler(this.bt_speichern_Click);
             // 
             // bt_loeschen
             // 
@@ -188,6 +189,7 @@
             this.bt_loeschen.TabIndex = 15;
             this.bt_loeschen.Text = "Löschen";
             this.bt_loeschen.UseVisualStyleBackColor = true;
+            this.bt_loeschen.Click += new System.EventHandler(this.bt_loeschen_Click);
             // 
             // vorDefTexte_aendern
             // 
