@@ -61,15 +61,12 @@ namespace Unify_DPO_Tool
         {
             if (modi == "sachnummern")
             {
-                sql_aufrufe.SQL_multipel_del("sparepart", Convert.ToInt32(tb_Text.Text));
             }
             if (modi == "remote")
             {
-                sql_aufrufe.SQL_multipel_del("remoteactivity", Convert.ToInt32(tb_Text.Text));
             }
             if (modi == "field")
             {
-                sql_aufrufe.SQL_multipel_del("reqactionfield", Convert.ToInt32(tb_Text.Text));
             }
         }
     }

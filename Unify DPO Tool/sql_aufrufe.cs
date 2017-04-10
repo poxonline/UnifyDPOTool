@@ -10,8 +10,8 @@ namespace Unify_DPO_Tool
 {
     class sql_aufrufe
     {
-        static string connection = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
-        static string connection_unused = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
+        static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
+        static string connection = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         /// <summary>
         /// MD5 Hash erzeugen und als string zurückgeben.
         /// </summary>
@@ -144,9 +144,9 @@ namespace Unify_DPO_Tool
                     verbindung.Close();
                     return liste;
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank."+Environment.NewLine+ex, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 finally
@@ -657,51 +657,60 @@ namespace Unify_DPO_Tool
 
             }
         }
-        public static void SQL_multipel_del(string tabelle, int id)
-        {
-            using (MySqlConnection verbindung = new MySqlConnection())
-            {
-                try
-                {
-                    verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM @tabelle where id=@tid", verbindung);
-                    SQL_Befehl.Parameters.AddWithValue("@tid", id);
-                    SQL_Befehl.Parameters.AddWithValue("@tabelle", tabelle);
-                    try
-                    {
-                        SQL_Befehl.Connection.Open();
-                        SQL_Befehl.ExecuteNonQuery();
-                        SQL_Befehl.Connection.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    MessageBox.Show("Workgroup erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, doe Workgroup konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                }
-
-            }
-        }
-        public static ArrayList SQL_sel_multiple_table_wi_filter(string tabelle, string wg1, string wg2)
+        public static ArrayList SQL_sel_remoteact_wi_filter( string wg1, string wg2)
         {
             MySqlDataReader rdr = null;
             using (MySqlConnection verbindung = new MySqlConnection())
             {
                 try
                 {
+                    
                     verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from @tabelle WHERE WORKGROUP='@filter1' or WORKGROUP='@filter2' ", verbindung);
-                    SQL_Befehl.Parameters.AddWithValue("@tabelle", tabelle);
-                    SQL_Befehl.Parameters.AddWithValue("@filter1", wg1);
-                    SQL_Befehl.Parameters.AddWithValue("@filter2", wg2);
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from remoteactivity WHERE WORKGROUP='@fil' OR WORKGROUP='@filter';", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@fil", wg1);
+                    SQL_Befehl.Parameters.AddWithValue("@filter", wg2);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(new a_texte(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2)));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+
+            }
+        }
+        public static ArrayList SQL_sel_requestfield_wi_filter(string wg1, string wg2)
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from reqactionfield WHERE WORKGROUP='@fil' OR WORKGROUP='@filter';", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@fil", wg1);
+                    SQL_Befehl.Parameters.AddWithValue("@filter", wg2);
                     ArrayList liste = new ArrayList();
                     try
                     {
