@@ -233,6 +233,7 @@ namespace Unify_DPO_Tool
             maillinkKomplett = maillink + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email;
             hotline = ((team)cb_gruppenauswahl.SelectedItem).prop_telefon;
             maillinkEskalationKomplett = maillinkEskalation + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "," + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + ",michael.wessoleck.atos.net";
+            felderreload();
         }
 
         private void texterzeugen_Click(object sender, EventArgs e)
@@ -480,18 +481,7 @@ namespace Unify_DPO_Tool
             }
             lesen.Close();
             Pfad.Close();
-            //sachnummern neu laden
-            ArrayList liste = new ArrayList();
-            cb_activitiessofarremote.Items.Clear();
-            liste = sql_aufrufe.SQL_sel_multiple_table_wi_filter("remoteactivity", lb_workgroup.Text, "ALL");
-            foreach (a_texte element in liste)
-                cb_activitiessofarremote.Items.Add(element);
-            liste.Clear();
-            cb_requestedfromfield.Items.Clear();
-            liste=sql_aufrufe.SQL_sel_multiple_table_wi_filter("reqactionfield", lb_workgroup.Text, "ALL");
-            foreach (a_texte element in liste)
-                cb_requestedfromfield.Items.Add(element);
-            liste.Clear();
+            felderreload();
         }
 
         private void konfigurationKomplettNeuEinlesenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -654,6 +644,23 @@ namespace Unify_DPO_Tool
         //bmc_running(); auskommentiert weil Programm dann nur mit BMC an läuft
         lb_LDAP_ausgabe.Text = sql_aufrufe.LDAP_telabfragen(Environment.UserName);
     }
+        public void felderreload()
+        {
+            //sachnummern neu laden
+            ArrayList liste = new ArrayList();
+            cb_activitiessofarremote.Items.Clear();
+            //Remote Aktivirty neu laden
+            liste = sql_aufrufe.SQL_sel_multiple_table_wi_filter("remoteactivity", lb_workgroup.Text, "ALL");
+            foreach (a_texte element in liste)
+                cb_activitiessofarremote.Items.Add(element);
+            liste.Clear();
+            //requestetd from field neu laden
+            cb_requestedfromfield.Items.Clear();
+            liste = sql_aufrufe.SQL_sel_multiple_table_wi_filter("reqactionfield", lb_workgroup.Text, "ALL");
+            foreach (a_texte element in liste)
+                cb_requestedfromfield.Items.Add(element);
+            liste.Clear();
+        }
 
     }
 }
