@@ -665,7 +665,7 @@ namespace Unify_DPO_Tool
                 {
                     
                     verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from remoteactivity WHERE WORKGROUP='@fil' OR WORKGROUP='@filter';", verbindung);
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from remoteactivity WHERE WORKGROUP=@fil OR WORKGROUP=@filter;", verbindung);
                     SQL_Befehl.Parameters.AddWithValue("@fil", wg1);
                     SQL_Befehl.Parameters.AddWithValue("@filter", wg2);
                     ArrayList liste = new ArrayList();
@@ -707,7 +707,7 @@ namespace Unify_DPO_Tool
                 {
 
                     verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from reqactionfield WHERE WORKGROUP='@fil' OR WORKGROUP='@filter';", verbindung);
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from reqactionfield WHERE WORKGROUP=@fil OR WORKGROUP=@filter;", verbindung);
                     SQL_Befehl.Parameters.AddWithValue("@fil", wg1);
                     SQL_Befehl.Parameters.AddWithValue("@filter", wg2);
                     ArrayList liste = new ArrayList();
@@ -749,7 +749,7 @@ namespace Unify_DPO_Tool
                 {
 
                     verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from sparepart WHERE WORKGROUP='@fil' OR WORKGROUP='@filter';", verbindung);
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from sparepart WHERE WORKGROUP=@fil OR WORKGROUP=@filter;", verbindung);
                     SQL_Befehl.Parameters.AddWithValue("@fil", wg1);
                     SQL_Befehl.Parameters.AddWithValue("@filter", wg2);
                     ArrayList liste = new ArrayList();
