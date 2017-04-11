@@ -54,34 +54,19 @@ namespace Unify_DPO_Tool
 
         private void bt_anlegen_Click(object sender, EventArgs e)
         {
-            ArrayList liste = new ArrayList();
             if (modi == "sachnummern")
             {
                 sql_aufrufe.SQL_sparepart_add(new spareparts(999, tb_sname.Text, tb_sBeschreibung.Text, Convert.ToString(cb_workgroup.SelectedText)));
-                cb_auswahl.Items.Clear();
-                liste = sql_aufrufe.SQL_req_sparepart();
-                foreach (spareparts element in liste)
-                    cb_auswahl.Items.Add(element);
-                liste.Clear();
             }
             if (modi == "remote")
             {
                 sql_aufrufe.SQL_remote_add(new a_texte(999, tb_Text.Text, Convert.ToString(cb_workgroup.SelectedText)));
-                cb_auswahl.Items.Clear();
-                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("remoteactivity");
-                foreach (a_texte element in liste)
-                    cb_auswahl.Items.Add(element);
-                liste.Clear();
             }
             if (modi == "field")
             {
                 sql_aufrufe.SQL_field_add(new a_texte(999, tb_Text.Text, Convert.ToString(cb_workgroup.SelectedText)));
-                cb_auswahl.Items.Clear();
-                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("reqactionfield");
-                foreach (a_texte element in liste)
-                    cb_auswahl.Items.Add(element);
-                liste.Clear();
             }
+            update();
         }
 
         private void bt_speichern_Click(object sender, EventArgs e)
@@ -95,6 +80,7 @@ namespace Unify_DPO_Tool
             if (modi == "field")
             {
             }
+            update();
         }
 
         private void bt_loeschen_Click(object sender, EventArgs e)
@@ -108,6 +94,7 @@ namespace Unify_DPO_Tool
             if (modi == "field")
             {
             }
+            update();
         }
 
         private void cb_auswahl_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,6 +112,35 @@ namespace Unify_DPO_Tool
                 tb_Text.Text = ((a_texte)cb_auswahl.SelectedItem).prop_text;
                 cb_workgroup.SelectedItem = cb_workgroup.FindString(((a_texte)cb_auswahl.SelectedItem).prop_wg);
             }
+        }
+        private void update()
+        {
+            ArrayList liste = new ArrayList();
+            cb_auswahl.Items.Clear();
+            if (modi == "sachnummern")
+            {
+                liste = sql_aufrufe.SQL_req_sparepart();
+                foreach (spareparts element in liste)
+                    cb_auswahl.Items.Add(element);
+            }
+            if (modi == "remote")
+            {
+                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("remoteactivity");
+                foreach (a_texte element in liste)
+                    cb_auswahl.Items.Add(element);
+            }
+            if (modi == "field")
+            {
+                cb_auswahl.Items.Clear();
+                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("reqactionfield");
+                foreach (a_texte element in liste)
+                    cb_auswahl.Items.Add(element);
+            }
+            liste.Clear();
+            tb_id.Text = "";
+            tb_Text.Text = "";
+            tb_sname.Text = "";
+            tb_sBeschreibung.Text = "";
         }
     }
 }
