@@ -11,8 +11,9 @@ namespace Unify_DPO_Tool
         static string modi = "";
         public vorDefTexte_aendern(string einstellung)
         {
-            modi = einstellung;
             InitializeComponent();
+            modi = einstellung;
+            MessageBox.Show("Bearbeiten und Löschen ist aktuell noch nicht möglich!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ArrayList liste = new ArrayList();
             liste = sql_aufrufe.SQL_workgroupsabrufen();
             foreach (Workgroup element in liste)
@@ -31,6 +32,8 @@ namespace Unify_DPO_Tool
             {
                 lb_Sachnummer.Visible = false;
                 lb_sBeschreibung.Visible = false;
+                tb_sname.Visible = false;
+                tb_sBeschreibung.Visible = false;
                 liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("remoteactivity");
                 foreach (a_texte element in liste)
                     cb_auswahl.Items.Add(element);
@@ -40,6 +43,8 @@ namespace Unify_DPO_Tool
             {
                 lb_Sachnummer.Visible = false;
                 lb_sBeschreibung.Visible = false;
+                tb_sname.Visible = false;
+                tb_sBeschreibung.Visible = false;
                 liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("reqactionfield");
                 foreach (a_texte element in liste)
                     cb_auswahl.Items.Add(element);
@@ -49,12 +54,47 @@ namespace Unify_DPO_Tool
 
         private void bt_anlegen_Click(object sender, EventArgs e)
         {
-
+            ArrayList liste = new ArrayList();
+            if (modi == "sachnummern")
+            {
+                sql_aufrufe.SQL_sparepart_add(new spareparts(999, tb_sname.Text, tb_sBeschreibung.Text, Convert.ToString(cb_workgroup.SelectedText)));
+                cb_auswahl.Items.Clear();
+                liste = sql_aufrufe.SQL_req_sparepart();
+                foreach (spareparts element in liste)
+                    cb_auswahl.Items.Add(element);
+                liste.Clear();
+            }
+            if (modi == "remote")
+            {
+                sql_aufrufe.SQL_remote_add(new a_texte(999, tb_Text.Text, Convert.ToString(cb_workgroup.SelectedText)));
+                cb_auswahl.Items.Clear();
+                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("remoteactivity");
+                foreach (a_texte element in liste)
+                    cb_auswahl.Items.Add(element);
+                liste.Clear();
+            }
+            if (modi == "field")
+            {
+                sql_aufrufe.SQL_field_add(new a_texte(999, tb_Text.Text, Convert.ToString(cb_workgroup.SelectedText)));
+                cb_auswahl.Items.Clear();
+                liste = sql_aufrufe.SQL_sel_multiple_table_wo_filter("reqactionfield");
+                foreach (a_texte element in liste)
+                    cb_auswahl.Items.Add(element);
+                liste.Clear();
+            }
         }
 
         private void bt_speichern_Click(object sender, EventArgs e)
         {
-
+            if (modi == "sachnummern")
+            {
+            }
+            if (modi == "remote")
+            {
+            }
+            if (modi == "field")
+            {
+            }
         }
 
         private void bt_loeschen_Click(object sender, EventArgs e)
@@ -67,6 +107,23 @@ namespace Unify_DPO_Tool
             }
             if (modi == "field")
             {
+            }
+        }
+
+        private void cb_auswahl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modi == "sachnummern")
+            {
+                tb_id.Text=Convert.ToString(((spareparts)cb_auswahl.SelectedItem).prop_id);
+                tb_sname.Text = ((spareparts)cb_auswahl.SelectedItem).prop_sach;
+                tb_sBeschreibung.Text = ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung;
+                cb_workgroup.SelectedItem = cb_workgroup.FindString(((spareparts)cb_auswahl.SelectedItem).prop_workgroup);
+            }
+            if (modi == "remote" || modi == "field")
+            {
+                tb_id.Text = Convert.ToString(((a_texte)cb_auswahl.SelectedItem).prop_id);
+                tb_Text.Text = ((a_texte)cb_auswahl.SelectedItem).prop_text;
+                cb_workgroup.SelectedItem = cb_workgroup.FindString(((a_texte)cb_auswahl.SelectedItem).prop_wg);
             }
         }
     }

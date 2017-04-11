@@ -655,7 +655,7 @@
             // UnifyDPOWiki
             // 
             this.UnifyDPOWiki.AutoSize = true;
-            this.UnifyDPOWiki.Location = new System.Drawing.Point(6, 422);
+            this.UnifyDPOWiki.Location = new System.Drawing.Point(3, 422);
             this.UnifyDPOWiki.Name = "UnifyDPOWiki";
             this.UnifyDPOWiki.Size = new System.Drawing.Size(135, 13);
             this.UnifyDPOWiki.TabIndex = 11;
@@ -666,7 +666,7 @@
             // IBMTechniker
             // 
             this.IBMTechniker.AutoSize = true;
-            this.IBMTechniker.Location = new System.Drawing.Point(145, 422);
+            this.IBMTechniker.Location = new System.Drawing.Point(144, 422);
             this.IBMTechniker.Name = "IBMTechniker";
             this.IBMTechniker.Size = new System.Drawing.Size(134, 13);
             this.IBMTechniker.TabIndex = 12;
@@ -677,12 +677,12 @@
             // IBMDispoMail
             // 
             this.IBMDispoMail.AutoSize = true;
-            this.IBMDispoMail.Location = new System.Drawing.Point(285, 422);
+            this.IBMDispoMail.Location = new System.Drawing.Point(284, 422);
             this.IBMDispoMail.Name = "IBMDispoMail";
-            this.IBMDispoMail.Size = new System.Drawing.Size(93, 13);
+            this.IBMDispoMail.Size = new System.Drawing.Size(122, 13);
             this.IBMDispoMail.TabIndex = 13;
             this.IBMDispoMail.TabStop = true;
-            this.IBMDispoMail.Text = "Mail an IBM Dispo";
+            this.IBMDispoMail.Text = "Mail an IBM Dispo(GER)";
             this.IBMDispoMail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMDispoMail_LinkClicked);
             // 
             // notifyIcon1
@@ -695,12 +695,12 @@
             // IBMDispoEskalation
             // 
             this.IBMDispoEskalation.AutoSize = true;
-            this.IBMDispoEskalation.Location = new System.Drawing.Point(384, 422);
+            this.IBMDispoEskalation.Location = new System.Drawing.Point(410, 422);
             this.IBMDispoEskalation.Name = "IBMDispoEskalation";
-            this.IBMDispoEskalation.Size = new System.Drawing.Size(123, 13);
+            this.IBMDispoEskalation.Size = new System.Drawing.Size(152, 13);
             this.IBMDispoEskalation.TabIndex = 14;
             this.IBMDispoEskalation.TabStop = true;
-            this.IBMDispoEskalation.Text = "Eskalation an IBM Dispo";
+            this.IBMDispoEskalation.Text = "Eskalation an IBM Dispo(GER)";
             this.IBMDispoEskalation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMDispoEskalation_LinkClicked);
             // 
             // menuStrip1

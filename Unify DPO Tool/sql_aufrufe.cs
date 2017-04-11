@@ -10,8 +10,8 @@ namespace Unify_DPO_Tool
 {
     class sql_aufrufe
     {
-        static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
-        static string connection = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
+        static string connection = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
+        static string connection_unused = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         /// <summary>
         /// MD5 Hash erzeugen und als string zurückgeben.
         /// </summary>
@@ -586,8 +586,7 @@ namespace Unify_DPO_Tool
                 try
                 {
                     verbindung.ConnectionString = connection;
-                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from @tabelle", verbindung);
-                    SQL_Befehl.Parameters.AddWithValue("@tabelle", tabelle);
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from "+tabelle, verbindung);
                     ArrayList liste = new ArrayList();
                     try
                     {
@@ -741,11 +740,109 @@ namespace Unify_DPO_Tool
 
             }
         }
+        public static void SQL_remote_add(a_texte text)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO remoteactivity (text,workgroup) VALUES (@utext,@uwg)", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@utext", text.prop_text);
+                    SQL_Befehl.Parameters.AddWithValue("@uwg", text.prop_wg);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Text erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    //Hier könnte man ein Log file schreiben
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_field_add(a_texte text)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO reqactionfield (text,workgroup) VALUES (@utext,@uwg)", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@utext", text.prop_text);
+                    SQL_Befehl.Parameters.AddWithValue("@uwg", text.prop_wg);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Text erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    //Hier könnte man ein Log file schreiben
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_sparepart_add(spareparts teil)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO sparepart (sachnummer,beschreibung,workgroup) VALUES (@utext,@ubeschreibung,@uwg)", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@utext", teil.prop_sach);
+                    SQL_Befehl.Parameters.AddWithValue("@ubeschreibung", teil.prop_beschreibung);
+                    SQL_Befehl.Parameters.AddWithValue("@uwg", teil.prop_workgroup);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Ersatzteil erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Ersatzteil konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
         public static string LDAP_telabfragen(string domainuser)
         {
             string rueckgabe = "";
             DirectoryEntry entry = new DirectoryEntry("LDAP://" + Environment.UserDomainName);
-            MessageBox.Show("Debug Fenster: LDAP-Pfad: "+entry.Path);
             DirectorySearcher mySearcher = new DirectorySearcher(entry);
             mySearcher.Filter = "(&(ObjectClass=user)(sAMAccountName="+Environment.UserName+"))";
             mySearcher.PropertiesToLoad.Add("displayName");

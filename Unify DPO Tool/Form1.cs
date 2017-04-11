@@ -37,7 +37,7 @@ namespace Unify_DPO_Tool
             sparepartvissibilitychange();
             fremdvissibilitychange();
             onsitevissibilitychange();
-            //MessageBox.Show("Achtung: Sie nutzen ein Tool in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@atos.net).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
+            //MessageBox.Show("Tool ist in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@atos.net).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
             version.Text = "Version: "+ProductVersion;
             programm_start();
         }

@@ -22,6 +22,11 @@ namespace Unify_DPO_Tool
             get { return text; }
             set { text = value; }
         }
+        public string prop_wg
+        {
+            get { return workgroup; }
+            set { workgroup = value; }
+        }
         
         public a_texte()
         {

@@ -45,5 +45,9 @@ namespace Unify_DPO_Tool
             beschreibung = u_besch;
             workgroup = u_wg;
         }
+        public override string ToString()
+        {
+            return sachnummer + "(" + beschreibung + ")";
+        }
     }
 }

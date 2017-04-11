@@ -85,6 +85,7 @@
             this.cb_auswahl.Name = "cb_auswahl";
             this.cb_auswahl.Size = new System.Drawing.Size(325, 21);
             this.cb_auswahl.TabIndex = 4;
+            this.cb_auswahl.SelectedIndexChanged += new System.EventHandler(this.cb_auswahl_SelectedIndexChanged);
             // 
             // lb_id
             // 
