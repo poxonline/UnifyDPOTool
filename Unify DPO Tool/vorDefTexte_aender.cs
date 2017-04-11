@@ -141,6 +141,7 @@ namespace Unify_DPO_Tool
             tb_Text.Text = "";
             tb_sname.Text = "";
             tb_sBeschreibung.Text = "";
+            GC.Collect(); // Test mit Garbage Collection
         }
     }
 }
