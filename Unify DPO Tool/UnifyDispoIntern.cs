@@ -26,7 +26,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("tel://+4989700720192");
+                System.Diagnostics.Process.Start("tel:+4989700720192");
             }
             catch
             {
@@ -38,7 +38,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("tel://+4989700723640");
+                System.Diagnostics.Process.Start("tel:+4989700723640");
             }
             catch
             {
@@ -50,7 +50,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("tel://+4989700720192");
+                System.Diagnostics.Process.Start("tel:+4989700720192");
             }
             catch
             {
@@ -62,7 +62,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("tel://+4989700723061");
+                System.Diagnostics.Process.Start("tel:+4989700723061");
             }
             catch
             {

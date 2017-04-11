@@ -21,7 +21,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("tel://+498005116352");
+                System.Diagnostics.Process.Start("tel:+498005116352");
             }
             catch 
             {
@@ -33,7 +33,7 @@ namespace Unify_DPO_Tool
         {
             try
             {
-                System.Diagnostics.Process.Start("tel://+493415607549");
+                System.Diagnostics.Process.Start("tel:+493415607549");
             }
             catch
             {
@@ -44,6 +44,18 @@ namespace Unify_DPO_Tool
         private void beenden_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("tel:+498005116353");
+            }
+            catch
+            {
+                MessageBox.Show("Es wurde kein passendes Programm zum Anrufen gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

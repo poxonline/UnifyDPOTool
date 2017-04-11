@@ -172,7 +172,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UnifyDispoIntern";
-            this.Text = "UnifyDispoIntern";
+            this.Text = "DPO Tool - Unify Dispo Intern";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
