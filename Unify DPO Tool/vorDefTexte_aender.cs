@@ -73,12 +73,19 @@ namespace Unify_DPO_Tool
         {
             if (modi == "sachnummern")
             {
+                ((spareparts)cb_auswahl.SelectedItem).prop_sach = tb_sname.Text;
+                ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung = tb_sBeschreibung.Text;
+                ((spareparts)cb_auswahl.SelectedItem).prop_workgroup = cb_workgroup.SelectedText;
             }
             if (modi == "remote")
             {
+                ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
+                ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
             }
             if (modi == "field")
             {
+                ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
+                ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
             }
             update();
         }
@@ -87,12 +94,15 @@ namespace Unify_DPO_Tool
         {
             if (modi == "sachnummern")
             {
+                if (((spareparts)cb_auswahl.SelectedItem).prop_id != 0) ;
             }
             if (modi == "remote")
             {
+                if(((a_texte)cb_auswahl.SelectedItem).prop_id!=0);
             }
             if (modi == "field")
             {
+                if (((a_texte)cb_auswahl.SelectedItem).prop_id != 0) ;
             }
             update();
         }
