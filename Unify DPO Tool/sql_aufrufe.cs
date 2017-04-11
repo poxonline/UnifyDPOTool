@@ -10,8 +10,8 @@ namespace Unify_DPO_Tool
 {
     class sql_aufrufe
     {
-        static string connection = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
-        static string connection_unused = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
+        static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
+        static string connection = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         /// <summary>
         /// MD5 Hash erzeugen und als string zurückgeben.
         /// </summary>
@@ -740,6 +740,48 @@ namespace Unify_DPO_Tool
 
             }
         }
+        public static ArrayList SQL_sel_spareparts_wi_filter(string wg1, string wg2)
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from sparepart WHERE WORKGROUP='@fil' OR WORKGROUP='@filter';", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@fil", wg1);
+                    SQL_Befehl.Parameters.AddWithValue("@filter", wg2);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(new spareparts(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3)));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+
+            }
+        }
         public static void SQL_remote_add(a_texte text)
         {
             using (MySqlConnection verbindung = new MySqlConnection())
@@ -832,6 +874,102 @@ namespace Unify_DPO_Tool
                 catch
                 {
                     MessageBox.Show("Es ist ein Fehler aufgetreten, das Ersatzteil konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_sparepart_del(spareparts del)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM sparepart where id=@tid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tid", del.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Ersatzteil/Sparepart erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, Ersatzteil/Sparepart konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_remotetext_del(a_texte del)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM remoteactivity where id=@tid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tid", del.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Text erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_fieldtext_del(a_texte del)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM reqactionfield where id=@tid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@tid", del.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Text erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {

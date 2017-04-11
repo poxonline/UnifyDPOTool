@@ -630,9 +630,12 @@ namespace Unify_DPO_Tool
         cb_gruppenauswahl.Items.Clear();
         ArrayList teams = new ArrayList();
         teams=sql_aufrufe.SQL_teamsabrufen();
+        if(teams!=null)
+        {
         foreach (team element in teams)
             cb_gruppenauswahl.Items.Add(element);
         teams.Clear();
+        }
     }
         public void programm_start()
     {
@@ -644,15 +647,24 @@ namespace Unify_DPO_Tool
         lol_init(); //Prüft ob DPO Fenster im Hintergrund geöffnet wird
         //bmc_running(); auskommentiert weil Programm dann nur mit BMC an läuft
         lb_LDAP_ausgabe.Text = sql_aufrufe.LDAP_telabfragen(Environment.UserName);
+        felderreload();
     }
         public void felderreload()
         {
-            //sachnummern neu laden
             ArrayList liste = new ArrayList();
+            //sachnummern neu laden
+            cb_sachnummer.Items.Clear();
+            liste = sql_aufrufe.SQL_sel_spareparts_wi_filter(aktuelleWorkgroup.Text, "ALL");
+            if (liste != null)
+            {
+                foreach (spareparts element in liste)
+                    cb_sachnummer.Items.Add(element);
+                liste.Clear();
+            }
             cb_activitiessofarremote.Items.Clear();
             //Remote Aktivirty neu laden
             liste = sql_aufrufe.SQL_sel_remoteact_wi_filter(aktuelleWorkgroup.Text, "ALL");
-            if (liste.Count>0||liste!=null)
+            if (liste!=null)
             {
                 foreach (a_texte element in liste)
                     cb_activitiessofarremote.Items.Add(element);
@@ -661,9 +673,12 @@ namespace Unify_DPO_Tool
             //requestetd from field neu laden
             cb_requestedfromfield.Items.Clear();
             liste = sql_aufrufe.SQL_sel_requestfield_wi_filter(aktuelleWorkgroup.Text, "ALL");
-            foreach (a_texte element in liste)
-                cb_requestedfromfield.Items.Add(element);
-            liste.Clear();
+            if (liste != null)
+            {
+                foreach (a_texte element in liste)
+                    cb_requestedfromfield.Items.Add(element);
+                liste.Clear();
+            }
         }
 
     }

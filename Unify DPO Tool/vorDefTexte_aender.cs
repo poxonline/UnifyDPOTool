@@ -13,7 +13,7 @@ namespace Unify_DPO_Tool
         {
             InitializeComponent();
             modi = einstellung;
-            MessageBox.Show("Bearbeiten und Löschen ist aktuell noch nicht möglich!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Bearbeiten ist aktuell noch nicht möglich!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ArrayList liste = new ArrayList();
             liste = sql_aufrufe.SQL_workgroupsabrufen();
             foreach (Workgroup element in liste)
@@ -94,15 +94,15 @@ namespace Unify_DPO_Tool
         {
             if (modi == "sachnummern")
             {
-                if (((spareparts)cb_auswahl.SelectedItem).prop_id != 0) ;
+               sql_aufrufe.SQL_sparepart_del((spareparts)cb_auswahl.SelectedItem);
             }
             if (modi == "remote")
             {
-                if(((a_texte)cb_auswahl.SelectedItem).prop_id!=0);
+                sql_aufrufe.SQL_remotetext_del((a_texte)cb_auswahl.SelectedItem);
             }
             if (modi == "field")
             {
-                if (((a_texte)cb_auswahl.SelectedItem).prop_id != 0) ;
+                sql_aufrufe.SQL_fieldtext_del((a_texte)cb_auswahl.SelectedItem);
             }
             update();
         }
