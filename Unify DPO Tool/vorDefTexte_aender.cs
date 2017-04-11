@@ -56,15 +56,15 @@ namespace Unify_DPO_Tool
         {
             if (modi == "sachnummern")
             {
-                sql_aufrufe.SQL_sparepart_add(new spareparts(999, tb_sname.Text, tb_sBeschreibung.Text, Convert.ToString(cb_workgroup.SelectedText)));
+                sql_aufrufe.SQL_sparepart_add(new spareparts(999, tb_sname.Text, tb_sBeschreibung.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name));
             }
             if (modi == "remote")
             {
-                sql_aufrufe.SQL_remote_add(new a_texte(999, tb_Text.Text, Convert.ToString(cb_workgroup.SelectedText)));
+                sql_aufrufe.SQL_remote_add(new a_texte(999, tb_Text.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name));
             }
             if (modi == "field")
             {
-                sql_aufrufe.SQL_field_add(new a_texte(999, tb_Text.Text, Convert.ToString(cb_workgroup.SelectedText)));
+                sql_aufrufe.SQL_field_add(new a_texte(999, tb_Text.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name));
             }
             update();
         }
