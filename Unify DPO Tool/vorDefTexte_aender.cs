@@ -13,7 +13,6 @@ namespace Unify_DPO_Tool
         {
             InitializeComponent();
             modi = einstellung;
-            MessageBox.Show("Bearbeiten ist aktuell noch nicht möglich!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ArrayList liste = new ArrayList();
             liste = sql_aufrufe.SQL_workgroupsabrufen();
             foreach (Workgroup element in liste)
@@ -76,16 +75,19 @@ namespace Unify_DPO_Tool
                 ((spareparts)cb_auswahl.SelectedItem).prop_sach = tb_sname.Text;
                 ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung = tb_sBeschreibung.Text;
                 ((spareparts)cb_auswahl.SelectedItem).prop_workgroup = cb_workgroup.SelectedText;
+                sql_aufrufe.SQL_spareparts_edit((spareparts)cb_auswahl.SelectedItem);
             }
             if (modi == "remote")
             {
                 ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
                 ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
+                sql_aufrufe.SQL_remote_edit((a_texte)cb_auswahl.SelectedItem);
             }
             if (modi == "field")
             {
                 ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
                 ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
+                sql_aufrufe.SQL_field_edit((a_texte)cb_auswahl.SelectedItem);
             }
             update();
         }

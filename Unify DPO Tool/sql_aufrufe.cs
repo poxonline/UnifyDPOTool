@@ -146,7 +146,7 @@ namespace Unify_DPO_Tool
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank."+Environment.NewLine+ex, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 finally
@@ -392,17 +392,16 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Team erfoglreich angelegt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Team erfoglreich angelegt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht angelegt werden."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -431,17 +430,16 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Team erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Team erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht bearbeitet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht bearbeitet werden."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -463,17 +461,16 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Team erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Team erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, das Team konnte nicht gelöscht werden."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -504,8 +501,7 @@ namespace Unify_DPO_Tool
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht angelegt werden."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -528,17 +524,16 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Workgroup erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Workgroup erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht bearbeitet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht bearbeitet werden."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -560,17 +555,16 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Workgroup erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Workgroup erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Convert.ToString(ex));
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, die Workgroup konnte nicht gelöscht werden."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -770,9 +764,9 @@ namespace Unify_DPO_Tool
                     verbindung.Close();
                     return liste;
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank."+Environment.NewLine+ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 finally
@@ -797,17 +791,17 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Text erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Text erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     //Hier könnte man ein Log file schreiben
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht angelegt werden." + Environment.NewLine + ex, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -830,17 +824,17 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Text erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Text erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     //Hier könnte man ein Log file schreiben
-                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht angelegt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht angelegt werden." + Environment.NewLine + ex, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -864,12 +858,12 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Ersatzteil erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Ersatzteil erfoglreich hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
                 {
@@ -895,12 +889,12 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Ersatzteil/Sparepart erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Ersatzteil/Sparepart erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -927,12 +921,12 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Text erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Text erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -959,17 +953,117 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Open();
                         SQL_Befehl.ExecuteNonQuery();
                         SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Text erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    MessageBox.Show("Text erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(Convert.ToString(ex));
                     MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht gelöscht werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_spareparts_edit(spareparts edit)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE sparepart SET sachnummer=@sachnr,beschreibung=@beschrei,workgroup=@wg WHERE ID=@id", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@sachnr", edit.prop_sach);
+                    SQL_Befehl.Parameters.AddWithValue("@beschrei", edit.prop_beschreibung);
+                    SQL_Befehl.Parameters.AddWithValue("@wg", edit.prop_workgroup);
+                    SQL_Befehl.Parameters.AddWithValue("@id", edit.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Ersatzteil/Sparepart erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, Ersatzteil/Sparepart konnte nicht bearbeitet werden." + Environment.NewLine + ex, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_remote_edit(a_texte edit)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE remoteactivity SET text=@txt,workgroup=@wg WHERE ID=@id", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@txt", edit.prop_text);
+                    SQL_Befehl.Parameters.AddWithValue("@wg", edit.prop_wg);
+                    SQL_Befehl.Parameters.AddWithValue("@id", edit.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Text erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht bearbeitet werden." + Environment.NewLine + ex, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+
+            }
+        }
+        public static void SQL_field_edit(a_texte edit)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE reqactionfield SET text=@txt,workgroup=@wg WHERE ID=@id", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@txt", edit.prop_text);
+                    SQL_Befehl.Parameters.AddWithValue("@wg", edit.prop_wg);
+                    SQL_Befehl.Parameters.AddWithValue("@id", edit.prop_id);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                        MessageBox.Show("Text erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Text konnte nicht bearbeitet werden." + Environment.NewLine + ex, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
