@@ -21,3 +21,4 @@ C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.user.resources
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.team_form.resources
 C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\obj\Debug\Unify_DPO_Tool.workgroup_form.resources
+C:\Users\Peter\Documents\Visual Studio 2013\Projects\UnifyDPOTool\Unify DPO Tool\bin\Debug\MySql.Data.dll
