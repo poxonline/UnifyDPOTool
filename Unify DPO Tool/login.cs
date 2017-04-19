@@ -29,9 +29,8 @@ namespace Unify_DPO_Tool
 
         private void bt_login_Click(object sender, EventArgs e)
         {
-            MD5 md5Hash = MD5.Create();
             pw_rueckgabe = sql_aufrufe.SQL_pwabfrage(tb_benutzer_ein.Text);
-            wert = sql_aufrufe.GetMd5Hash(md5Hash, tb_pw_ein.Text);
+            wert = sql_aufrufe.GetSHA256Hash(tb_pw_ein.Text);
             if (wert == pw_rueckgabe)
             {
                 MessageBox.Show("Login erfolgreich","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);

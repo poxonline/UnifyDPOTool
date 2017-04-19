@@ -34,12 +34,12 @@ namespace Unify_DPO_Tool
         public Form1()
         {
             InitializeComponent();
-            sparepartvissibilitychange();
-            fremdvissibilitychange();
-            onsitevissibilitychange();
             //MessageBox.Show("Tool ist in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@atos.net).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
             version.Text = "Version: "+ProductVersion;
             programm_start();
+            sparepartvissibilitychange();
+            fremdvissibilitychange();
+            onsitevissibilitychange();
             GC.Collect(); // Test mit Garbage Collection
         }
 
@@ -173,27 +173,36 @@ namespace Unify_DPO_Tool
         private void sparepartja_CheckedChanged(object sender, EventArgs e)
         {
             sparepartvissibilitychange();
+            update_ausgabe();
         } 
         private void fremdremoteja_CheckedChanged(object sender, EventArgs e)
         {
             fremdvissibilitychange();
+            update_ausgabe();
         }  
         private void onsiteja_CheckedChanged(object sender, EventArgs e)
         {
             onsitevissibilitychange();
+            update_ausgabe();
         }
 
         public void sparepartvissibilitychange()
         {
             if(sparepartnein.Checked)
             {
+                cb_sachnummer.SelectedIndex = -1;
+                cb_sachnummer.Text = "";
+                cb_sachnummer.Enabled = false;
                 cb_sparepartchance.Text="0";
                 cb_sparepartchance.DropDownStyle = ComboBoxStyle.DropDownList;
+                cb_sparepartchance.Enabled = false;
                 e_teil = "n/a";
             }
             else
             {
                 cb_sparepartchance.Text="100";
+                cb_sparepartchance.Enabled = true;
+                cb_sachnummer.Enabled = true;
                 cb_sparepartchance.DropDownStyle = ComboBoxStyle.DropDown;
                 e_teil = cb_sachnummer.Text;
             }
@@ -231,14 +240,16 @@ namespace Unify_DPO_Tool
         private void  Gruppenauswahl_SelectedIndexChanged(object sender, EventArgs e)
         {
             aktuelleWorkgroup.Text = ((team)cb_gruppenauswahl.SelectedItem).prop_workgroup;
-            maillinkKomplett = maillink + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email;
+            maillinkKomplett = maillink + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email+",michael.wessoleck.atos.net";
             hotline = ((team)cb_gruppenauswahl.SelectedItem).prop_telefon;
             maillinkEskalationKomplett = maillinkEskalation + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "," + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + ",michael.wessoleck.atos.net";
             felderreload();
+            update_ausgabe();
         }
 
         private void texterzeugen_Click(object sender, EventArgs e)
         {
+            update_ausgabe();
             fehler = "";
             if (e_teil != "n/a")
             {
@@ -250,17 +261,19 @@ namespace Unify_DPO_Tool
             }
             if (e_teil == "")
             {
-                fehler = "Feld \"Sachnummer\" ist leer! Bitte eine Sachnummer angeben.";
+                fehler += "Feld \"Sachnummer\" ist leer! Bitte eine Sachnummer angeben.";
             }
             if (issuediscription.Text == "")
             {
-                fehler += Environment.NewLine + "Feld \"Issue Discription\" ist leer! Bitte eine Fehler Beschreibung angeben.";
+                fehler += Environment.NewLine + "Feld \"Issue Discription\" ist leer! Bitte eine Fehlerbeschreibung angeben.";
             }
-
+            if(cb_activitiessofarremote.Text=="")
+            {   fehler += Environment.NewLine + "Feld \"Activitis so far in Remote ist leer\" ist leer!"; }
+            if (cb_requestedfromfield.Text == "")
+            { fehler += Environment.NewLine + "Feld \"Requestet from Field\" ist leer!"; }
             if (CSIfreitext.Text == "")
             {
                 CSIfreitext.Text = "-";
-                //fehler += Environment.NewLine + "Feld \"Freitext\" ist leer! Bitte einen Freitext eingeben.";
             }
             // Ausgabe MessageBox mit Fehlern
             if (fehler != "")
@@ -269,59 +282,7 @@ namespace Unify_DPO_Tool
             }
             else
             {
-                string zusatztext = "";
-                if (((team)cb_gruppenauswahl.SelectedItem).prop_zusatztext!="")
-                { zusatztext = ", " + ((team)cb_gruppenauswahl.SelectedItem).prop_zusatztext; }
-                else
-                {zusatztext="";}
-                //Fremdremote nein und Onsite Nein
-                if (fremdremotenein.Checked && onsitenein.Checked)
-                {
-                    ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
-                        "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
-                        label11.Text + " " + issuediscription.Text + Environment.NewLine +
-                        label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
-                        label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
-                        label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                        CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + ", Unify MSD" + hotline + zusatztext;
-                    Clipboard.SetDataObject(ausgabe.Text, false);
-                }
-                //Fremdremote Ja Onsite Nein
-                if (fremdremoteja.Checked && onsitenein.Checked)
-                {
-                    ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
-                        "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
-                        label11.Text + " " + issuediscription.Text + Environment.NewLine +
-                        label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
-                        label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
-                        label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                        CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + ", Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + ", Unify MSD" + hotline + zusatztext;
-                    Clipboard.SetDataObject(ausgabe.Text, false);
-                }
-                // Fremdremote Ja Onsite Ja
-                if (fremdremoteja.Checked && onsiteja.Checked)
-                {
-                    ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
-                        "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
-                        label11.Text + " " + issuediscription.Text + Environment.NewLine +
-                        label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
-                        label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
-                        label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                        CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + ", Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + ", On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + ", Unify MSD" + hotline + zusatztext;
-                    Clipboard.SetDataObject(ausgabe.Text, false);
-                }
-                //Fremdreote Nein Onsite Ja
-                if (fremdremotenein.Checked && onsiteja.Checked)
-                {
-                    ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
-                        "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
-                        label11.Text + " " + issuediscription.Text + Environment.NewLine +
-                        label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
-                        label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
-                        label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                        CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + ", On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + ", Unify MSD" + hotline + zusatztext;
-                    Clipboard.SetDataObject(ausgabe.Text, false);
-                }
+                Clipboard.SetDataObject(ausgabe.Text, false);
             }
         }
 
@@ -453,19 +414,19 @@ namespace Unify_DPO_Tool
 
         private void sachnummernToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            vorDefTexte_aendern fenster = new vorDefTexte_aendern("sachnummern");
+            vorDefTexte_aendern fenster = new vorDefTexte_aendern("sachnummern",this);
             fenster.Show();
         }
 
         private void activitiesSoFarInRemoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            vorDefTexte_aendern fenster = new vorDefTexte_aendern("remote");
+            vorDefTexte_aendern fenster = new vorDefTexte_aendern("remote",this);
             fenster.Show();
         }
 
         private void requestedActionFromFieldToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            vorDefTexte_aendern fenster = new vorDefTexte_aendern("field");
+            vorDefTexte_aendern fenster = new vorDefTexte_aendern("field",this);
             fenster.Show();
         }
 
@@ -588,7 +549,7 @@ namespace Unify_DPO_Tool
         ausloggenToolStripMenuItem.Enabled = false;
         einloggenToolStripMenuItem.Enabled = true;
         workgroupsToolStripMenuItem.Enabled = false;
-        lb_user.Text = "-";
+        lb_user.Text = "Nicht als Admin eingeloggt";
     }
 
     private void neuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -681,6 +642,69 @@ namespace Unify_DPO_Tool
                 liste.Clear();
             }
         }
-
+        public void update_ausgabe()
+        {
+            string bekanntgeben;
+            string zusatztext;
+            string asp = "";
+            if (0 == String.Compare("Fehler", lb_LDAP_ausgabe.Text))
+            { asp = "; Ansprechpartner im Unify MSD " + lb_LDAP_ausgabe.Text; }
+            if (cb_technician_sparepart.Checked)
+            { bekanntgeben = "; Technikername und „vor Ort“ Zeit spätestens in 30min an Ansprechpartner des Unify MSD bekanntgeben"; }
+            else
+            { bekanntgeben = ""; }
+            if (((team)cb_gruppenauswahl.SelectedItem).prop_zusatztext != "")
+            { zusatztext = "; " + ((team)cb_gruppenauswahl.SelectedItem).prop_zusatztext; }
+            else
+            { zusatztext = ""; }
+            //Fremdremote nein und Onsite Nein
+            if (fremdremotenein.Checked && onsitenein.Checked)
+            {
+                ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
+                    "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
+                    label11.Text + " " + issuediscription.Text + Environment.NewLine +
+                    label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
+                    label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
+                    label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+            }
+            //Fremdremote Ja Onsite Nein
+            if (fremdremoteja.Checked && onsitenein.Checked)
+            {
+                ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
+                    "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
+                    label11.Text + " " + issuediscription.Text + Environment.NewLine +
+                    label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
+                    label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
+                    label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+            }
+            // Fremdremote Ja Onsite Ja
+            if (fremdremoteja.Checked && onsiteja.Checked)
+            {
+                ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
+                    "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
+                    label11.Text + " " + issuediscription.Text + Environment.NewLine +
+                    label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
+                    label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
+                    label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + "; On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+            }
+            //Fremdreote Nein Onsite Ja
+            if (fremdremotenein.Checked && onsiteja.Checked)
+            {
+                ausgabe.Text = "Spare Part: " + e_teil + Environment.NewLine +
+                    "Spare Part Chance: " + cb_sparepartchance.Text + "%" + Environment.NewLine +
+                    label11.Text + " " + issuediscription.Text + Environment.NewLine +
+                    label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
+                    label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
+                    label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+            }
+        }
+        public void update_ausgabe(object sender, EventArgs e)
+        {
+            update_ausgabe();
+        }
     }
 }

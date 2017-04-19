@@ -10,27 +10,25 @@ namespace Unify_DPO_Tool
 {
     class sql_aufrufe
     {
-        static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
-        static string connection = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
+        static string connection = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
+        static string connection_unused = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         /// <summary>
-        /// MD5 Hash erzeugen und als string zurückgeben.
+        /// SHA256 Hash erzeugen und als string zurückgeben.
         /// </summary>
-        /// <param name="md5Hash">md5Hash Objekt</param>
-        /// <param name="input">Passwort das als MD5 umgeandelt werden soll.</param>
+        /// <param name="input">Passwort das als SHA256 umgeandelt werden soll.</param>
         /// <returns>String mit MD5 vom Passwortfeld als Inhalt</returns>
-        public static string GetMd5Hash(MD5 md5Hash, string input)
+        public static string GetSHA256Hash(string input)
         {
 
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            StringBuilder sBuilder = new StringBuilder();
-
-            for (int i = 0; i < data.Length; i++)
+            byte[] bytes = Encoding.UTF8.GetBytes(input);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
             {
-                sBuilder.Append(data[i].ToString("x2"));
+                hashString += String.Format("{0:x2}", x);
             }
-
-            return sBuilder.ToString();
+            return hashString;
         }
         /// <summary>
         /// SQL Verbindung, mit Userpasswort abfrage.
@@ -1085,7 +1083,7 @@ namespace Unify_DPO_Tool
                 if (result != null)
                 {
                     DirectoryEntry result_entry = result.GetDirectoryEntry();
-                    rueckgabe = "Name: " + result_entry.Properties["displayName"][0].ToString() + " Telefon Nr: " + result_entry.Properties["telephoneNumber"][0].ToString();
+                    rueckgabe = result_entry.Properties["displayName"][0].ToString();// " Telefon Nr: " + result_entry.Properties["telephoneNumber"][0].ToString();
                     return rueckgabe;
                 }
                 else

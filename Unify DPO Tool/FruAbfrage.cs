@@ -17,7 +17,7 @@ namespace Unify_DPO_Tool
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bt_abfrage_Click(object sender, EventArgs e)
         {
             int plz;
             try
@@ -59,9 +59,17 @@ namespace Unify_DPO_Tool
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bt_schliesen_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                bt_abfrage_Click(sender as Object, e as EventArgs);
+            }
         }
     }
 }

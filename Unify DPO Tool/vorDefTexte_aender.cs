@@ -9,9 +9,11 @@ namespace Unify_DPO_Tool
     public partial class vorDefTexte_aendern : Form
     {
         static string modi = "";
-        public vorDefTexte_aendern(string einstellung)
+        static Form1 hauptfenster;
+        public vorDefTexte_aendern(string einstellung,Form1 u_hauptfenster)
         {
             InitializeComponent();
+            hauptfenster = u_hauptfenster;
             modi = einstellung;
             ArrayList liste = new ArrayList();
             liste = sql_aufrufe.SQL_workgroupsabrufen();
@@ -94,17 +96,30 @@ namespace Unify_DPO_Tool
 
         private void bt_loeschen_Click(object sender, EventArgs e)
         {
+            DialogResult result;
             if (modi == "sachnummern")
             {
-               sql_aufrufe.SQL_sparepart_del((spareparts)cb_auswahl.SelectedItem);
+               result=MessageBox.Show("Möchten sie wirklich das Ersatzteil " + ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung + " löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+               if (result == DialogResult.Yes)
+               {
+                   sql_aufrufe.SQL_sparepart_del((spareparts)cb_auswahl.SelectedItem);
+               }
             }
             if (modi == "remote")
             {
-                sql_aufrufe.SQL_remotetext_del((a_texte)cb_auswahl.SelectedItem);
+                result = MessageBox.Show("Möchten sie wirklich den ausgewählten Text löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    sql_aufrufe.SQL_remotetext_del((a_texte)cb_auswahl.SelectedItem);
+                }
             }
             if (modi == "field")
             {
-                sql_aufrufe.SQL_fieldtext_del((a_texte)cb_auswahl.SelectedItem);
+                result = MessageBox.Show("Möchten sie wirklich den ausgewählten Text löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    sql_aufrufe.SQL_fieldtext_del((a_texte)cb_auswahl.SelectedItem);
+                }
             }
             update();
         }
@@ -116,13 +131,13 @@ namespace Unify_DPO_Tool
                 tb_id.Text=Convert.ToString(((spareparts)cb_auswahl.SelectedItem).prop_id);
                 tb_sname.Text = ((spareparts)cb_auswahl.SelectedItem).prop_sach;
                 tb_sBeschreibung.Text = ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung;
-                cb_workgroup.SelectedItem = cb_workgroup.FindString(((spareparts)cb_auswahl.SelectedItem).prop_workgroup);
+                cb_workgroup.SelectedIndex = cb_workgroup.FindString(((spareparts)cb_auswahl.SelectedItem).prop_workgroup);
             }
             if (modi == "remote" || modi == "field")
             {
                 tb_id.Text = Convert.ToString(((a_texte)cb_auswahl.SelectedItem).prop_id);
                 tb_Text.Text = ((a_texte)cb_auswahl.SelectedItem).prop_text;
-                cb_workgroup.SelectedItem = cb_workgroup.FindString(((a_texte)cb_auswahl.SelectedItem).prop_wg);
+                cb_workgroup.SelectedIndex = cb_workgroup.FindString(((a_texte)cb_auswahl.SelectedItem).prop_wg);
             }
         }
         private void update()
@@ -153,7 +168,13 @@ namespace Unify_DPO_Tool
             tb_Text.Text = "";
             tb_sname.Text = "";
             tb_sBeschreibung.Text = "";
+            cb_workgroup.SelectedIndex = -1;
             GC.Collect(); // Test mit Garbage Collection
+        }
+
+        private void vorDefTexte_aendern_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            hauptfenster.felderreload();   
         }
     }
 }

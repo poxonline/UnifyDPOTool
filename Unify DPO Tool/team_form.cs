@@ -68,8 +68,12 @@ namespace Unify_DPO_Tool
 
         private void bt_loeschen_Click(object sender, EventArgs e)
         {
-            sql_aufrufe.SQL_teamdel((team)cb_teamauswahl.SelectedItem);
-            update_teams();
+            DialogResult result = MessageBox.Show("Möchten sie wirklich das Team " + ((team)cb_teamauswahl.SelectedItem).prop_name + " löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                sql_aufrufe.SQL_teamdel((team)cb_teamauswahl.SelectedItem);
+                update_teams();
+            }
         }
 
         private void cb_teamauswahl_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,6 +90,14 @@ namespace Unify_DPO_Tool
         public void update_teams()
         {
             cb_teamauswahl.Items.Clear();
+            tb_id.Text = "";
+            tb_anzeige_name.Text = "";
+            tb_email.Text = "";
+            tb_hotliner.Text = "";
+            tb_modmail.Text = "";
+            tb_zusatztext.Text = "";
+            tb_lastedit.Text = "";
+            cb_workgroupauswahl.SelectedIndex = -1;
             ArrayList teams = new ArrayList();
             teams = sql_aufrufe.SQL_teamsabrufen();
             foreach (team element in teams)

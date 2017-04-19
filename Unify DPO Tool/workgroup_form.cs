@@ -50,7 +50,11 @@ namespace Unify_DPO_Tool
 
         private void bt_del_Click(object sender, EventArgs e)
         {
-            sql_aufrufe.SQL_wgdel((Workgroup)cb_workgauswahl.SelectedItem);
+            DialogResult result = MessageBox.Show("Möchten sie wirklich die Workgroup " + ((Workgroup)cb_workgauswahl.SelectedItem).prop_name + " löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                sql_aufrufe.SQL_wgdel((Workgroup)cb_workgauswahl.SelectedItem);
+            }
         }
         private void update_workgroups()
         {

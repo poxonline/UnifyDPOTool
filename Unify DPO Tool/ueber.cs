@@ -13,6 +13,7 @@ namespace Unify_DPO_Tool
         public ueber()
         {
             InitializeComponent();
+            label2.Text = label2.Text + Environment.NewLine + "Programm Version: " + Application.ProductVersion + Environment.NewLine + "Windows Version: " + Environment.OSVersion+Environment.NewLine+"Rechnername: "+Environment.MachineName;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

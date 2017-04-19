@@ -26,7 +26,6 @@ namespace Unify_DPO_Tool
                 userliste = sql_aufrufe.SQL_userabrufen();
                 foreach (users element in userliste)
                     cb_userauswahl.Items.Add(element);
-
             }
         }
 
@@ -46,26 +45,28 @@ namespace Unify_DPO_Tool
 
         private void bt_user_anlegen_Click(object sender, EventArgs e)
         {
-            MD5 md5Hash = MD5.Create();
             users useradd = new users();
             useradd.prop_name = tb_name.Text;
             useradd.prop_windowsk = tb_windowsk.Text;
             useradd.prop_recht = Convert.ToInt32(cb_recht.SelectedItem);
-            useradd.prop_pw = sql_aufrufe.GetMd5Hash(md5Hash, tb_passwort.Text);
+            useradd.prop_pw = sql_aufrufe.GetSHA256Hash(tb_passwort.Text);
             sql_aufrufe.SQL_benutzeradd(useradd);
             useradd = null;
         }
 
         private void bt_user_loeschen_Click(object sender, EventArgs e)
         {
-            sql_aufrufe.SQL_benutzerdel(((users)cb_userauswahl.SelectedItem).prop_id);
-            aktualiasieren();
+            DialogResult result = MessageBox.Show("Möchten sie wirklich den Benutzer löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                sql_aufrufe.SQL_benutzerdel(((users)cb_userauswahl.SelectedItem).prop_id);
+                aktualiasieren();
+            }
         }
 
         private void bt_pw_setzen_Click(object sender, EventArgs e)
         {
-            MD5 md5Hash = MD5.Create();
-            sql_aufrufe.SQL_benutzer_pwedit(((users)cb_userauswahl.SelectedItem).prop_id, sql_aufrufe.GetMd5Hash(md5Hash, tb_passwort.Text));
+            sql_aufrufe.SQL_benutzer_pwedit(((users)cb_userauswahl.SelectedItem).prop_id, sql_aufrufe.GetSHA256Hash(tb_passwort.Text));
             aktualiasieren();
         }
 
@@ -85,6 +86,7 @@ namespace Unify_DPO_Tool
             tb_name.Text = "";
             tb_passwort.Text = "";
             tb_windowsk.Text = "";
+            cb_recht.SelectedIndex = -1;
             userliste = sql_aufrufe.SQL_userabrufen();
             foreach (users element in userliste)
                 cb_userauswahl.Items.Add(element);

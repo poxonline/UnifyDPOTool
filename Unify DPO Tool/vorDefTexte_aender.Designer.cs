@@ -218,6 +218,7 @@
             this.MinimizeBox = false;
             this.Name = "vorDefTexte_aendern";
             this.Text = "Vordefinierte Texte ändern";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.vorDefTexte_aendern_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
