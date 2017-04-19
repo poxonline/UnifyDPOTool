@@ -10,8 +10,8 @@ namespace Unify_DPO_Tool
 {
     class sql_aufrufe
     {
-        static string connection = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
-        static string connection_unused = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
+        static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
+        static string connection = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         /// <summary>
         /// SHA256 Hash erzeugen und als string zurückgeben.
         /// </summary>
@@ -1067,6 +1067,24 @@ namespace Unify_DPO_Tool
                 {
                 }
 
+            }
+        }
+        public static bool sql_verbindungstest()
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("", verbindung);
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.Connection.Close();
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
             }
         }
         public static string LDAP_telabfragen(string domainuser)

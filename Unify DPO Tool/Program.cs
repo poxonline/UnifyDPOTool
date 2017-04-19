@@ -16,7 +16,15 @@ namespace Unify_DPO_Tool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            if (sql_aufrufe.sql_verbindungstest())
+            {
+                Application.Run(new Form1());
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank nicht möglich! Programm wird beendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
     }
 }

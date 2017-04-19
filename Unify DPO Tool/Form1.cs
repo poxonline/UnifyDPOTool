@@ -33,14 +33,14 @@ namespace Unify_DPO_Tool
         static string ordner = Environment.GetEnvironmentVariable("userprofile") + "\\DPOToolSettings";
         public Form1()
         {
-            InitializeComponent();
             //MessageBox.Show("Tool ist in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@atos.net).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
-            version.Text = "Version: "+ProductVersion;
-            programm_start();
-            sparepartvissibilitychange();
-            fremdvissibilitychange();
-            onsitevissibilitychange();
-            GC.Collect(); // Test mit Garbage Collection
+                InitializeComponent();
+                version.Text = "Version: " + ProductVersion;
+                programm_start();
+                sparepartvissibilitychange();
+                fremdvissibilitychange();
+                onsitevissibilitychange();
+                GC.Collect(); // Test mit Garbage Collection
         }
 
         #region Selbstoeffnen
