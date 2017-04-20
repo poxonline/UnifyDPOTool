@@ -36,6 +36,18 @@ namespace Unify_DPO_Tool
             tb_name.Text = ((users)cb_userauswahl.SelectedItem).prop_name;
             cb_recht.SelectedItem = Convert.ToString(((users)cb_userauswahl.SelectedItem).prop_recht);
             tb_passwort.Text = "";
+            if(((users)cb_userauswahl.SelectedItem).prop_id==3)
+            {
+                bt_user_loeschen.Visible = false;
+                cb_recht.Enabled = false;
+                tb_windowsk.Enabled = false;
+            }
+            else
+            {
+                bt_user_loeschen.Visible = true;
+                cb_recht.Enabled = true;
+                tb_windowsk.Enabled = true;
+            }
         }
 
         private void bt_schliessen_Click(object sender, EventArgs e)
