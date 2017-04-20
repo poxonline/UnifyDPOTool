@@ -57,15 +57,30 @@ namespace Unify_DPO_Tool
         {
             if (modi == "sachnummern")
             {
-                sql_aufrufe.SQL_sparepart_add(new spareparts(999, tb_sname.Text, tb_sBeschreibung.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name));
+                if (tb_sname.Text != "" && cb_workgroup.SelectedIndex!=-1)
+                { sql_aufrufe.SQL_sparepart_add(new spareparts(999, tb_sname.Text, tb_sBeschreibung.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name)); }
+                else
+                {
+                    MessageBox.Show("Bitte Feld Sachnummer ausfüllen und Workgroup wählen");
+                }
             }
             if (modi == "remote")
             {
-                sql_aufrufe.SQL_remote_add(new a_texte(999, tb_Text.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name));
+                if (tb_Text.Text != "" && cb_workgroup.SelectedIndex != -1)
+                { sql_aufrufe.SQL_remote_add(new a_texte(999, tb_Text.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name)); }
+                else
+                {
+                    MessageBox.Show("Bitte Feld Text ausfüllen und Workgroup wählen");
+                }
             }
             if (modi == "field")
             {
-                sql_aufrufe.SQL_field_add(new a_texte(999, tb_Text.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name));
+                if (tb_Text.Text != "" && cb_workgroup.SelectedIndex != -1)
+                { sql_aufrufe.SQL_field_add(new a_texte(999, tb_Text.Text, ((Workgroup)cb_workgroup.SelectedItem).prop_name)); }
+                else
+                {
+                    MessageBox.Show("Bitte Feld Text ausfüllen und Workgroup wählen");
+                }
             }
             update();
         }
@@ -74,22 +89,43 @@ namespace Unify_DPO_Tool
         {
             if (modi == "sachnummern")
             {
-                ((spareparts)cb_auswahl.SelectedItem).prop_sach = tb_sname.Text;
-                ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung = tb_sBeschreibung.Text;
-                ((spareparts)cb_auswahl.SelectedItem).prop_workgroup = cb_workgroup.SelectedText;
-                sql_aufrufe.SQL_spareparts_edit((spareparts)cb_auswahl.SelectedItem);
+                if (tb_sname.Text != "" && cb_workgroup.SelectedIndex != -1)
+                {
+                    ((spareparts)cb_auswahl.SelectedItem).prop_sach = tb_sname.Text;
+                    ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung = tb_sBeschreibung.Text;
+                    ((spareparts)cb_auswahl.SelectedItem).prop_workgroup = cb_workgroup.SelectedText;
+                    sql_aufrufe.SQL_spareparts_edit((spareparts)cb_auswahl.SelectedItem);
+                }
+                else
+                {
+                    MessageBox.Show("Bitte Feld Sachnummer ausfüllen und Workgroup wählen");
+                }
             }
             if (modi == "remote")
             {
-                ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
-                ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
-                sql_aufrufe.SQL_remote_edit((a_texte)cb_auswahl.SelectedItem);
+                if (tb_Text.Text != "" && cb_workgroup.SelectedIndex != -1)
+                {
+                    ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
+                    ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
+                    sql_aufrufe.SQL_remote_edit((a_texte)cb_auswahl.SelectedItem);
+                }
+                else
+                {
+                    MessageBox.Show("Bitte Feld Text ausfüllen und Workgroup wählen");
+                }
             }
             if (modi == "field")
             {
-                ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
-                ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
-                sql_aufrufe.SQL_field_edit((a_texte)cb_auswahl.SelectedItem);
+                if (tb_Text.Text != "" && cb_workgroup.SelectedIndex != -1)
+                {
+                    ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
+                    ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
+                    sql_aufrufe.SQL_field_edit((a_texte)cb_auswahl.SelectedItem);
+                }
+                else
+                {
+                    MessageBox.Show("Bitte Feld Text ausfüllen und Workgroup wählen");
+                }
             }
             update();
         }

@@ -16,7 +16,7 @@ namespace Unify_DPO_Tool
         /// SHA256 Hash erzeugen und als string zurückgeben.
         /// </summary>
         /// <param name="input">Passwort das als SHA256 umgeandelt werden soll.</param>
-        /// <returns>String mit MD5 vom Passwortfeld als Inhalt</returns>
+        /// <returns>String mit SHA256 vom Passwortfeld als Inhalt</returns>
         public static string GetSHA256Hash(string input)
         {
 
