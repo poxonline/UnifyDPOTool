@@ -122,6 +122,8 @@
             this.gb_links = new System.Windows.Forms.GroupBox();
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
+            this.IBM_AUT_MAIL = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -649,16 +651,16 @@
             this.UnifyDPOWiki.AutoSize = true;
             this.UnifyDPOWiki.Location = new System.Drawing.Point(1, 16);
             this.UnifyDPOWiki.Name = "UnifyDPOWiki";
-            this.UnifyDPOWiki.Size = new System.Drawing.Size(135, 13);
+            this.UnifyDPOWiki.Size = new System.Drawing.Size(104, 13);
             this.UnifyDPOWiki.TabIndex = 11;
             this.UnifyDPOWiki.TabStop = true;
-            this.UnifyDPOWiki.Text = "DPO Handlungsanweisung";
+            this.UnifyDPOWiki.Text = "GO Work Instruction";
             this.UnifyDPOWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UnifyDPOWiki_LinkClicked);
             // 
             // IBMTechniker
             // 
             this.IBMTechniker.AutoSize = true;
-            this.IBMTechniker.Location = new System.Drawing.Point(1, 50);
+            this.IBMTechniker.Location = new System.Drawing.Point(1, 56);
             this.IBMTechniker.Name = "IBMTechniker";
             this.IBMTechniker.Size = new System.Drawing.Size(134, 13);
             this.IBMTechniker.TabIndex = 12;
@@ -669,7 +671,7 @@
             // IBMDispoMail
             // 
             this.IBMDispoMail.AutoSize = true;
-            this.IBMDispoMail.Location = new System.Drawing.Point(0, 72);
+            this.IBMDispoMail.Location = new System.Drawing.Point(1, 76);
             this.IBMDispoMail.Name = "IBMDispoMail";
             this.IBMDispoMail.Size = new System.Drawing.Size(122, 13);
             this.IBMDispoMail.TabIndex = 13;
@@ -687,7 +689,7 @@
             // IBMDispoEskalation
             // 
             this.IBMDispoEskalation.AutoSize = true;
-            this.IBMDispoEskalation.Location = new System.Drawing.Point(1, 96);
+            this.IBMDispoEskalation.Location = new System.Drawing.Point(0, 96);
             this.IBMDispoEskalation.Name = "IBMDispoEskalation";
             this.IBMDispoEskalation.Size = new System.Drawing.Size(152, 13);
             this.IBMDispoEskalation.TabIndex = 14;
@@ -964,13 +966,15 @@
             // 
             // gb_links
             // 
+            this.gb_links.Controls.Add(this.linkLabel1);
+            this.gb_links.Controls.Add(this.IBM_AUT_MAIL);
             this.gb_links.Controls.Add(this.UnifyDPOWiki);
             this.gb_links.Controls.Add(this.IBMTechniker);
             this.gb_links.Controls.Add(this.IBMDispoEskalation);
             this.gb_links.Controls.Add(this.IBMDispoMail);
             this.gb_links.Location = new System.Drawing.Point(498, 300);
             this.gb_links.Name = "gb_links";
-            this.gb_links.Size = new System.Drawing.Size(200, 121);
+            this.gb_links.Size = new System.Drawing.Size(200, 151);
             this.gb_links.TabIndex = 21;
             this.gb_links.TabStop = false;
             this.gb_links.Text = "Allgemein";
@@ -1000,6 +1004,27 @@
             this.lb_wg_auswahl.Size = new System.Drawing.Size(90, 13);
             this.lb_wg_auswahl.TabIndex = 1;
             this.lb_wg_auswahl.Text = "Gruppenauswahl:";
+            // 
+            // IBM_AUT_MAIL
+            // 
+            this.IBM_AUT_MAIL.AutoSize = true;
+            this.IBM_AUT_MAIL.Location = new System.Drawing.Point(0, 116);
+            this.IBM_AUT_MAIL.Name = "IBM_AUT_MAIL";
+            this.IBM_AUT_MAIL.Size = new System.Drawing.Size(121, 13);
+            this.IBM_AUT_MAIL.TabIndex = 15;
+            this.IBM_AUT_MAIL.TabStop = true;
+            this.IBM_AUT_MAIL.Text = "Mail an IBM Dispo(AUT)";
+            this.IBM_AUT_MAIL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBM_AUT_MAIL_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(1, 36);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(190, 13);
+            this.linkLabel1.TabIndex = 16;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "DPO Handlungsanweisung GO MSD 1";
             // 
             // Form1
             // 
@@ -1141,6 +1166,8 @@
         private System.Windows.Forms.GroupBox gb_fehler_forderung;
         private System.Windows.Forms.Label lb_wg_auswahl;
         private System.Windows.Forms.CheckBox cb_technician_sparepart;
+        private System.Windows.Forms.LinkLabel IBM_AUT_MAIL;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
