@@ -709,13 +709,21 @@ namespace Unify_DPO_Tool
 
         private void IBM_AUT_MAIL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string mailaut="mailto:unifyaut@de.ibm.com?subject=Rückfrage zu Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_workgroup + ",michael.wessoleck.atos.net";
+            string mailaut="mailto:unifyaut@de.ibm.com?subject=Rückfrage zu Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ",michael.wessoleck.atos.net";
             try
             {
                 System.Diagnostics.Process.Start(mailaut);
             }
             catch { }
         }
-        //https://www.g-dms.com/livelink/livelink.exe?func=ll&objId=3899648&objAction=browse&viewType=1
+
+        private void MSD_HA_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://www.g-dms.com/livelink/livelink.exe?func=ll&objId=3899648&objAction=browse&viewType=1");
+            }
+            catch { }
+        }
     }
 }

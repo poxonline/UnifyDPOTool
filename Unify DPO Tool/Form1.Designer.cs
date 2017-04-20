@@ -123,7 +123,7 @@
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
             this.IBM_AUT_MAIL = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.UNIFYMSD_HA = new System.Windows.Forms.LinkLabel();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -966,7 +966,7 @@
             // 
             // gb_links
             // 
-            this.gb_links.Controls.Add(this.linkLabel1);
+            this.gb_links.Controls.Add(this.UNIFYMSD_HA);
             this.gb_links.Controls.Add(this.IBM_AUT_MAIL);
             this.gb_links.Controls.Add(this.UnifyDPOWiki);
             this.gb_links.Controls.Add(this.IBMTechniker);
@@ -1016,15 +1016,16 @@
             this.IBM_AUT_MAIL.Text = "Mail an IBM Dispo(AUT)";
             this.IBM_AUT_MAIL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBM_AUT_MAIL_LinkClicked);
             // 
-            // linkLabel1
+            // UNIFYMSD_HA
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(1, 36);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(190, 13);
-            this.linkLabel1.TabIndex = 16;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "DPO Handlungsanweisung GO MSD 1";
+            this.UNIFYMSD_HA.AutoSize = true;
+            this.UNIFYMSD_HA.Location = new System.Drawing.Point(1, 36);
+            this.UNIFYMSD_HA.Name = "UNIFYMSD_HA";
+            this.UNIFYMSD_HA.Size = new System.Drawing.Size(190, 13);
+            this.UNIFYMSD_HA.TabIndex = 16;
+            this.UNIFYMSD_HA.TabStop = true;
+            this.UNIFYMSD_HA.Text = "DPO Handlungsanweisung GO MSD 1";
+            this.UNIFYMSD_HA.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MSD_HA_LinkClicked);
             // 
             // Form1
             // 
@@ -1167,7 +1168,7 @@
         private System.Windows.Forms.Label lb_wg_auswahl;
         private System.Windows.Forms.CheckBox cb_technician_sparepart;
         private System.Windows.Forms.LinkLabel IBM_AUT_MAIL;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel UNIFYMSD_HA;
     }
 }
 
