@@ -1081,8 +1081,9 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Close();
                         return true;
                     }
-                    catch
+                    catch //(Exception ex)
                     {
+                        //MessageBox.Show(ex.Message);
                         return false;
                     }
             }

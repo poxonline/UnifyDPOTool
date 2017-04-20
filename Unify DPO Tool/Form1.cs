@@ -646,9 +646,9 @@ namespace Unify_DPO_Tool
         {
             string bekanntgeben;
             string zusatztext;
-            string asp = "";
-            if (0 == String.Compare("Fehler", lb_LDAP_ausgabe.Text))
-            { asp = "; Ansprechpartner im Unify MSD " + lb_LDAP_ausgabe.Text; }
+            string asp = "; Ansprechpartner im Unify MSD " + lb_LDAP_ausgabe.Text;
+            //if (0 == String.Compare("Fehler", lb_LDAP_ausgabe.Text))
+            //{ asp = "; Ansprechpartner im Unify MSD " + lb_LDAP_ausgabe.Text; }
             if (cb_technician_sparepart.Checked)
             { bekanntgeben = "; Technikername und „vor Ort“ Zeit spätestens in 30min an Ansprechpartner des Unify MSD bekanntgeben"; }
             else

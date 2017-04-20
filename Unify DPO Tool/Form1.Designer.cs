@@ -136,7 +136,7 @@
             // 
             // texterzeugen
             // 
-            this.texterzeugen.Location = new System.Drawing.Point(699, 311);
+            this.texterzeugen.Location = new System.Drawing.Point(791, 300);
             this.texterzeugen.Name = "texterzeugen";
             this.texterzeugen.Size = new System.Drawing.Size(188, 23);
             this.texterzeugen.TabIndex = 10;
@@ -968,7 +968,7 @@
             this.gb_links.Controls.Add(this.IBMTechniker);
             this.gb_links.Controls.Add(this.IBMDispoEskalation);
             this.gb_links.Controls.Add(this.IBMDispoMail);
-            this.gb_links.Location = new System.Drawing.Point(493, 306);
+            this.gb_links.Location = new System.Drawing.Point(498, 300);
             this.gb_links.Name = "gb_links";
             this.gb_links.Size = new System.Drawing.Size(200, 121);
             this.gb_links.TabIndex = 21;
