@@ -22,8 +22,8 @@ namespace Unify_DPO_Tool
             }
             else
             {
-                MessageBox.Show("Verbindung zur Datenbank nicht möglich! Programm wird beendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
+                MessageBox.Show("Der Datenbankserver ist nicht erreichbar. Bitte im folgenden Fenster die Einstellungen prüfen und Anwendung neu starten.","Fehler bei der Datenbank Verbindung",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Application.Run(new setting_server());
             }
         }
     }

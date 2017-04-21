@@ -57,13 +57,20 @@ namespace Unify_DPO_Tool
 
         private void bt_user_anlegen_Click(object sender, EventArgs e)
         {
-            users useradd = new users();
-            useradd.prop_name = tb_name.Text;
-            useradd.prop_windowsk = tb_windowsk.Text;
-            useradd.prop_recht = Convert.ToInt32(cb_recht.SelectedItem);
-            useradd.prop_pw = sql_aufrufe.GetSHA256Hash(tb_passwort.Text);
-            sql_aufrufe.SQL_benutzeradd(useradd);
-            useradd = null;
+            if (tb_windowsk.Text != "" && tb_name.Text != "" && tb_passwort.Text != ""&& cb_recht.SelectedIndex!=-1)
+            {
+                users useradd = new users();
+                useradd.prop_name = tb_name.Text;
+                useradd.prop_windowsk = tb_windowsk.Text;
+                useradd.prop_recht = Convert.ToInt32(cb_recht.SelectedItem);
+                useradd.prop_pw = sql_aufrufe.GetSHA256Hash(tb_passwort.Text);
+                sql_aufrufe.SQL_benutzeradd(useradd);
+                useradd = null;
+            }
+            else
+            {
+                MessageBox.Show("Bitte die Felder Name, Windowskennung Passwort auf Text prüfen und ein Recht setzen.");
+            }
         }
 
         private void bt_user_loeschen_Click(object sender, EventArgs e)

@@ -31,6 +31,7 @@ namespace Unify_DPO_Tool
         string maillinkKomplett="";
         string maillinkEskalationKomplett="";
         static string ordner = Environment.GetEnvironmentVariable("userprofile") + "\\DPOToolSettings";
+        string teammail = "";
         public Form1()
         {
             //MessageBox.Show("Tool ist in der Beta-Phase!"+Environment.NewLine+"Bei Fragen, Fehlern und Anregungen bitte an Peter Olfen wenden (peter.olfen@atos.net).", "Hinweis",MessageBoxButtons.OK,MessageBoxIcon.Information );
@@ -243,6 +244,7 @@ namespace Unify_DPO_Tool
             maillinkKomplett = maillink + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email+",michael.wessoleck.atos.net";
             hotline = ((team)cb_gruppenauswahl.SelectedItem).prop_telefon;
             maillinkEskalationKomplett = maillinkEskalation + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "," + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + ",michael.wessoleck.atos.net";
+            teammail = ((team)cb_gruppenauswahl.SelectedItem).prop_email;
             felderreload();
             update_ausgabe();
         }
@@ -666,7 +668,7 @@ namespace Unify_DPO_Tool
                     label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
                     label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
                     label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Das Unify MSD ist erreichbar unter " + hotline +" oder "+ teammail +zusatztext + bekanntgeben + asp;
             }
             //Fremdremote Ja Onsite Nein
             if (fremdremoteja.Checked && onsitenein.Checked)
@@ -677,7 +679,7 @@ namespace Unify_DPO_Tool
                     label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
                     label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
                     label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + "; Das Unify MSD ist erreichbar unter " + hotline + " oder " + teammail + zusatztext + bekanntgeben + asp;
             }
             // Fremdremote Ja Onsite Ja
             if (fremdremoteja.Checked && onsiteja.Checked)
@@ -688,7 +690,7 @@ namespace Unify_DPO_Tool
                     label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
                     label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
                     label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + "; On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; Remote Support Contact: " + fremdremoteName.Text + " Tel: " + fremdremotetel.Text + "; On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + "; Das Unify MSD ist erreichbar unter " + hotline + " oder " + teammail + zusatztext + bekanntgeben + asp;
             }
             //Fremdreote Nein Onsite Ja
             if (fremdremotenein.Checked && onsiteja.Checked)
@@ -699,7 +701,7 @@ namespace Unify_DPO_Tool
                     label10.Text + " " + cb_activitiessofarremote.Text + Environment.NewLine +
                     label12.Text + " " + cb_requestedfromfield.Text + Environment.NewLine +
                     label13.Text + " " + requestedalternativefield.Text + Environment.NewLine +
-                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + "; Das Unify MSD ist erreichbar unter " + hotline + zusatztext + bekanntgeben + asp;
+                    CustomerSpecificInformationgroup.Text + " " + CSIfreitext.Text + "; On-Site Contact: " + onsitename.Text + ", Tel: " + onsitetel.Text + " Mobil: " + onsitemobil.Text + "; Das Unify MSD ist erreichbar unter " + hotline + " oder " + teammail + zusatztext + bekanntgeben + asp;
             }
         }
         public void update_ausgabe(object sender, EventArgs e)

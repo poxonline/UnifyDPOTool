@@ -81,7 +81,10 @@
             this.Controls.Add(this.lb_server);
             this.Controls.Add(this.tb_server);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "setting_server";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unify DPO Tool - Einstellungen";
             this.ResumeLayout(false);
             this.PerformLayout();
