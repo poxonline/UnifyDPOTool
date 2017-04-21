@@ -725,5 +725,11 @@ namespace Unify_DPO_Tool
             }
             catch { }
         }
+
+        private void datenbankserverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setting_server fenster = new setting_server();
+            fenster.Show();
+        }
     }
 }

@@ -120,10 +120,11 @@
             this.TryIconMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_links = new System.Windows.Forms.GroupBox();
+            this.UNIFYMSD_HA = new System.Windows.Forms.LinkLabel();
+            this.IBM_AUT_MAIL = new System.Windows.Forms.LinkLabel();
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
-            this.IBM_AUT_MAIL = new System.Windows.Forms.LinkLabel();
-            this.UNIFYMSD_HA = new System.Windows.Forms.LinkLabel();
+            this.datenbankserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -778,7 +779,8 @@
             this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vorauswahlenÄndernToolStripMenuItem,
             this.gruppeÄndernToolStripMenuItem,
-            this.konfigurationKomplettNeuEinlesenToolStripMenuItem});
+            this.konfigurationKomplettNeuEinlesenToolStripMenuItem,
+            this.datenbankserverToolStripMenuItem});
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
             this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.einstellungenToolStripMenuItem.Text = "Einstellungen";
@@ -979,6 +981,28 @@
             this.gb_links.TabStop = false;
             this.gb_links.Text = "Allgemein";
             // 
+            // UNIFYMSD_HA
+            // 
+            this.UNIFYMSD_HA.AutoSize = true;
+            this.UNIFYMSD_HA.Location = new System.Drawing.Point(1, 36);
+            this.UNIFYMSD_HA.Name = "UNIFYMSD_HA";
+            this.UNIFYMSD_HA.Size = new System.Drawing.Size(190, 13);
+            this.UNIFYMSD_HA.TabIndex = 16;
+            this.UNIFYMSD_HA.TabStop = true;
+            this.UNIFYMSD_HA.Text = "DPO Handlungsanweisung GO MSD 1";
+            this.UNIFYMSD_HA.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MSD_HA_LinkClicked);
+            // 
+            // IBM_AUT_MAIL
+            // 
+            this.IBM_AUT_MAIL.AutoSize = true;
+            this.IBM_AUT_MAIL.Location = new System.Drawing.Point(0, 116);
+            this.IBM_AUT_MAIL.Name = "IBM_AUT_MAIL";
+            this.IBM_AUT_MAIL.Size = new System.Drawing.Size(121, 13);
+            this.IBM_AUT_MAIL.TabIndex = 15;
+            this.IBM_AUT_MAIL.TabStop = true;
+            this.IBM_AUT_MAIL.Text = "Mail an IBM Dispo(AUT)";
+            this.IBM_AUT_MAIL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBM_AUT_MAIL_LinkClicked);
+            // 
             // gb_fehler_forderung
             // 
             this.gb_fehler_forderung.Controls.Add(this.label11);
@@ -1005,27 +1029,12 @@
             this.lb_wg_auswahl.TabIndex = 1;
             this.lb_wg_auswahl.Text = "Gruppenauswahl:";
             // 
-            // IBM_AUT_MAIL
+            // datenbankserverToolStripMenuItem
             // 
-            this.IBM_AUT_MAIL.AutoSize = true;
-            this.IBM_AUT_MAIL.Location = new System.Drawing.Point(0, 116);
-            this.IBM_AUT_MAIL.Name = "IBM_AUT_MAIL";
-            this.IBM_AUT_MAIL.Size = new System.Drawing.Size(121, 13);
-            this.IBM_AUT_MAIL.TabIndex = 15;
-            this.IBM_AUT_MAIL.TabStop = true;
-            this.IBM_AUT_MAIL.Text = "Mail an IBM Dispo(AUT)";
-            this.IBM_AUT_MAIL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBM_AUT_MAIL_LinkClicked);
-            // 
-            // UNIFYMSD_HA
-            // 
-            this.UNIFYMSD_HA.AutoSize = true;
-            this.UNIFYMSD_HA.Location = new System.Drawing.Point(1, 36);
-            this.UNIFYMSD_HA.Name = "UNIFYMSD_HA";
-            this.UNIFYMSD_HA.Size = new System.Drawing.Size(190, 13);
-            this.UNIFYMSD_HA.TabIndex = 16;
-            this.UNIFYMSD_HA.TabStop = true;
-            this.UNIFYMSD_HA.Text = "DPO Handlungsanweisung GO MSD 1";
-            this.UNIFYMSD_HA.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MSD_HA_LinkClicked);
+            this.datenbankserverToolStripMenuItem.Name = "datenbankserverToolStripMenuItem";
+            this.datenbankserverToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.datenbankserverToolStripMenuItem.Text = "Datenbankserver";
+            this.datenbankserverToolStripMenuItem.Click += new System.EventHandler(this.datenbankserverToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1169,6 +1178,7 @@
         private System.Windows.Forms.CheckBox cb_technician_sparepart;
         private System.Windows.Forms.LinkLabel IBM_AUT_MAIL;
         private System.Windows.Forms.LinkLabel UNIFYMSD_HA;
+        private System.Windows.Forms.ToolStripMenuItem datenbankserverToolStripMenuItem;
     }
 }
 

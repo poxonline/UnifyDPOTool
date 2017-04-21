@@ -11,7 +11,7 @@ namespace Unify_DPO_Tool
     class sql_aufrufe
     {
         static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
-        static string connection = "SERVER=mhhd0amc.global-ad.net;DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
+        static string connection = "SERVER=" + Properties.Settings.Default.server + ";DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         /// <summary>
         /// SHA256 Hash erzeugen und als string zurückgeben.
         /// </summary>
@@ -19,7 +19,6 @@ namespace Unify_DPO_Tool
         /// <returns>String mit SHA256 vom Passwortfeld als Inhalt</returns>
         public static string GetSHA256Hash(string input)
         {
-
             byte[] bytes = Encoding.UTF8.GetBytes(input);
             SHA256Managed hashstring = new SHA256Managed();
             byte[] hash = hashstring.ComputeHash(bytes);
@@ -1112,6 +1111,10 @@ namespace Unify_DPO_Tool
             {
                 return "Fehler beim Verbindungsaufbau mit LDAP";
             }
+        }
+        public static void edit_con()
+        {
+            connection = "SERVER=" + Properties.Settings.Default.server + ";DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         }
     }
 }

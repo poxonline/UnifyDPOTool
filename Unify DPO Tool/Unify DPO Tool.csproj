@@ -82,6 +82,12 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="setting_server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setting_server.Designer.cs">
+      <DependentUpon>setting_server.cs</DependentUpon>
+    </Compile>
     <Compile Include="spareparts.cs" />
     <Compile Include="sql_aufrufe.cs" />
     <Compile Include="team.cs" />
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="setting_server.resx">
+      <DependentUpon>setting_server.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="team_form.resx">
       <DependentUpon>team_form.cs</DependentUpon>
