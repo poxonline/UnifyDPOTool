@@ -711,7 +711,7 @@ namespace Unify_DPO_Tool
 
         private void IBM_AUT_MAIL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string mailaut="mailto:unifyaut@de.ibm.com?subject=Rückfrage zu Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ",michael.wessoleck.atos.net";
+            string mailaut="mailto:unifyaut@de.ibm.com?subject=Rückfrage zu Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ";michael.wessoleck@atos.net";
             try
             {
                 System.Diagnostics.Process.Start(mailaut);
