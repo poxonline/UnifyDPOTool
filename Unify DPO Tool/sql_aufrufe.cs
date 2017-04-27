@@ -1080,9 +1080,9 @@ namespace Unify_DPO_Tool
                         SQL_Befehl.Connection.Close();
                         return true;
                     }
-                    catch //(Exception ex)
+                    catch (Exception ex)
                     {
-                        //MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message);
                         return false;
                     }
             }
