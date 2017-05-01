@@ -10,7 +10,7 @@ namespace Unify_DPO_Tool
 {
     class sql_aufrufe
     {
-        static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;";
+        static string connection_unused = "SERVER=wo-x-pictures.de;DATABASE=dpotooldb;UID=dpotooldb;PASSWORD=123456;SSL Mode=Required";
         static string connection = "SERVER=" + Properties.Settings.Default.server + ";DATABASE=dpo;UID=dpo;PASSWORD=dpo123;";
         /// <summary>
         /// SHA256 Hash erzeugen und als string zurückgeben.
