@@ -241,9 +241,9 @@ namespace Unify_DPO_Tool
         private void  Gruppenauswahl_SelectedIndexChanged(object sender, EventArgs e)
         {
             aktuelleWorkgroup.Text = ((team)cb_gruppenauswahl.SelectedItem).prop_workgroup;
-            maillinkKomplett = maillink + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email+";michael.wessoleck@atos.net";
+            maillinkKomplett = maillink + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email+";michael.wessolleck@atos.net";
             hotline = ((team)cb_gruppenauswahl.SelectedItem).prop_telefon;
-            maillinkEskalationKomplett = maillinkEskalation + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ";" + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + ";michael.wessoleck@atos.net";
+            maillinkEskalationKomplett = maillinkEskalation + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ";" + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + ";michael.wessolleck@atos.net";
             teammail = ((team)cb_gruppenauswahl.SelectedItem).prop_email;
             felderreload();
             update_ausgabe();

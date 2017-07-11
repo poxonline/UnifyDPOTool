@@ -93,7 +93,7 @@ namespace Unify_DPO_Tool
                 {
                     ((spareparts)cb_auswahl.SelectedItem).prop_sach = tb_sname.Text;
                     ((spareparts)cb_auswahl.SelectedItem).prop_beschreibung = tb_sBeschreibung.Text;
-                    ((spareparts)cb_auswahl.SelectedItem).prop_workgroup = cb_workgroup.SelectedText;
+                    ((spareparts)cb_auswahl.SelectedItem).prop_workgroup = cb_workgroup.Text;
                     sql_aufrufe.SQL_spareparts_edit((spareparts)cb_auswahl.SelectedItem);
                 }
                 else
@@ -106,7 +106,7 @@ namespace Unify_DPO_Tool
                 if (tb_Text.Text != "" && cb_workgroup.SelectedIndex != -1)
                 {
                     ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
-                    ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
+                    ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.Text;
                     sql_aufrufe.SQL_remote_edit((a_texte)cb_auswahl.SelectedItem);
                 }
                 else
@@ -119,7 +119,7 @@ namespace Unify_DPO_Tool
                 if (tb_Text.Text != "" && cb_workgroup.SelectedIndex != -1)
                 {
                     ((a_texte)cb_auswahl.SelectedItem).prop_text = tb_Text.Text;
-                    ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.SelectedText;
+                    ((a_texte)cb_auswahl.SelectedItem).prop_wg = cb_workgroup.Text;
                     sql_aufrufe.SQL_field_edit((a_texte)cb_auswahl.SelectedItem);
                 }
                 else
