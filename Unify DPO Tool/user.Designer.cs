@@ -150,6 +150,7 @@
             this.cb_userauswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_userauswahl.FormattingEnabled = true;
             this.cb_userauswahl.Location = new System.Drawing.Point(15, 13);
+            this.cb_userauswahl.MaxDropDownItems = 25;
             this.cb_userauswahl.Name = "cb_userauswahl";
             this.cb_userauswahl.Size = new System.Drawing.Size(260, 21);
             this.cb_userauswahl.TabIndex = 11;

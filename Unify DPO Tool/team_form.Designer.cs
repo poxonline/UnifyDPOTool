@@ -58,6 +58,7 @@
             this.cb_teamauswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_teamauswahl.FormattingEnabled = true;
             this.cb_teamauswahl.Location = new System.Drawing.Point(12, 12);
+            this.cb_teamauswahl.MaxDropDownItems = 25;
             this.cb_teamauswahl.Name = "cb_teamauswahl";
             this.cb_teamauswahl.Size = new System.Drawing.Size(271, 21);
             this.cb_teamauswahl.TabIndex = 0;

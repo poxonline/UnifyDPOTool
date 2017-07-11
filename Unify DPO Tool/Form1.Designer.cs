@@ -102,6 +102,7 @@
             this.requestedActionFromFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruppeÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.datenbankserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,7 +125,7 @@
             this.IBM_AUT_MAIL = new System.Windows.Forms.LinkLabel();
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
-            this.datenbankserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gb_Dispo = new System.Windows.Forms.GroupBox();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -256,6 +257,7 @@
             // cb_sachnummer
             // 
             this.cb_sachnummer.Location = new System.Drawing.Point(109, 40);
+            this.cb_sachnummer.MaxDropDownItems = 25;
             this.cb_sachnummer.Name = "cb_sachnummer";
             this.cb_sachnummer.Size = new System.Drawing.Size(182, 21);
             this.cb_sachnummer.TabIndex = 2;
@@ -549,6 +551,7 @@
             "Kein Remote erlaubt.",
             "Kein Remote möglich."});
             this.cb_activitiessofarremote.Location = new System.Drawing.Point(153, 48);
+            this.cb_activitiessofarremote.MaxDropDownItems = 25;
             this.cb_activitiessofarremote.Name = "cb_activitiessofarremote";
             this.cb_activitiessofarremote.Size = new System.Drawing.Size(314, 21);
             this.cb_activitiessofarremote.TabIndex = 3;
@@ -568,6 +571,7 @@
             // 
             this.cb_requestedfromfield.FormattingEnabled = true;
             this.cb_requestedfromfield.Location = new System.Drawing.Point(153, 75);
+            this.cb_requestedfromfield.MaxDropDownItems = 25;
             this.cb_requestedfromfield.Name = "cb_requestedfromfield";
             this.cb_requestedfromfield.Size = new System.Drawing.Size(314, 21);
             this.cb_requestedfromfield.TabIndex = 5;
@@ -830,6 +834,13 @@
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Text = "Konfiguration komplett neu einlesen";
             this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Click += new System.EventHandler(this.konfigurationKomplettNeuEinlesenToolStripMenuItem_Click);
             // 
+            // datenbankserverToolStripMenuItem
+            // 
+            this.datenbankserverToolStripMenuItem.Name = "datenbankserverToolStripMenuItem";
+            this.datenbankserverToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.datenbankserverToolStripMenuItem.Text = "Datenbankserver";
+            this.datenbankserverToolStripMenuItem.Click += new System.EventHandler(this.datenbankserverToolStripMenuItem_Click);
+            // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1029,18 +1040,21 @@
             this.lb_wg_auswahl.TabIndex = 1;
             this.lb_wg_auswahl.Text = "Gruppenauswahl:";
             // 
-            // datenbankserverToolStripMenuItem
+            // gb_Dispo
             // 
-            this.datenbankserverToolStripMenuItem.Name = "datenbankserverToolStripMenuItem";
-            this.datenbankserverToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
-            this.datenbankserverToolStripMenuItem.Text = "Datenbankserver";
-            this.datenbankserverToolStripMenuItem.Click += new System.EventHandler(this.datenbankserverToolStripMenuItem_Click);
+            this.gb_Dispo.Location = new System.Drawing.Point(498, 458);
+            this.gb_Dispo.Name = "gb_Dispo";
+            this.gb_Dispo.Size = new System.Drawing.Size(200, 151);
+            this.gb_Dispo.TabIndex = 22;
+            this.gb_Dispo.TabStop = false;
+            this.gb_Dispo.Text = "Dispo";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 734);
+            this.Controls.Add(this.gb_Dispo);
             this.Controls.Add(this.lb_wg_auswahl);
             this.Controls.Add(this.gb_fehler_forderung);
             this.Controls.Add(this.gb_links);
@@ -1179,6 +1193,7 @@
         private System.Windows.Forms.LinkLabel IBM_AUT_MAIL;
         private System.Windows.Forms.LinkLabel UNIFYMSD_HA;
         private System.Windows.Forms.ToolStripMenuItem datenbankserverToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gb_Dispo;
     }
 }
 
