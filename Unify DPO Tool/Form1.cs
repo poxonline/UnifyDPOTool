@@ -528,12 +528,14 @@ namespace Unify_DPO_Tool
             {
                 teamsVerwaltenToolStripMenuItem.Enabled = true;
                 workgroupsToolStripMenuItem.Enabled = true;
+                dispositionenToolStripMenuItem.Enabled = true;
             }
             else if(fenster.Return2==2)
             {
                 teamsVerwaltenToolStripMenuItem.Enabled = true;
                 userToolStripMenuItem.Enabled = true;
                 workgroupsToolStripMenuItem.Enabled = true;
+                dispositionenToolStripMenuItem.Enabled = true;
             }
             else
             {
@@ -551,6 +553,7 @@ namespace Unify_DPO_Tool
         ausloggenToolStripMenuItem.Enabled = false;
         einloggenToolStripMenuItem.Enabled = true;
         workgroupsToolStripMenuItem.Enabled = false;
+        dispositionenToolStripMenuItem.Enabled = false;
         lb_user.Text = "Nicht als Admin eingeloggt";
     }
 
@@ -731,6 +734,12 @@ namespace Unify_DPO_Tool
         private void datenbankserverToolStripMenuItem_Click(object sender, EventArgs e)
         {
             setting_server fenster = new setting_server();
+            fenster.Show();
+        }
+
+        private void disposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dispo_form fenster = new dispo_form();
             fenster.Show();
         }
     }

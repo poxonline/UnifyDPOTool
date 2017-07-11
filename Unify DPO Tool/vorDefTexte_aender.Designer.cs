@@ -157,10 +157,9 @@
             this.tb_hinweis.Multiline = true;
             this.tb_hinweis.Name = "tb_hinweis";
             this.tb_hinweis.ReadOnly = true;
-            this.tb_hinweis.Size = new System.Drawing.Size(498, 64);
+            this.tb_hinweis.Size = new System.Drawing.Size(498, 101);
             this.tb_hinweis.TabIndex = 12;
-            this.tb_hinweis.Text = "Hinweise:\r\n- Workgroupp ALL ist immer sichtbar\r\n- Andere Workgroups sind nur bei " +
-    "aktiver Auswahl sichtbar\r\n- Beim neu anlegen werden die IDs automatisch erzeugt";
+            this.tb_hinweis.Text = resources.GetString("tb_hinweis.Text");
             // 
             // bt_anlegen
             // 
@@ -196,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 247);
+            this.ClientSize = new System.Drawing.Size(522, 287);
             this.Controls.Add(this.bt_loeschen);
             this.Controls.Add(this.bt_speichern);
             this.Controls.Add(this.bt_anlegen);

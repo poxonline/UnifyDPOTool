@@ -115,6 +115,8 @@
             this.workgroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dispositionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfesoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,6 +128,8 @@
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
             this.gb_Dispo = new System.Windows.Forms.GroupBox();
+            this.dispoRufnummernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ansprechpartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -846,9 +850,10 @@
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.einloggenToolStripMenuItem,
             this.ausloggenToolStripMenuItem,
+            this.workgroupsToolStripMenuItem,
             this.teamsVerwaltenToolStripMenuItem,
-            this.userToolStripMenuItem,
-            this.workgroupsToolStripMenuItem});
+            this.dispositionenToolStripMenuItem,
+            this.userToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -939,6 +944,24 @@
             this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
+            // 
+            // dispositionenToolStripMenuItem
+            // 
+            this.dispositionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.disposToolStripMenuItem,
+            this.dispoRufnummernToolStripMenuItem,
+            this.ansprechpartnerToolStripMenuItem});
+            this.dispositionenToolStripMenuItem.Enabled = false;
+            this.dispositionenToolStripMenuItem.Name = "dispositionenToolStripMenuItem";
+            this.dispositionenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.dispositionenToolStripMenuItem.Text = "Dispositionen";
+            // 
+            // disposToolStripMenuItem
+            // 
+            this.disposToolStripMenuItem.Name = "disposToolStripMenuItem";
+            this.disposToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.disposToolStripMenuItem.Text = "Dispos";
+            this.disposToolStripMenuItem.Click += new System.EventHandler(this.disposToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -1048,6 +1071,18 @@
             this.gb_Dispo.TabIndex = 22;
             this.gb_Dispo.TabStop = false;
             this.gb_Dispo.Text = "Dispo";
+            // 
+            // dispoRufnummernToolStripMenuItem
+            // 
+            this.dispoRufnummernToolStripMenuItem.Name = "dispoRufnummernToolStripMenuItem";
+            this.dispoRufnummernToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.dispoRufnummernToolStripMenuItem.Text = "Dispo - Rufnummern";
+            // 
+            // ansprechpartnerToolStripMenuItem
+            // 
+            this.ansprechpartnerToolStripMenuItem.Name = "ansprechpartnerToolStripMenuItem";
+            this.ansprechpartnerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.ansprechpartnerToolStripMenuItem.Text = "Ansprechpartner";
             // 
             // Form1
             // 
@@ -1194,6 +1229,10 @@
         private System.Windows.Forms.LinkLabel UNIFYMSD_HA;
         private System.Windows.Forms.ToolStripMenuItem datenbankserverToolStripMenuItem;
         private System.Windows.Forms.GroupBox gb_Dispo;
+        private System.Windows.Forms.ToolStripMenuItem dispositionenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem disposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dispoRufnummernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ansprechpartnerToolStripMenuItem;
     }
 }
 

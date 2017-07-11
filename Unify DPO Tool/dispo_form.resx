@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tb_hinweis.Text" xml:space="preserve">
-    <value>Hinweise:
-- Workgroupp ALL ist immer sichtbar
-- Andere Workgroups sind nur bei aktiver Auswahl sichtbar
-- Bei Text bis 100 Zeichen möglich
-- Beim neu anlegen werden die IDs automatisch erzeugt
-- Bitte vor dem Anlegen prüfen ob der Text nicht schon vorhanden ist
-- Beim klicken auf Anlegen wird der Eintrag sofort erzeugt, mit den Werten aus den Feldern</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
