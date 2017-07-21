@@ -212,6 +212,10 @@
             this.Controls.Add(this.lb_id);
             this.Controls.Add(this.cb_dispo_auswahl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(443, 321);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(443, 321);
             this.Name = "dispo_form";
             this.Text = "DPO Tool - Dispos";
             this.ResumeLayout(false);
