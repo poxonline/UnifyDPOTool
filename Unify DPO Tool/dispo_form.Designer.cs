@@ -56,6 +56,7 @@
             this.cb_dispo_auswahl.Name = "cb_dispo_auswahl";
             this.cb_dispo_auswahl.Size = new System.Drawing.Size(403, 21);
             this.cb_dispo_auswahl.TabIndex = 0;
+            this.cb_dispo_auswahl.SelectedIndexChanged += new System.EventHandler(this.cb_dispo_auswahl_SelectedIndexChanged);
             // 
             // lb_id
             // 
@@ -171,6 +172,7 @@
             this.bt_anlegen.TabIndex = 17;
             this.bt_anlegen.Text = "Anlegen";
             this.bt_anlegen.UseVisualStyleBackColor = true;
+            this.bt_anlegen.Click += new System.EventHandler(this.bt_anlegen_Click);
             // 
             // bt_speichern
             // 
@@ -180,6 +182,7 @@
             this.bt_speichern.TabIndex = 18;
             this.bt_speichern.Text = "Speichern";
             this.bt_speichern.UseVisualStyleBackColor = true;
+            this.bt_speichern.Click += new System.EventHandler(this.bt_speichern_Click);
             // 
             // bt_loeschen
             // 
@@ -189,6 +192,7 @@
             this.bt_loeschen.TabIndex = 19;
             this.bt_loeschen.Text = "Löschen";
             this.bt_loeschen.UseVisualStyleBackColor = true;
+            this.bt_loeschen.Click += new System.EventHandler(this.bt_loeschen_Click);
             // 
             // dispo_form
             // 

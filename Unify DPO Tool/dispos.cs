@@ -47,6 +47,11 @@ namespace Unify_DPO_Tool
             get { return EMAIL_ASP_eskalation; }
             set { EMAIL_ASP_eskalation = value; }
         }
+        public string prop_beschreibung
+        {
+            get { return beschreibung; }
+            set { beschreibung = value; }
+        }
         public bool prop_partner
         {
             get { return partner; }
@@ -64,6 +69,10 @@ namespace Unify_DPO_Tool
             this.EMAIL_ASP_eskalation = email_eskalation;
             this.beschreibung = beschreibung;
             this.partner = partner;
+        }
+        public override string ToString()
+        {
+            return name;
         }
     }
 }
