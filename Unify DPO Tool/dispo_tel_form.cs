@@ -58,7 +58,7 @@ namespace Unify_DPO_Tool
 
         private void bt_loeschen_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Möchten sie wirklich den Benutzer löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Möchten sie wirklich die Rufnummer löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 sql_dispos.del_dispo_tel((dispos_tel)cb_tel_auswahl.SelectedItem);
