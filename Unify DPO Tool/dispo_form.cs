@@ -35,6 +35,7 @@ namespace Unify_DPO_Tool
             {
                 cb_dispo_auswahl.Items.Add(element);
             }
+            dispoliste.Clear();
         }
 
         private void bt_anlegen_Click(object sender, EventArgs e)

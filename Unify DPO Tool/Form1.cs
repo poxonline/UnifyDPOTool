@@ -742,5 +742,11 @@ namespace Unify_DPO_Tool
             dispo_form fenster = new dispo_form();
             fenster.Show();
         }
+
+        private void dispoRufnummernToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dispo_tel_form fenster = new dispo_tel_form();
+            fenster.Show();
+        }
     }
 }

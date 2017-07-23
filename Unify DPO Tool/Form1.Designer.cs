@@ -106,17 +106,19 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teamsVerwaltenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bearbeitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workgroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.teamsVerwaltenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bearbeitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dispositionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dispoRufnummernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ansprechpartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfesoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,8 +130,6 @@
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
             this.gb_Dispo = new System.Windows.Forms.GroupBox();
-            this.dispoRufnummernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ansprechpartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -873,54 +873,6 @@
             this.ausloggenToolStripMenuItem.Text = "Ausloggen";
             this.ausloggenToolStripMenuItem.Click += new System.EventHandler(this.ausloggenToolStripMenuItem_Click);
             // 
-            // teamsVerwaltenToolStripMenuItem
-            // 
-            this.teamsVerwaltenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem1,
-            this.bearbeitenToolStripMenuItem1});
-            this.teamsVerwaltenToolStripMenuItem.Enabled = false;
-            this.teamsVerwaltenToolStripMenuItem.Name = "teamsVerwaltenToolStripMenuItem";
-            this.teamsVerwaltenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.teamsVerwaltenToolStripMenuItem.Text = "Teams verwalten";
-            // 
-            // neuToolStripMenuItem1
-            // 
-            this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
-            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
-            this.neuToolStripMenuItem1.Text = "Neu";
-            this.neuToolStripMenuItem1.Click += new System.EventHandler(this.neuToolStripMenuItem1_Click);
-            // 
-            // bearbeitenToolStripMenuItem1
-            // 
-            this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
-            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
-            this.bearbeitenToolStripMenuItem1.Text = "Bearbeiten";
-            this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
-            // 
-            // userToolStripMenuItem
-            // 
-            this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem,
-            this.bearbeitenToolStripMenuItem});
-            this.userToolStripMenuItem.Enabled = false;
-            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.userToolStripMenuItem.Text = "User";
-            // 
-            // neuToolStripMenuItem
-            // 
-            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.neuToolStripMenuItem.Text = "Neu";
-            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
-            // 
-            // bearbeitenToolStripMenuItem
-            // 
-            this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
-            this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
-            // 
             // workgroupsToolStripMenuItem
             // 
             this.workgroupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -945,6 +897,30 @@
             this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
             // 
+            // teamsVerwaltenToolStripMenuItem
+            // 
+            this.teamsVerwaltenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem1,
+            this.bearbeitenToolStripMenuItem1});
+            this.teamsVerwaltenToolStripMenuItem.Enabled = false;
+            this.teamsVerwaltenToolStripMenuItem.Name = "teamsVerwaltenToolStripMenuItem";
+            this.teamsVerwaltenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.teamsVerwaltenToolStripMenuItem.Text = "Teams verwalten";
+            // 
+            // neuToolStripMenuItem1
+            // 
+            this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
+            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem1.Text = "Neu";
+            this.neuToolStripMenuItem1.Click += new System.EventHandler(this.neuToolStripMenuItem1_Click);
+            // 
+            // bearbeitenToolStripMenuItem1
+            // 
+            this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem1.Text = "Bearbeiten";
+            this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
+            // 
             // dispositionenToolStripMenuItem
             // 
             this.dispositionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -962,6 +938,43 @@
             this.disposToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.disposToolStripMenuItem.Text = "Dispos";
             this.disposToolStripMenuItem.Click += new System.EventHandler(this.disposToolStripMenuItem_Click);
+            // 
+            // dispoRufnummernToolStripMenuItem
+            // 
+            this.dispoRufnummernToolStripMenuItem.Name = "dispoRufnummernToolStripMenuItem";
+            this.dispoRufnummernToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.dispoRufnummernToolStripMenuItem.Text = "Dispo - Rufnummern";
+            this.dispoRufnummernToolStripMenuItem.Click += new System.EventHandler(this.dispoRufnummernToolStripMenuItem_Click);
+            // 
+            // ansprechpartnerToolStripMenuItem
+            // 
+            this.ansprechpartnerToolStripMenuItem.Name = "ansprechpartnerToolStripMenuItem";
+            this.ansprechpartnerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.ansprechpartnerToolStripMenuItem.Text = "Ansprechpartner";
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.bearbeitenToolStripMenuItem});
+            this.userToolStripMenuItem.Enabled = false;
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.userToolStripMenuItem.Text = "User";
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
+            // 
+            // bearbeitenToolStripMenuItem
+            // 
+            this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
+            this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -1072,18 +1085,6 @@
             this.gb_Dispo.TabStop = false;
             this.gb_Dispo.Text = "Dispo";
             // 
-            // dispoRufnummernToolStripMenuItem
-            // 
-            this.dispoRufnummernToolStripMenuItem.Name = "dispoRufnummernToolStripMenuItem";
-            this.dispoRufnummernToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.dispoRufnummernToolStripMenuItem.Text = "Dispo - Rufnummern";
-            // 
-            // ansprechpartnerToolStripMenuItem
-            // 
-            this.ansprechpartnerToolStripMenuItem.Name = "ansprechpartnerToolStripMenuItem";
-            this.ansprechpartnerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.ansprechpartnerToolStripMenuItem.Text = "Ansprechpartner";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1104,7 +1105,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1003, 773);
-            this.MinimumSize = new System.Drawing.Size(1003, 773);
+            this.MinimumSize = new System.Drawing.Size(1003, 726);
             this.Name = "Form1";
             this.Text = "Unify DPO Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
