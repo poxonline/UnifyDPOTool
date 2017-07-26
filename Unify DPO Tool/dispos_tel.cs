@@ -11,7 +11,7 @@ namespace Unify_DPO_Tool
         private int id;
         private string beschreibung;
         private string rufnummer;
-        private int dispo;
+        private string dispo;
         public int prop_id
         {
             get { return id; }
@@ -28,14 +28,14 @@ namespace Unify_DPO_Tool
             get { return rufnummer; }
             set { rufnummer = value; }
         }
-        public int prop_dispo
+        public string prop_dispo
         {
             get { return dispo; }
             set { dispo = value; }
         }
         public dispos_tel()
         { }
-        public dispos_tel(int id, string beschreibung, string rufnummer, int dispo)
+        public dispos_tel(int id, string beschreibung, string rufnummer, string dispo)
         {
             this.id=id;
             this.beschreibung = beschreibung;

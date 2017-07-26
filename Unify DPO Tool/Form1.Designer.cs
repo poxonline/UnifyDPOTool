@@ -130,6 +130,10 @@
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
             this.gb_Dispo = new System.Windows.Forms.GroupBox();
+            this.cb_dispowahl = new System.Windows.Forms.ComboBox();
+            this.ll_infomail = new System.Windows.Forms.LinkLabel();
+            this.ll_rueckfrage = new System.Windows.Forms.LinkLabel();
+            this.ll_eskalation = new System.Windows.Forms.LinkLabel();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -140,6 +144,7 @@
             this.TryIconMenue.SuspendLayout();
             this.gb_links.SuspendLayout();
             this.gb_fehler_forderung.SuspendLayout();
+            this.gb_Dispo.SuspendLayout();
             this.SuspendLayout();
             // 
             // texterzeugen
@@ -910,14 +915,14 @@
             // neuToolStripMenuItem1
             // 
             this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
-            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.neuToolStripMenuItem1.Text = "Neu";
             this.neuToolStripMenuItem1.Click += new System.EventHandler(this.neuToolStripMenuItem1_Click);
             // 
             // bearbeitenToolStripMenuItem1
             // 
             this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
-            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem1.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
             // 
@@ -1021,7 +1026,7 @@
             this.gb_links.Controls.Add(this.IBMTechniker);
             this.gb_links.Controls.Add(this.IBMDispoEskalation);
             this.gb_links.Controls.Add(this.IBMDispoMail);
-            this.gb_links.Location = new System.Drawing.Point(498, 300);
+            this.gb_links.Location = new System.Drawing.Point(498, 333);
             this.gb_links.Name = "gb_links";
             this.gb_links.Size = new System.Drawing.Size(200, 151);
             this.gb_links.TabIndex = 21;
@@ -1078,12 +1083,59 @@
             // 
             // gb_Dispo
             // 
-            this.gb_Dispo.Location = new System.Drawing.Point(498, 458);
+            this.gb_Dispo.Controls.Add(this.ll_eskalation);
+            this.gb_Dispo.Controls.Add(this.ll_rueckfrage);
+            this.gb_Dispo.Controls.Add(this.ll_infomail);
+            this.gb_Dispo.Controls.Add(this.cb_dispowahl);
+            this.gb_Dispo.Location = new System.Drawing.Point(704, 333);
             this.gb_Dispo.Name = "gb_Dispo";
-            this.gb_Dispo.Size = new System.Drawing.Size(200, 151);
+            this.gb_Dispo.Size = new System.Drawing.Size(275, 89);
             this.gb_Dispo.TabIndex = 22;
             this.gb_Dispo.TabStop = false;
             this.gb_Dispo.Text = "Dispo";
+            // 
+            // cb_dispowahl
+            // 
+            this.cb_dispowahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_dispowahl.FormattingEnabled = true;
+            this.cb_dispowahl.Location = new System.Drawing.Point(7, 20);
+            this.cb_dispowahl.MaxDropDownItems = 20;
+            this.cb_dispowahl.Name = "cb_dispowahl";
+            this.cb_dispowahl.Size = new System.Drawing.Size(262, 21);
+            this.cb_dispowahl.TabIndex = 0;
+            // 
+            // ll_infomail
+            // 
+            this.ll_infomail.AutoSize = true;
+            this.ll_infomail.Location = new System.Drawing.Point(6, 56);
+            this.ll_infomail.Name = "ll_infomail";
+            this.ll_infomail.Size = new System.Drawing.Size(59, 13);
+            this.ll_infomail.TabIndex = 14;
+            this.ll_infomail.TabStop = true;
+            this.ll_infomail.Text = "Information";
+            this.ll_infomail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_infomail_LinkClicked);
+            // 
+            // ll_rueckfrage
+            // 
+            this.ll_rueckfrage.AutoSize = true;
+            this.ll_rueckfrage.Location = new System.Drawing.Point(98, 56);
+            this.ll_rueckfrage.Name = "ll_rueckfrage";
+            this.ll_rueckfrage.Size = new System.Drawing.Size(57, 13);
+            this.ll_rueckfrage.TabIndex = 15;
+            this.ll_rueckfrage.TabStop = true;
+            this.ll_rueckfrage.Text = "Rückfrage";
+            this.ll_rueckfrage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_rueckfrage_LinkClicked);
+            // 
+            // ll_eskalation
+            // 
+            this.ll_eskalation.AutoSize = true;
+            this.ll_eskalation.Location = new System.Drawing.Point(199, 56);
+            this.ll_eskalation.Name = "ll_eskalation";
+            this.ll_eskalation.Size = new System.Drawing.Size(56, 13);
+            this.ll_eskalation.TabIndex = 16;
+            this.ll_eskalation.TabStop = true;
+            this.ll_eskalation.Text = "Eskalation";
+            this.ll_eskalation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_eskalation_LinkClicked);
             // 
             // Form1
             // 
@@ -1127,6 +1179,8 @@
             this.gb_links.PerformLayout();
             this.gb_fehler_forderung.ResumeLayout(false);
             this.gb_fehler_forderung.PerformLayout();
+            this.gb_Dispo.ResumeLayout(false);
+            this.gb_Dispo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1234,6 +1288,10 @@
         private System.Windows.Forms.ToolStripMenuItem disposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispoRufnummernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ansprechpartnerToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cb_dispowahl;
+        private System.Windows.Forms.LinkLabel ll_eskalation;
+        private System.Windows.Forms.LinkLabel ll_rueckfrage;
+        private System.Windows.Forms.LinkLabel ll_infomail;
     }
 }
 

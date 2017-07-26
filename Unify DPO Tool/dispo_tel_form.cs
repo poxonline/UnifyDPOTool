@@ -43,7 +43,7 @@ namespace Unify_DPO_Tool
 
         private void bt_anlegen_Click(object sender, EventArgs e)
         {
-            sql_dispos.add_disp_tel(new dispos_tel(0, tb_Beschreibung.Text, tb_rufnummer.Text, ((dispos)cb_dispo.SelectedItem).prop_id));
+            sql_dispos.add_disp_tel(new dispos_tel(0, tb_Beschreibung.Text, tb_rufnummer.Text, ((dispos)cb_dispo.SelectedItem).prop_name));
             aktualisieren();
         }
 
@@ -51,7 +51,7 @@ namespace Unify_DPO_Tool
         {
             ((dispos_tel)cb_tel_auswahl.SelectedItem).prop_beschreibung = tb_Beschreibung.Text;
             ((dispos_tel)cb_tel_auswahl.SelectedItem).prop_tel = tb_rufnummer.Text;
-            ((dispos_tel)cb_tel_auswahl.SelectedItem).prop_dispo = ((dispos)cb_dispo.SelectedItem).prop_id;
+            ((dispos_tel)cb_tel_auswahl.SelectedItem).prop_dispo = ((dispos)cb_dispo.SelectedItem).prop_name;
             sql_dispos.update_dispo_tel((dispos_tel)cb_tel_auswahl.SelectedItem);
             aktualisieren();
         }
@@ -71,7 +71,7 @@ namespace Unify_DPO_Tool
             tb_id.Text=Convert.ToString(((dispos_tel)cb_tel_auswahl.SelectedItem).prop_id);
             tb_Beschreibung.Text=((dispos_tel)cb_tel_auswahl.SelectedItem).prop_beschreibung;
             tb_rufnummer.Text=((dispos_tel)cb_tel_auswahl.SelectedItem).prop_tel;
-            //Hier muss noch ergänzt werden das die zugehörige Dispo ausgewählt wird!!
+            cb_dispo.SelectedIndex = cb_dispo.FindString(((dispos_tel)cb_tel_auswahl.SelectedItem).prop_dispo);
         }
     }
 }

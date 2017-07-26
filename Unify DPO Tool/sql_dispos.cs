@@ -177,7 +177,7 @@ namespace Unify_DPO_Tool
                     rdr = SQL_Befehl.ExecuteReader();
                     while (rdr.Read())
                     {
-                        liste.Add(new dispos_tel(rdr.GetInt32(0),rdr.GetString(1),rdr.GetString(2),rdr.GetInt32(3)));
+                        liste.Add(new dispos_tel(rdr.GetInt32(0),rdr.GetString(1),rdr.GetString(2),rdr.GetString(3)));
                     }
                     rdr.Close();
                     verbindung.Close();

@@ -646,6 +646,14 @@ namespace Unify_DPO_Tool
                     cb_requestedfromfield.Items.Add(element);
                 liste.Clear();
             }
+            cb_dispowahl.Items.Clear();
+            liste = sql_dispos.select_dispos();
+            if(liste !=null)
+            {
+                foreach (dispos element in liste)
+                    cb_dispowahl.Items.Add(element);
+                liste.Clear();
+            }
         }
         public void update_ausgabe()
         {
@@ -748,5 +756,69 @@ namespace Unify_DPO_Tool
             dispo_tel_form fenster = new dispo_tel_form();
             fenster.Show();
         }
+
+        private void ll_infomail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (cb_dispowahl.SelectedIndex != -1)
+                maillinkbauen("Information zu", false);
+            else
+                MessageBox.Show("E-Mail vorbereitung nicht möglich, bitte Dispo auswählen!");
+        }
+
+        private void ll_rueckfrage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (cb_dispowahl.SelectedIndex != -1)
+                maillinkbauen("Rückfrage zu", false);
+            else
+                MessageBox.Show("E-Mail vorbereitung nicht möglich, bitte Dispo auswählen!");
+        }
+
+        private void ll_eskalation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (cb_dispowahl.SelectedIndex != -1)
+                maillinkbauen("Eskalation bei", true);
+            else
+                MessageBox.Show("E-Mail vorbereitung nicht möglich, bitte Dispo auswählen!");
+        }
+        private void maillinkbauen(string typ,bool esk)
+        {
+            string mailto;
+            dialog_mail ticket_f = new dialog_mail("Ticketnummer");
+            ticket_f.ShowDialog();
+            string ticketnr = ticket_f.Return1;
+            dialog_mail kunde_f = new dialog_mail("Kundenname");
+            kunde_f.ShowDialog();
+            string kundenname = kunde_f.Return1;
+            if (!esk)
+            {
+                if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
+                {
+                    dialog_mail fru_f = new dialog_mail("PLZ");
+                    fru_f.ShowDialog();
+                    string fru = fru_preufen.abfragen(Convert.ToInt32(fru_f.Return1));
+                    mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email;
+                }
+                else
+                    mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email;
+            }
+            else
+            {
+                if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
+                {
+                    dialog_mail fru_f = new dialog_mail("FRU");
+                    fru_f.ShowDialog();
+                    string fru = fru_preufen.abfragen(Convert.ToInt32(fru_f.Return1));
+                    mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail;
+                }
+                else
+                    mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail;
+            }
+            try
+            {
+                System.Diagnostics.Process.Start(mailto);
+            }
+            catch { }
+        }
+        
     }
 }
