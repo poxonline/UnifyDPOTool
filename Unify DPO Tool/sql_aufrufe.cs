@@ -1092,7 +1092,7 @@ namespace Unify_DPO_Tool
             DirectorySearcher mySearcher = new DirectorySearcher(entry);
             mySearcher.Filter = "(&(ObjectClass=user)(sAMAccountName="+Environment.UserName+"))";
             mySearcher.PropertiesToLoad.Add("displayName");
-            mySearcher.PropertiesToLoad.Add("telephoneNumber");
+            //mySearcher.PropertiesToLoad.Add("telephoneNumber");
             try
             {
                 SearchResult result = mySearcher.FindOne();
