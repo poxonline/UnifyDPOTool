@@ -307,27 +307,27 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(4, 51);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 13);
+            this.label10.Size = new System.Drawing.Size(136, 13);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Activities so far in Remote:";
+            this.label10.Text = "Activities so far in Remote*:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(4, 25);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 13);
+            this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Issue Discription:";
+            this.label11.Text = "Issue Discription*:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(4, 78);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(143, 13);
+            this.label12.Size = new System.Drawing.Size(147, 13);
             this.label12.TabIndex = 4;
-            this.label12.Text = "Requested Action from Field:";
+            this.label12.Text = "Requested Action from Field*:";
             // 
             // label13
             // 
