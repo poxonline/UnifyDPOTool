@@ -783,12 +783,8 @@ namespace Unify_DPO_Tool
         private void maillinkbauen(string typ,bool esk)
         {
             string mailto;
-            dialog_mail ticket_f = new dialog_mail("Ticketnummer");
-            ticket_f.ShowDialog();
-            string ticketnr = ticket_f.Return1;
-            dialog_mail kunde_f = new dialog_mail("Kundenname");
-            kunde_f.ShowDialog();
-            string kundenname = kunde_f.Return1;
+            string ticketnr = tb_dispo_mail_ticketnr.Text;
+            string kundenname = tb_dispo_mail_kundenname.Text;
 
             //In extra Task ASP abfragen
             if (!esk)
@@ -797,9 +793,7 @@ namespace Unify_DPO_Tool
                 {//Bei normaler Mail ASPs nicht in CC
                     if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                     {
-                        dialog_mail fru_f = new dialog_mail("PLZ");
-                        fru_f.ShowDialog();
-                        string fru = fru_preufen.abfragen(Convert.ToInt32(fru_f.Return1));
+                        string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                         mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "&bcc=GSI-ProD.IT@unify.com";
                     }
                     else
@@ -810,9 +804,7 @@ namespace Unify_DPO_Tool
                     if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                     {
                         //ASPs fehlen
-                        dialog_mail fru_f = new dialog_mail("PLZ");
-                        fru_f.ShowDialog();
-                        string fru = fru_preufen.abfragen(Convert.ToInt32(fru_f.Return1));
+                        string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                         mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "&bcc=GSI-ProD.IT@unify.com";
                     }
                     else
@@ -825,9 +817,7 @@ namespace Unify_DPO_Tool
                 {//Bei eskalation Mail ASPs nicht in CC
                     if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                     {
-                        dialog_mail fru_f = new dialog_mail("PLZ");
-                        fru_f.ShowDialog();
-                        string fru = fru_preufen.abfragen(Convert.ToInt32(fru_f.Return1));
+                        string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                         mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
                     }
                     else
@@ -838,9 +828,7 @@ namespace Unify_DPO_Tool
                     if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                     {
                         //ASPs fehlen
-                        dialog_mail fru_f = new dialog_mail("PLZ");
-                        fru_f.ShowDialog();
-                        string fru = fru_preufen.abfragen(Convert.ToInt32(fru_f.Return1));
+                        string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                         mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
                     }
                     else

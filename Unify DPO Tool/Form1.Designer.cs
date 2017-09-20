@@ -130,10 +130,16 @@
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
             this.gb_Dispo = new System.Windows.Forms.GroupBox();
-            this.cb_dispowahl = new System.Windows.Forms.ComboBox();
-            this.ll_infomail = new System.Windows.Forms.LinkLabel();
-            this.ll_rueckfrage = new System.Windows.Forms.LinkLabel();
             this.ll_eskalation = new System.Windows.Forms.LinkLabel();
+            this.ll_rueckfrage = new System.Windows.Forms.LinkLabel();
+            this.ll_infomail = new System.Windows.Forms.LinkLabel();
+            this.cb_dispowahl = new System.Windows.Forms.ComboBox();
+            this.tb_dispo_mail_ticketnr = new System.Windows.Forms.TextBox();
+            this.tb_dispo_mail_kundenname = new System.Windows.Forms.TextBox();
+            this.tb_dispo_mail_plz = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -1083,16 +1089,55 @@
             // 
             // gb_Dispo
             // 
+            this.gb_Dispo.Controls.Add(this.label19);
+            this.gb_Dispo.Controls.Add(this.label2);
+            this.gb_Dispo.Controls.Add(this.label1);
+            this.gb_Dispo.Controls.Add(this.tb_dispo_mail_plz);
+            this.gb_Dispo.Controls.Add(this.tb_dispo_mail_kundenname);
+            this.gb_Dispo.Controls.Add(this.tb_dispo_mail_ticketnr);
             this.gb_Dispo.Controls.Add(this.ll_eskalation);
             this.gb_Dispo.Controls.Add(this.ll_rueckfrage);
             this.gb_Dispo.Controls.Add(this.ll_infomail);
             this.gb_Dispo.Controls.Add(this.cb_dispowahl);
             this.gb_Dispo.Location = new System.Drawing.Point(704, 333);
             this.gb_Dispo.Name = "gb_Dispo";
-            this.gb_Dispo.Size = new System.Drawing.Size(275, 89);
+            this.gb_Dispo.Size = new System.Drawing.Size(275, 151);
             this.gb_Dispo.TabIndex = 22;
             this.gb_Dispo.TabStop = false;
             this.gb_Dispo.Text = "Dispo";
+            // 
+            // ll_eskalation
+            // 
+            this.ll_eskalation.AutoSize = true;
+            this.ll_eskalation.Location = new System.Drawing.Point(198, 129);
+            this.ll_eskalation.Name = "ll_eskalation";
+            this.ll_eskalation.Size = new System.Drawing.Size(56, 13);
+            this.ll_eskalation.TabIndex = 16;
+            this.ll_eskalation.TabStop = true;
+            this.ll_eskalation.Text = "Eskalation";
+            this.ll_eskalation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_eskalation_LinkClicked);
+            // 
+            // ll_rueckfrage
+            // 
+            this.ll_rueckfrage.AutoSize = true;
+            this.ll_rueckfrage.Location = new System.Drawing.Point(97, 129);
+            this.ll_rueckfrage.Name = "ll_rueckfrage";
+            this.ll_rueckfrage.Size = new System.Drawing.Size(57, 13);
+            this.ll_rueckfrage.TabIndex = 15;
+            this.ll_rueckfrage.TabStop = true;
+            this.ll_rueckfrage.Text = "Rückfrage";
+            this.ll_rueckfrage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_rueckfrage_LinkClicked);
+            // 
+            // ll_infomail
+            // 
+            this.ll_infomail.AutoSize = true;
+            this.ll_infomail.Location = new System.Drawing.Point(6, 129);
+            this.ll_infomail.Name = "ll_infomail";
+            this.ll_infomail.Size = new System.Drawing.Size(59, 13);
+            this.ll_infomail.TabIndex = 14;
+            this.ll_infomail.TabStop = true;
+            this.ll_infomail.Text = "Information";
+            this.ll_infomail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_infomail_LinkClicked);
             // 
             // cb_dispowahl
             // 
@@ -1104,38 +1149,53 @@
             this.cb_dispowahl.Size = new System.Drawing.Size(262, 21);
             this.cb_dispowahl.TabIndex = 0;
             // 
-            // ll_infomail
+            // tb_dispo_mail_ticketnr
             // 
-            this.ll_infomail.AutoSize = true;
-            this.ll_infomail.Location = new System.Drawing.Point(6, 56);
-            this.ll_infomail.Name = "ll_infomail";
-            this.ll_infomail.Size = new System.Drawing.Size(59, 13);
-            this.ll_infomail.TabIndex = 14;
-            this.ll_infomail.TabStop = true;
-            this.ll_infomail.Text = "Information";
-            this.ll_infomail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_infomail_LinkClicked);
+            this.tb_dispo_mail_ticketnr.Location = new System.Drawing.Point(134, 49);
+            this.tb_dispo_mail_ticketnr.Name = "tb_dispo_mail_ticketnr";
+            this.tb_dispo_mail_ticketnr.Size = new System.Drawing.Size(135, 20);
+            this.tb_dispo_mail_ticketnr.TabIndex = 17;
             // 
-            // ll_rueckfrage
+            // tb_dispo_mail_kundenname
             // 
-            this.ll_rueckfrage.AutoSize = true;
-            this.ll_rueckfrage.Location = new System.Drawing.Point(98, 56);
-            this.ll_rueckfrage.Name = "ll_rueckfrage";
-            this.ll_rueckfrage.Size = new System.Drawing.Size(57, 13);
-            this.ll_rueckfrage.TabIndex = 15;
-            this.ll_rueckfrage.TabStop = true;
-            this.ll_rueckfrage.Text = "Rückfrage";
-            this.ll_rueckfrage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_rueckfrage_LinkClicked);
+            this.tb_dispo_mail_kundenname.Location = new System.Drawing.Point(134, 76);
+            this.tb_dispo_mail_kundenname.Name = "tb_dispo_mail_kundenname";
+            this.tb_dispo_mail_kundenname.Size = new System.Drawing.Size(135, 20);
+            this.tb_dispo_mail_kundenname.TabIndex = 18;
             // 
-            // ll_eskalation
+            // tb_dispo_mail_plz
             // 
-            this.ll_eskalation.AutoSize = true;
-            this.ll_eskalation.Location = new System.Drawing.Point(199, 56);
-            this.ll_eskalation.Name = "ll_eskalation";
-            this.ll_eskalation.Size = new System.Drawing.Size(56, 13);
-            this.ll_eskalation.TabIndex = 16;
-            this.ll_eskalation.TabStop = true;
-            this.ll_eskalation.Text = "Eskalation";
-            this.ll_eskalation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_eskalation_LinkClicked);
+            this.tb_dispo_mail_plz.Location = new System.Drawing.Point(134, 102);
+            this.tb_dispo_mail_plz.Name = "tb_dispo_mail_plz";
+            this.tb_dispo_mail_plz.Size = new System.Drawing.Size(135, 20);
+            this.tb_dispo_mail_plz.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Ticket-Nummer*:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Kundenname*:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 105);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(30, 13);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "PLZ:";
             // 
             // Form1
             // 
@@ -1292,6 +1352,12 @@
         private System.Windows.Forms.LinkLabel ll_eskalation;
         private System.Windows.Forms.LinkLabel ll_rueckfrage;
         private System.Windows.Forms.LinkLabel ll_infomail;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb_dispo_mail_plz;
+        private System.Windows.Forms.TextBox tb_dispo_mail_kundenname;
+        private System.Windows.Forms.TextBox tb_dispo_mail_ticketnr;
     }
 }
 
