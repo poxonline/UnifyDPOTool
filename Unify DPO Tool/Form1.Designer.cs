@@ -130,16 +130,16 @@
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
             this.gb_Dispo = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_dispo_mail_plz = new System.Windows.Forms.TextBox();
+            this.tb_dispo_mail_kundenname = new System.Windows.Forms.TextBox();
+            this.tb_dispo_mail_ticketnr = new System.Windows.Forms.TextBox();
             this.ll_eskalation = new System.Windows.Forms.LinkLabel();
             this.ll_rueckfrage = new System.Windows.Forms.LinkLabel();
             this.ll_infomail = new System.Windows.Forms.LinkLabel();
             this.cb_dispowahl = new System.Windows.Forms.ComboBox();
-            this.tb_dispo_mail_ticketnr = new System.Windows.Forms.TextBox();
-            this.tb_dispo_mail_kundenname = new System.Windows.Forms.TextBox();
-            this.tb_dispo_mail_plz = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -897,14 +897,14 @@
             // neuToolStripMenuItem2
             // 
             this.neuToolStripMenuItem2.Name = "neuToolStripMenuItem2";
-            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
+            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.neuToolStripMenuItem2.Text = "Neu";
             this.neuToolStripMenuItem2.Click += new System.EventHandler(this.neuToolStripMenuItem2_Click);
             // 
             // bearbeitenToolStripMenuItem2
             // 
             this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
-            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
+            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
             // 
@@ -921,14 +921,14 @@
             // neuToolStripMenuItem1
             // 
             this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
-            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.neuToolStripMenuItem1.Text = "Neu";
             this.neuToolStripMenuItem1.Click += new System.EventHandler(this.neuToolStripMenuItem1_Click);
             // 
             // bearbeitenToolStripMenuItem1
             // 
             this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
-            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.bearbeitenToolStripMenuItem1.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
             // 
@@ -962,6 +962,7 @@
             this.ansprechpartnerToolStripMenuItem.Name = "ansprechpartnerToolStripMenuItem";
             this.ansprechpartnerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.ansprechpartnerToolStripMenuItem.Text = "Ansprechpartner";
+            this.ansprechpartnerToolStripMenuItem.Click += new System.EventHandler(this.ansprechpartnerToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
@@ -1106,6 +1107,54 @@
             this.gb_Dispo.TabStop = false;
             this.gb_Dispo.Text = "Dispo";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 105);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(30, 13);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "PLZ:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Kundenname*:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Ticket-Nummer*:";
+            // 
+            // tb_dispo_mail_plz
+            // 
+            this.tb_dispo_mail_plz.Location = new System.Drawing.Point(134, 102);
+            this.tb_dispo_mail_plz.Name = "tb_dispo_mail_plz";
+            this.tb_dispo_mail_plz.Size = new System.Drawing.Size(135, 20);
+            this.tb_dispo_mail_plz.TabIndex = 19;
+            // 
+            // tb_dispo_mail_kundenname
+            // 
+            this.tb_dispo_mail_kundenname.Location = new System.Drawing.Point(134, 76);
+            this.tb_dispo_mail_kundenname.Name = "tb_dispo_mail_kundenname";
+            this.tb_dispo_mail_kundenname.Size = new System.Drawing.Size(135, 20);
+            this.tb_dispo_mail_kundenname.TabIndex = 18;
+            // 
+            // tb_dispo_mail_ticketnr
+            // 
+            this.tb_dispo_mail_ticketnr.Location = new System.Drawing.Point(134, 49);
+            this.tb_dispo_mail_ticketnr.Name = "tb_dispo_mail_ticketnr";
+            this.tb_dispo_mail_ticketnr.Size = new System.Drawing.Size(135, 20);
+            this.tb_dispo_mail_ticketnr.TabIndex = 17;
+            // 
             // ll_eskalation
             // 
             this.ll_eskalation.AutoSize = true;
@@ -1148,54 +1197,6 @@
             this.cb_dispowahl.Name = "cb_dispowahl";
             this.cb_dispowahl.Size = new System.Drawing.Size(262, 21);
             this.cb_dispowahl.TabIndex = 0;
-            // 
-            // tb_dispo_mail_ticketnr
-            // 
-            this.tb_dispo_mail_ticketnr.Location = new System.Drawing.Point(134, 49);
-            this.tb_dispo_mail_ticketnr.Name = "tb_dispo_mail_ticketnr";
-            this.tb_dispo_mail_ticketnr.Size = new System.Drawing.Size(135, 20);
-            this.tb_dispo_mail_ticketnr.TabIndex = 17;
-            // 
-            // tb_dispo_mail_kundenname
-            // 
-            this.tb_dispo_mail_kundenname.Location = new System.Drawing.Point(134, 76);
-            this.tb_dispo_mail_kundenname.Name = "tb_dispo_mail_kundenname";
-            this.tb_dispo_mail_kundenname.Size = new System.Drawing.Size(135, 20);
-            this.tb_dispo_mail_kundenname.TabIndex = 18;
-            // 
-            // tb_dispo_mail_plz
-            // 
-            this.tb_dispo_mail_plz.Location = new System.Drawing.Point(134, 102);
-            this.tb_dispo_mail_plz.Name = "tb_dispo_mail_plz";
-            this.tb_dispo_mail_plz.Size = new System.Drawing.Size(135, 20);
-            this.tb_dispo_mail_plz.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Ticket-Nummer*:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Kundenname*:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 105);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(30, 13);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "PLZ:";
             // 
             // Form1
             // 

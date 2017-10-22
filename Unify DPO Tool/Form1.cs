@@ -852,6 +852,12 @@ namespace Unify_DPO_Tool
                 MessageBox.Show("Fehler: "+ex,"Fehler!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+
+        private void ansprechpartnerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dispo_asp fenster = new dispo_asp();
+            fenster.Show();
+        }
         
     }
 }

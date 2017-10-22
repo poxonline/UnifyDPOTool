@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="dispos.cs" />
     <Compile Include="dispos_tel.cs" />
+    <Compile Include="dispo_asp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dispo_asp.Designer.cs">
+      <DependentUpon>dispo_asp.cs</DependentUpon>
+    </Compile>
     <Compile Include="dispo_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </Compile>
     <EmbeddedResource Include="dialog_mail.resx">
       <DependentUpon>dialog_mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dispo_asp.resx">
+      <DependentUpon>dispo_asp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dispo_form.resx">
       <DependentUpon>dispo_form.cs</DependentUpon>
