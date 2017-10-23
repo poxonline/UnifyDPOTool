@@ -88,6 +88,66 @@ namespace Unify_DPO_Tool
                 }
             }
         }
+        public static string select_aspmails_with_dispo(dispos abfrage)
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT asp from hilf_dispo where dispo=@udispo", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@udispo", abfrage.prop_name);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(rdr.GetString(0));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    string mails="";
+                    foreach (string element in liste)
+                    {
+                        MySqlCommand SQL_Befehl_mails = new MySqlCommand("SELECT email from asp where name=@uname", verbindung);
+                        SQL_Befehl_mails.Parameters.AddWithValue("@uname", element);
+                        try
+                        {
+                            verbindung.Open();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        rdr = SQL_Befehl_mails.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            mails+=";"+(rdr.GetString(0));
+                        }
+                        rdr.Close();
+                        verbindung.Close();
+                    }
+                    return mails;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank." + Environment.NewLine + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+            }
+        }
         public static void add_dispo(dispos dispoadd)
         {
             using (MySqlConnection verbindung = new MySqlConnection())

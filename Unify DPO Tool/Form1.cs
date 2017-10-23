@@ -799,7 +799,7 @@ namespace Unify_DPO_Tool
             {
                 //Abfrage der FRU Werte, da mit Convert gearbeitet wird innerhalb eines Catch
                 string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
-                //In extra Task ASP abfragen
+                string aspmails = sql_dispos.select_aspmails_with_dispo((dispos)cb_dispowahl.SelectedItem);
                 if (!esk)
                 {
                     if (!((dispos)cb_dispowahl.SelectedItem).prop_email_n)
@@ -815,11 +815,10 @@ namespace Unify_DPO_Tool
                     {//Bei normaler Mail ASPs in CC
                         if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                         {
-                            //ASPs fehlen
-                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "&bcc=GSI-ProD.IT@unify.com";
+                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + aspmails+"&bcc=GSI-ProD.IT@unify.com";
                         }
                         else
-                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "&bcc=GSI-ProD.IT@unify.com";
+                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + aspmails+ "&bcc=GSI-ProD.IT@unify.com";
                     }
                 }
                 else
@@ -837,11 +836,10 @@ namespace Unify_DPO_Tool
                     {//Bei eskalation Mail ASPs in CC
                         if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                         {
-                            //ASPs fehlen
-                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
+                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email +aspmails+ ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
                         }
                         else
-                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
+                            mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email +aspmails+ ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
                     }
                 }
                 //Mailprogramm suchen und E-Mail Fenster öffnen mit Daten aus Link
@@ -858,6 +856,5 @@ namespace Unify_DPO_Tool
             dispo_asp fenster = new dispo_asp();
             fenster.Show();
         }
-        
     }
 }
