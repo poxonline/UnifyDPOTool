@@ -150,6 +150,7 @@
             this.bt_asp_hinzu.Text = "Hinzufügen";
             this.bt_asp_hinzu.UseVisualStyleBackColor = true;
             this.bt_asp_hinzu.Visible = false;
+            this.bt_asp_hinzu.Click += new System.EventHandler(this.bt_asp_hinzu_Click);
             // 
             // bt_speichern
             // 
@@ -160,6 +161,7 @@
             this.bt_speichern.Text = "Bearbeitung speichern";
             this.bt_speichern.UseVisualStyleBackColor = true;
             this.bt_speichern.Visible = false;
+            this.bt_speichern.Click += new System.EventHandler(this.bt_speichern_Click);
             // 
             // bt_loeschen
             // 
@@ -170,6 +172,7 @@
             this.bt_loeschen.Text = "Löschen";
             this.bt_loeschen.UseVisualStyleBackColor = true;
             this.bt_loeschen.Visible = false;
+            this.bt_loeschen.Click += new System.EventHandler(this.bt_loeschen_Click);
             // 
             // dispo_asp
             // 

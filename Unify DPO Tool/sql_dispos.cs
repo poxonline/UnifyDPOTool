@@ -49,6 +49,45 @@ namespace Unify_DPO_Tool
                 }
             }
         }
+        public static ArrayList select_dispos_with_asp(asp abfrage)
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT dispo from hilf_dispo where asp=@uname", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uname", abfrage.prop_name);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(rdr.GetString(0));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank." + Environment.NewLine + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+            }
+        }
         public static void add_dispo(dispos dispoadd)
         {
             using (MySqlConnection verbindung = new MySqlConnection())
@@ -287,6 +326,206 @@ namespace Unify_DPO_Tool
                 catch (Exception ex)
                 {
                     MessageBox.Show("Es ist ein Fehler aufgetreten, die Rufnummer konnte nicht gelöscht werden." + Environment.NewLine + Convert.ToString(ex), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+            }
+        }
+        public static void add_dispo_asp(asp asp_neu)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO asp (name, email, tel) VALUES (@uname,@uemail,@utel)", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uname", asp_neu.prop_name);
+                    SQL_Befehl.Parameters.AddWithValue("@uemail", asp_neu.prop_mail);
+                    SQL_Befehl.Parameters.AddWithValue("@utel", asp_neu.prop_tel);
+
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Ansprechpartner wurde erfolgreich angelegt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Ansprechpartner konnte nicht angelegt werden." + Environment.NewLine + Convert.ToString(ex), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+            }
+        }
+        public static void add_hilf_dispo(asp asp_neu, ArrayList zuordnung)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                foreach(dispos element in zuordnung)
+                {
+                    try
+                    {
+                        verbindung.ConnectionString = connection;
+                        MySqlCommand SQL_Befehl = new MySqlCommand("INSERT INTO hilf_dispo (dispo,asp) VALUES (@udispo,@uasp)", verbindung);
+                        SQL_Befehl.Parameters.AddWithValue("@udispo", element.prop_name);
+                        SQL_Befehl.Parameters.AddWithValue("@uasp", asp_neu.prop_name);
+
+                        try
+                        {
+                            SQL_Befehl.Connection.Open();
+                            SQL_Befehl.ExecuteNonQuery();
+                            SQL_Befehl.Connection.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Es ist ein Fehler aufgetreten, der Ansprechpartner konnte der Dispo nicht zugeordnet werden." + Environment.NewLine + Convert.ToString(ex), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                    }
+                }
+            }
+        }
+        public static void del_hilf_dispo(asp asp_neu)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE from hilf_dispo where asp=@uname", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uname", asp_neu.prop_name);
+
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, dem Ansprechpartner konnte die Dispo nicht entfernt werden." + Environment.NewLine + Convert.ToString(ex), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+            }
+        }
+        public static ArrayList select_asp()
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from asp;", verbindung);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(new asp(rdr.GetInt32(0),rdr.GetString(1),rdr.GetString(2),rdr.GetString(3)));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank." + Environment.NewLine + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+            }
+        }
+        public static void update_asp(asp asp_edit)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("UPDATE asp SET name=@uname,email=@umail,tel=@utel WHERE ID=@uid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uid", asp_edit.prop_id);
+                    SQL_Befehl.Parameters.AddWithValue("@uname", asp_edit.prop_name);
+                    SQL_Befehl.Parameters.AddWithValue("@umail", asp_edit.prop_mail);
+                    SQL_Befehl.Parameters.AddWithValue("@utel", asp_edit.prop_tel);
+
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Ansprechpartner erfoglreich bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Ansprechpartner konnte nicht bearbeitet werden." + Environment.NewLine + Convert.ToString(ex), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+            }
+        }
+        public static void del_asp(asp asp_edit)
+        {
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("DELETE FROM asp WHERE ID=@uid", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@uid", asp_edit.prop_id);
+
+                    try
+                    {
+                        SQL_Befehl.Connection.Open();
+                        SQL_Befehl.ExecuteNonQuery();
+                        SQL_Befehl.Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Ansprechpartner erfoglreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten, der Ansprechpartner konnte nicht gelöscht werden." + Environment.NewLine + Convert.ToString(ex), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
