@@ -93,7 +93,7 @@ namespace Unify_DPO_Tool
                             this.Show();
                             this.Activate();
                         });
-                        Thread.Sleep(295000); //55000 <- 1 min / 295.000 <- 5 min
+                        Thread.Sleep(55000); //55000 <- 1 min / 295.000 <- 5 min
                     }
                     Thread.Sleep(5000);
                     window_found = false;
@@ -657,6 +657,7 @@ namespace Unify_DPO_Tool
                 liste.Clear();
             }
             cb_dispowahl.Items.Clear();
+            //Dispoliste für Mails neu alden
             liste = sql_dispos.select_dispos();
             if(liste !=null)
             {
@@ -670,6 +671,7 @@ namespace Unify_DPO_Tool
             string bekanntgeben;
             string zusatztext;
             string asp = "; Ansprechpartner im Unify MSD: " + lb_LDAP_ausgabe.Text;
+            //versuch zur Abfrage ob LDAP abfrage funktionierend oder nicht, ist aber erst mal eingestellt
             //if (0 == String.Compare("Fehler", lb_LDAP_ausgabe.Text))
             //{ asp = "; Ansprechpartner im Unify MSD: " + lb_LDAP_ausgabe.Text; }
             if (cb_technician_sparepart.Checked)
@@ -751,18 +753,21 @@ namespace Unify_DPO_Tool
 
         private void datenbankserverToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Fenster für Änderung Datenbankserver DNS-Name
             setting_server fenster = new setting_server();
             fenster.Show();
         }
 
         private void disposToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Fenster zum Bearbeiten von Dispositionen
             dispo_form fenster = new dispo_form();
             fenster.Show();
         }
 
         private void dispoRufnummernToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Fenster zum Bearbeiten von Dispo Rufnummern
             dispo_tel_form fenster = new dispo_tel_form();
             fenster.Show();
         }
@@ -793,6 +798,7 @@ namespace Unify_DPO_Tool
         private void maillinkbauen(string typ,bool esk)
         {
             string mailto;
+            //Abfrage ob dauer Pflichtfelder für Mail leer sind
             if (tb_dispo_mail_ticketnr.Text != "" || tb_dispo_mail_kundenname.Text != "")
             {
                 string ticketnr = tb_dispo_mail_ticketnr.Text;
@@ -800,7 +806,6 @@ namespace Unify_DPO_Tool
                 try
                 {
                     //Abfrage der FRU Werte, da mit Convert gearbeitet wird innerhalb eines Catch
-                    string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                     string aspmails = sql_dispos.select_aspmails_with_dispo((dispos)cb_dispowahl.SelectedItem);
                     if (!esk)
                     {
@@ -808,6 +813,7 @@ namespace Unify_DPO_Tool
                         {//Bei normaler Mail ASPs nicht in CC
                             if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                             {
+                                string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                                 mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + "&bcc=GSI-ProD.IT@unify.com";
                             }
                             else
@@ -817,6 +823,7 @@ namespace Unify_DPO_Tool
                         {//Bei normaler Mail ASPs in CC
                             if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                             {
+                                string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                                 mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + aspmails + "&bcc=GSI-ProD.IT@unify.com";
                             }
                             else
@@ -829,6 +836,7 @@ namespace Unify_DPO_Tool
                         {//Bei eskalation Mail ASPs nicht in CC
                             if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                             {
+                                string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                                 mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
                             }
                             else
@@ -838,6 +846,7 @@ namespace Unify_DPO_Tool
                         {//Bei eskalation Mail ASPs in CC
                             if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                             {
+                                string fru = fru_preufen.abfragen(Convert.ToInt32(tb_dispo_mail_plz.Text));
                                 mailto = "mailto:" + ((dispos)cb_dispowahl.SelectedItem).prop_dispomail + "?subject=" + fru + " " + typ + " " + ticketnr + " " + kundenname + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + aspmails + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + "&bcc=GSI-ProD.IT@unify.com";
                             }
                             else
@@ -858,12 +867,14 @@ namespace Unify_DPO_Tool
 
         private void ansprechpartnerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //öffnen Fenster für Ansprechpartner
             dispo_asp fenster = new dispo_asp();
             fenster.Show();
         }
 
         private void cb_dispowahl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Pflichtfeldänderung Postleitzahl wenn FRU true (Nur IBM DEU)
             if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
                 label19.Text = "PLZ*:";
             else
