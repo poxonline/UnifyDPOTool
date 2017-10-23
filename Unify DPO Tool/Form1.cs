@@ -275,14 +275,14 @@ namespace Unify_DPO_Tool
             {
                 fehler += "Feld \"Sachnummer\" ist leer! Bitte eine Sachnummer angeben.";
             }
-            if (issuediscription.Text == "")
+            if (issuediscription.Text == "" || issuediscription.Text == " ")
             {
-                fehler += Environment.NewLine + "Feld \"Issue Discription\" ist leer! Bitte eine Fehlerbeschreibung angeben.";
+                fehler += Environment.NewLine + "Text in Feld \"Issue Discription\" ist ungültig! Bitte eine Fehlerbeschreibung angeben.";
             }
             if(cb_activitiessofarremote.Text=="")
             {   fehler += Environment.NewLine + "Feld \"Activitis so far in Remote ist leer\" ist leer!"; }
-            if (cb_requestedfromfield.Text == "")
-            { fehler += Environment.NewLine + "Feld \"Requestet from Field\" ist leer!"; }
+            if (cb_requestedfromfield.Text == "" || cb_requestedfromfield.Text == " " || cb_requestedfromfield.Text == "prüfen" || cb_requestedfromfield.Text == "reparieren")
+            { fehler += Environment.NewLine + "Text in Feld \"Requestet from Field\" ist ungültig!"; }
             if (CSIfreitext.Text == "")
             {
                 CSIfreitext.Text = "-";
