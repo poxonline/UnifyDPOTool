@@ -897,14 +897,14 @@
             // neuToolStripMenuItem2
             // 
             this.neuToolStripMenuItem2.Name = "neuToolStripMenuItem2";
-            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.neuToolStripMenuItem2.Text = "Neu";
             this.neuToolStripMenuItem2.Click += new System.EventHandler(this.neuToolStripMenuItem2_Click);
             // 
             // bearbeitenToolStripMenuItem2
             // 
             this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
-            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem2.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
             // 
@@ -921,14 +921,14 @@
             // neuToolStripMenuItem1
             // 
             this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
-            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.neuToolStripMenuItem1.Text = "Neu";
             this.neuToolStripMenuItem1.Click += new System.EventHandler(this.neuToolStripMenuItem1_Click);
             // 
             // bearbeitenToolStripMenuItem1
             // 
             this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
-            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem1.Text = "Bearbeiten";
             this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
             // 
@@ -1197,6 +1197,7 @@
             this.cb_dispowahl.Name = "cb_dispowahl";
             this.cb_dispowahl.Size = new System.Drawing.Size(262, 21);
             this.cb_dispowahl.TabIndex = 0;
+            this.cb_dispowahl.SelectedIndexChanged += new System.EventHandler(this.cb_dispowahl_SelectedIndexChanged);
             // 
             // Form1
             // 

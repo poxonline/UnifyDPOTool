@@ -856,5 +856,13 @@ namespace Unify_DPO_Tool
             dispo_asp fenster = new dispo_asp();
             fenster.Show();
         }
+
+        private void cb_dispowahl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (((dispos)cb_dispowahl.SelectedItem).prop_fru)
+                label19.Text = "PLZ*:";
+            else
+                label19.Text = "PLZ:";
+        }
     }
 }
