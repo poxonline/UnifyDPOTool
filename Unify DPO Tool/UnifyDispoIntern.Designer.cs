@@ -45,6 +45,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
+            this.lb_ausgabe = new System.Windows.Forms.ListBox();
+            this.cb_dispo_intern_auswahl = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -217,11 +219,32 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Gerald Pass:";
             // 
+            // lb_ausgabe
+            // 
+            this.lb_ausgabe.FormattingEnabled = true;
+            this.lb_ausgabe.Location = new System.Drawing.Point(338, 94);
+            this.lb_ausgabe.Name = "lb_ausgabe";
+            this.lb_ausgabe.Size = new System.Drawing.Size(447, 238);
+            this.lb_ausgabe.TabIndex = 4;
+            // 
+            // cb_dispo_intern_auswahl
+            // 
+            this.cb_dispo_intern_auswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_dispo_intern_auswahl.FormattingEnabled = true;
+            this.cb_dispo_intern_auswahl.Location = new System.Drawing.Point(338, 13);
+            this.cb_dispo_intern_auswahl.MaxDropDownItems = 25;
+            this.cb_dispo_intern_auswahl.Name = "cb_dispo_intern_auswahl";
+            this.cb_dispo_intern_auswahl.Size = new System.Drawing.Size(447, 21);
+            this.cb_dispo_intern_auswahl.TabIndex = 5;
+            this.cb_dispo_intern_auswahl.SelectedIndexChanged += new System.EventHandler(this.cb_dispo_intern_auswahl_SelectedIndexChanged);
+            // 
             // UnifyDispoIntern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 356);
+            this.ClientSize = new System.Drawing.Size(797, 356);
+            this.Controls.Add(this.cb_dispo_intern_auswahl);
+            this.Controls.Add(this.lb_ausgabe);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -259,5 +282,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox lb_ausgabe;
+        private System.Windows.Forms.ComboBox cb_dispo_intern_auswahl;
     }
 }

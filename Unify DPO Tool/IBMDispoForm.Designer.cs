@@ -36,6 +36,8 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.cb_dispo_extern_auswahl = new System.Windows.Forms.ComboBox();
+            this.lb_ausgabe = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // beenden
@@ -108,11 +110,32 @@
             this.linkLabel3.Text = "+498005116353";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // cb_dispo_extern_auswahl
+            // 
+            this.cb_dispo_extern_auswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_dispo_extern_auswahl.FormattingEnabled = true;
+            this.cb_dispo_extern_auswahl.Location = new System.Drawing.Point(247, 13);
+            this.cb_dispo_extern_auswahl.MaxDropDownItems = 25;
+            this.cb_dispo_extern_auswahl.Name = "cb_dispo_extern_auswahl";
+            this.cb_dispo_extern_auswahl.Size = new System.Drawing.Size(447, 21);
+            this.cb_dispo_extern_auswahl.TabIndex = 8;
+            this.cb_dispo_extern_auswahl.SelectedIndexChanged += new System.EventHandler(this.cb_dispo_extern_auswahl_SelectedIndexChanged);
+            // 
+            // lb_ausgabe
+            // 
+            this.lb_ausgabe.FormattingEnabled = true;
+            this.lb_ausgabe.Location = new System.Drawing.Point(247, 40);
+            this.lb_ausgabe.Name = "lb_ausgabe";
+            this.lb_ausgabe.Size = new System.Drawing.Size(447, 238);
+            this.lb_ausgabe.TabIndex = 7;
+            // 
             // IBMDispoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 117);
+            this.ClientSize = new System.Drawing.Size(702, 291);
+            this.Controls.Add(this.cb_dispo_extern_auswahl);
+            this.Controls.Add(this.lb_ausgabe);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel2);
@@ -140,5 +163,7 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.ComboBox cb_dispo_extern_auswahl;
+        private System.Windows.Forms.ListBox lb_ausgabe;
     }
 }

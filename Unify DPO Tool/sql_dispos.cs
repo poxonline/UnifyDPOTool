@@ -49,6 +49,82 @@ namespace Unify_DPO_Tool
                 }
             }
         }
+        public static ArrayList select_dispos_intern()
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from dispos where partner=0;", verbindung);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(new dispos(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetBoolean(3), rdr.GetBoolean(4), rdr.GetBoolean(5), rdr.GetString(6), rdr.GetBoolean(7)));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank." + Environment.NewLine + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+            }
+        }
+        public static ArrayList select_dispos_extern()
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT * from dispos where partner=1;", verbindung);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(new dispos(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetBoolean(3), rdr.GetBoolean(4), rdr.GetBoolean(5), rdr.GetString(6), rdr.GetBoolean(7)));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    return liste;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank." + Environment.NewLine + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+            }
+        }
         public static ArrayList select_dispos_with_asp(asp abfrage)
         {
             MySqlDataReader rdr = null;
@@ -136,6 +212,66 @@ namespace Unify_DPO_Tool
                         verbindung.Close();
                     }
                     return mails;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fehler bei der Verbindung mit der Datenbank." + Environment.NewLine + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    verbindung.Close();
+                }
+            }
+        }
+        public static ArrayList select_asps_with_dispo(dispos abfrage)
+        {
+            MySqlDataReader rdr = null;
+            using (MySqlConnection verbindung = new MySqlConnection())
+            {
+                try
+                {
+                    ArrayList rueckgabe = new ArrayList();
+                    verbindung.ConnectionString = connection;
+                    MySqlCommand SQL_Befehl = new MySqlCommand("SELECT asp from hilf_dispo where dispo=@udispo", verbindung);
+                    SQL_Befehl.Parameters.AddWithValue("@udispo", abfrage.prop_name);
+                    ArrayList liste = new ArrayList();
+                    try
+                    {
+                        verbindung.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    rdr = SQL_Befehl.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        liste.Add(rdr.GetString(0));
+                    }
+                    rdr.Close();
+                    verbindung.Close();
+                    foreach (string element in liste)
+                    {
+                        MySqlCommand SQL_Befehl_mails = new MySqlCommand("SELECT * from asp where name=@uname", verbindung);
+                        SQL_Befehl_mails.Parameters.AddWithValue("@uname", element);
+                        try
+                        {
+                            verbindung.Open();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        rdr = SQL_Befehl_mails.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            rueckgabe.Add(new asp(rdr.GetInt32(0),rdr.GetString(1),rdr.GetString(2),rdr.GetString(3)));
+                        }
+                        rdr.Close();
+                        verbindung.Close();
+                    }
+                    return rueckgabe;
                 }
                 catch (Exception ex)
                 {
