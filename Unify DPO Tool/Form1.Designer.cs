@@ -140,6 +140,10 @@
             this.ll_rueckfrage = new System.Windows.Forms.LinkLabel();
             this.ll_infomail = new System.Windows.Forms.LinkLabel();
             this.cb_dispowahl = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -307,27 +311,27 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(4, 51);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(136, 13);
+            this.label10.Size = new System.Drawing.Size(132, 13);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Activities so far in Remote*:";
+            this.label10.Text = "Activities so far in Remote:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(4, 25);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 13);
+            this.label11.Size = new System.Drawing.Size(87, 13);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Issue Discription*:";
+            this.label11.Text = "Issue Discription:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(4, 78);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(147, 13);
+            this.label12.Size = new System.Drawing.Size(143, 13);
             this.label12.TabIndex = 4;
-            this.label12.Text = "Requested Action from Field*:";
+            this.label12.Text = "Requested Action from Field:";
             // 
             // label13
             // 
@@ -1064,6 +1068,9 @@
             // 
             // gb_fehler_forderung
             // 
+            this.gb_fehler_forderung.Controls.Add(this.label22);
+            this.gb_fehler_forderung.Controls.Add(this.label21);
+            this.gb_fehler_forderung.Controls.Add(this.label20);
             this.gb_fehler_forderung.Controls.Add(this.label11);
             this.gb_fehler_forderung.Controls.Add(this.label10);
             this.gb_fehler_forderung.Controls.Add(this.label12);
@@ -1199,11 +1206,48 @@
             this.cb_dispowahl.TabIndex = 0;
             this.cb_dispowahl.SelectedIndexChanged += new System.EventHandler(this.cb_dispowahl_SelectedIndexChanged);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(90, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(11, 13);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(136, 51);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(11, 13);
+            this.label21.TabIndex = 9;
+            this.label21.Text = "*";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(141, 78);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(11, 13);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "*";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(498, 500);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 13);
+            this.label23.TabIndex = 23;
+            this.label23.Text = "* = Pflichtfeld";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 734);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.gb_Dispo);
             this.Controls.Add(this.lb_wg_auswahl);
             this.Controls.Add(this.gb_fehler_forderung);
@@ -1360,6 +1404,10 @@
         private System.Windows.Forms.TextBox tb_dispo_mail_plz;
         private System.Windows.Forms.TextBox tb_dispo_mail_kundenname;
         private System.Windows.Forms.TextBox tb_dispo_mail_ticketnr;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label23;
     }
 }
 
