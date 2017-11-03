@@ -38,11 +38,12 @@
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.cb_dispo_extern_auswahl = new System.Windows.Forms.ComboBox();
             this.lb_ausgabe = new System.Windows.Forms.ListBox();
+            this.bt_copy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // beenden
             // 
-            this.beenden.Location = new System.Drawing.Point(126, 82);
+            this.beenden.Location = new System.Drawing.Point(72, 87);
             this.beenden.Name = "beenden";
             this.beenden.Size = new System.Drawing.Size(75, 23);
             this.beenden.TabIndex = 0;
@@ -129,11 +130,22 @@
             this.lb_ausgabe.Size = new System.Drawing.Size(447, 238);
             this.lb_ausgabe.TabIndex = 7;
             // 
+            // bt_copy
+            // 
+            this.bt_copy.Location = new System.Drawing.Point(12, 139);
+            this.bt_copy.Name = "bt_copy";
+            this.bt_copy.Size = new System.Drawing.Size(229, 23);
+            this.bt_copy.TabIndex = 9;
+            this.bt_copy.Text = "markiertes (->) in Zwischenablage";
+            this.bt_copy.UseVisualStyleBackColor = true;
+            this.bt_copy.Click += new System.EventHandler(this.bt_copy_Click);
+            // 
             // IBMDispoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 291);
+            this.Controls.Add(this.bt_copy);
             this.Controls.Add(this.cb_dispo_extern_auswahl);
             this.Controls.Add(this.lb_ausgabe);
             this.Controls.Add(this.linkLabel3);
@@ -165,5 +177,6 @@
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.ComboBox cb_dispo_extern_auswahl;
         private System.Windows.Forms.ListBox lb_ausgabe;
+        private System.Windows.Forms.Button bt_copy;
     }
 }

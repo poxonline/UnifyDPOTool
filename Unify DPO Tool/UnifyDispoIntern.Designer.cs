@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lb_ausgabe = new System.Windows.Forms.ListBox();
             this.cb_dispo_intern_auswahl = new System.Windows.Forms.ComboBox();
+            this.bt_copy = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(129, 321);
+            this.button1.Location = new System.Drawing.Point(13, 256);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -238,11 +239,22 @@
             this.cb_dispo_intern_auswahl.TabIndex = 5;
             this.cb_dispo_intern_auswahl.SelectedIndexChanged += new System.EventHandler(this.cb_dispo_intern_auswahl_SelectedIndexChanged);
             // 
+            // bt_copy
+            // 
+            this.bt_copy.Location = new System.Drawing.Point(139, 309);
+            this.bt_copy.Name = "bt_copy";
+            this.bt_copy.Size = new System.Drawing.Size(193, 23);
+            this.bt_copy.TabIndex = 6;
+            this.bt_copy.Text = "markiertes (->) in Zwischenablage";
+            this.bt_copy.UseVisualStyleBackColor = true;
+            this.bt_copy.Click += new System.EventHandler(this.bt_copy_Click);
+            // 
             // UnifyDispoIntern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 356);
+            this.Controls.Add(this.bt_copy);
             this.Controls.Add(this.cb_dispo_intern_auswahl);
             this.Controls.Add(this.lb_ausgabe);
             this.Controls.Add(this.groupBox3);
@@ -284,5 +296,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lb_ausgabe;
         private System.Windows.Forms.ComboBox cb_dispo_intern_auswahl;
+        private System.Windows.Forms.Button bt_copy;
     }
 }

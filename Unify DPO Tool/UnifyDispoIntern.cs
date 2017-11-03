@@ -81,7 +81,8 @@ namespace Unify_DPO_Tool
             lb_ausgabe.Items.Clear();
             lb_ausgabe.Items.Add(((dispos)cb_dispo_intern_auswahl.SelectedItem).prop_name);
             lb_ausgabe.Items.Add("Beschreibung: " + ((dispos)cb_dispo_intern_auswahl.SelectedItem).prop_beschreibung);
-            lb_ausgabe.Items.Add("E-Mail: " + ((dispos)cb_dispo_intern_auswahl.SelectedItem).prop_dispomail);
+            lb_ausgabe.Items.Add("E-Mail:");
+            lb_ausgabe.Items.Add(((dispos)cb_dispo_intern_auswahl.SelectedItem).prop_dispomail);
             string name = ((dispos)cb_dispo_intern_auswahl.SelectedItem).prop_name;
             lb_ausgabe.Items.Add("");
             lb_ausgabe.Items.Add("Rufnummern:");
@@ -92,7 +93,9 @@ namespace Unify_DPO_Tool
                 {
                     if (tel.prop_dispo == name)
                     {
-                        lb_ausgabe.Items.Add("Beschreibung: " + tel.prop_beschreibung + " Rufnummer: " + tel.prop_tel);
+                        lb_ausgabe.Items.Add("Beschreibung: " + tel.prop_beschreibung);
+                        lb_ausgabe.Items.Add("Rufnummer:");
+                        lb_ausgabe.Items.Add(tel.prop_tel);
                     }
                 }
             }
@@ -108,7 +111,8 @@ namespace Unify_DPO_Tool
                 {
                     lb_ausgabe.Items.Add("Name: " + mensch.prop_name);
                     lb_ausgabe.Items.Add("E-Mail: " + mensch.prop_mail);
-                    lb_ausgabe.Items.Add("Rufnummer: " + mensch.prop_tel);
+                    lb_ausgabe.Items.Add("Rufnummer:");
+                    lb_ausgabe.Items.Add(mensch.prop_tel);
                     lb_ausgabe.Items.Add("==============================");
                 }
             }
@@ -116,6 +120,11 @@ namespace Unify_DPO_Tool
                 lb_ausgabe.Items.Add("-");
             dispoasp.Clear();
             GC.Collect();
+        }
+
+        private void bt_copy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(lb_ausgabe.SelectedItem.ToString());
         }
 
     }
