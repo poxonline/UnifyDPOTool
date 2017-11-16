@@ -48,6 +48,7 @@
             this.lb_ausgabe = new System.Windows.Forms.ListBox();
             this.cb_dispo_intern_auswahl = new System.Windows.Forms.ComboBox();
             this.bt_copy = new System.Windows.Forms.Button();
+            this.bt_openinCircuit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -241,19 +242,30 @@
             // 
             // bt_copy
             // 
-            this.bt_copy.Location = new System.Drawing.Point(139, 309);
+            this.bt_copy.Location = new System.Drawing.Point(131, 271);
             this.bt_copy.Name = "bt_copy";
-            this.bt_copy.Size = new System.Drawing.Size(193, 23);
+            this.bt_copy.Size = new System.Drawing.Size(201, 23);
             this.bt_copy.TabIndex = 6;
             this.bt_copy.Text = "markiertes (->) in Zwischenablage";
             this.bt_copy.UseVisualStyleBackColor = true;
             this.bt_copy.Click += new System.EventHandler(this.bt_copy_Click);
+            // 
+            // bt_openinCircuit
+            // 
+            this.bt_openinCircuit.Location = new System.Drawing.Point(129, 300);
+            this.bt_openinCircuit.Name = "bt_openinCircuit";
+            this.bt_openinCircuit.Size = new System.Drawing.Size(203, 23);
+            this.bt_openinCircuit.TabIndex = 7;
+            this.bt_openinCircuit.Text = "markiertes (->) in Circuit (Chrome) öffnen";
+            this.bt_openinCircuit.UseVisualStyleBackColor = true;
+            this.bt_openinCircuit.Click += new System.EventHandler(this.bt_openinCircuit_Click);
             // 
             // UnifyDispoIntern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 356);
+            this.Controls.Add(this.bt_openinCircuit);
             this.Controls.Add(this.bt_copy);
             this.Controls.Add(this.cb_dispo_intern_auswahl);
             this.Controls.Add(this.lb_ausgabe);
@@ -297,5 +309,6 @@
         private System.Windows.Forms.ListBox lb_ausgabe;
         private System.Windows.Forms.ComboBox cb_dispo_intern_auswahl;
         private System.Windows.Forms.Button bt_copy;
+        private System.Windows.Forms.Button bt_openinCircuit;
     }
 }

@@ -127,5 +127,10 @@ namespace Unify_DPO_Tool
             Clipboard.SetDataObject(lb_ausgabe.SelectedItem.ToString());
         }
 
+        private void bt_openinCircuit_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("chrome", "https://eu.yourcircuit.com/#/phone?number=+" + lb_ausgabe.SelectedItem.ToString());
+        }
+
     }
 }

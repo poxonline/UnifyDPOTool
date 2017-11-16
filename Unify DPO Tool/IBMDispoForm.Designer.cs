@@ -39,6 +39,7 @@
             this.cb_dispo_extern_auswahl = new System.Windows.Forms.ComboBox();
             this.lb_ausgabe = new System.Windows.Forms.ListBox();
             this.bt_copy = new System.Windows.Forms.Button();
+            this.opencircuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // beenden
@@ -140,11 +141,22 @@
             this.bt_copy.UseVisualStyleBackColor = true;
             this.bt_copy.Click += new System.EventHandler(this.bt_copy_Click);
             // 
+            // opencircuit
+            // 
+            this.opencircuit.Location = new System.Drawing.Point(12, 168);
+            this.opencircuit.Name = "opencircuit";
+            this.opencircuit.Size = new System.Drawing.Size(229, 23);
+            this.opencircuit.TabIndex = 10;
+            this.opencircuit.Text = "markiertes (->) in Circuit (Chrome) öffnen";
+            this.opencircuit.UseVisualStyleBackColor = true;
+            this.opencircuit.Click += new System.EventHandler(this.opencircuit_Click);
+            // 
             // IBMDispoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 291);
+            this.Controls.Add(this.opencircuit);
             this.Controls.Add(this.bt_copy);
             this.Controls.Add(this.cb_dispo_extern_auswahl);
             this.Controls.Add(this.lb_ausgabe);
@@ -178,5 +190,6 @@
         private System.Windows.Forms.ComboBox cb_dispo_extern_auswahl;
         private System.Windows.Forms.ListBox lb_ausgabe;
         private System.Windows.Forms.Button bt_copy;
+        private System.Windows.Forms.Button opencircuit;
     }
 }
