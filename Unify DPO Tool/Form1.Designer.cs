@@ -82,7 +82,6 @@
             this.labelUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.lb_user = new System.Windows.Forms.ToolStripStatusLabel();
             this.UnifyDPOWiki = new System.Windows.Forms.LinkLabel();
-            this.IBMTechniker = new System.Windows.Forms.LinkLabel();
             this.IBMDispoMail = new System.Windows.Forms.LinkLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.IBMDispoEskalation = new System.Windows.Forms.LinkLabel();
@@ -128,6 +127,9 @@
             this.UNIFYMSD_HA = new System.Windows.Forms.LinkLabel();
             this.IBM_AUT_MAIL = new System.Windows.Forms.LinkLabel();
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.lb_wg_auswahl = new System.Windows.Forms.Label();
             this.gb_Dispo = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -140,9 +142,6 @@
             this.ll_rueckfrage = new System.Windows.Forms.LinkLabel();
             this.ll_infomail = new System.Windows.Forms.LinkLabel();
             this.cb_dispowahl = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
@@ -681,17 +680,6 @@
             this.UnifyDPOWiki.Text = "GO Work Instruction";
             this.UnifyDPOWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UnifyDPOWiki_LinkClicked);
             // 
-            // IBMTechniker
-            // 
-            this.IBMTechniker.AutoSize = true;
-            this.IBMTechniker.Location = new System.Drawing.Point(1, 56);
-            this.IBMTechniker.Name = "IBMTechniker";
-            this.IBMTechniker.Size = new System.Drawing.Size(134, 13);
-            this.IBMTechniker.TabIndex = 12;
-            this.IBMTechniker.TabStop = true;
-            this.IBMTechniker.Text = "IBM Techniker Verzeichnis";
-            this.IBMTechniker.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMTechniker_LinkClicked);
-            // 
             // IBMDispoMail
             // 
             this.IBMDispoMail.AutoSize = true;
@@ -1034,7 +1022,6 @@
             this.gb_links.Controls.Add(this.UNIFYMSD_HA);
             this.gb_links.Controls.Add(this.IBM_AUT_MAIL);
             this.gb_links.Controls.Add(this.UnifyDPOWiki);
-            this.gb_links.Controls.Add(this.IBMTechniker);
             this.gb_links.Controls.Add(this.IBMDispoEskalation);
             this.gb_links.Controls.Add(this.IBMDispoMail);
             this.gb_links.Location = new System.Drawing.Point(498, 333);
@@ -1085,6 +1072,33 @@
             this.gb_fehler_forderung.TabIndex = 2;
             this.gb_fehler_forderung.TabStop = false;
             this.gb_fehler_forderung.Text = "Fehlerbild und Forderung";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(141, 78);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(11, 13);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(136, 51);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(11, 13);
+            this.label21.TabIndex = 9;
+            this.label21.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(90, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(11, 13);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "*";
             // 
             // lb_wg_auswahl
             // 
@@ -1206,33 +1220,6 @@
             this.cb_dispowahl.TabIndex = 0;
             this.cb_dispowahl.SelectedIndexChanged += new System.EventHandler(this.cb_dispowahl_SelectedIndexChanged);
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(90, 25);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(11, 13);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "*";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(136, 51);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(11, 13);
-            this.label21.TabIndex = 9;
-            this.label21.Text = "*";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(141, 78);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(11, 13);
-            this.label22.TabIndex = 10;
-            this.label22.Text = "*";
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -1338,7 +1325,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel version;
         private System.Windows.Forms.LinkLabel UnifyDPOWiki;
-        private System.Windows.Forms.LinkLabel IBMTechniker;
         private System.Windows.Forms.LinkLabel IBMDispoMail;
         private System.Windows.Forms.ToolStripStatusLabel aktuelleWorkgroup;
         private System.Windows.Forms.NotifyIcon notifyIcon1;

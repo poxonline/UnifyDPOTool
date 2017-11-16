@@ -307,15 +307,6 @@ namespace Unify_DPO_Tool
             catch { }
         }
 
-        private void IBMTechniker_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("http://www.ibm.com/contact/employees/de/de/");
-            }
-            catch { }
-        }
-
         private void IBMDispoMail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
