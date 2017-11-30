@@ -26,10 +26,6 @@ namespace Unify_DPO_Tool
         string hotline;
         string e_teil;
         string fehler;
-        string maillink = "mailto:unifydp@de.ibm.com?subject=GER_FRU? - Rückfrage zu Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com";
-        string maillinkEskalation = "mailto:unifydp@de.ibm.com?subject=GER_FRU? - Eskalation bei Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com&body=Hallo%20Dispo,%0A%0D%0Abei%20Ticket%20NAxxxxxx%20liegt%20eine%20Eskalation%20vor.%0A%0DWir%20bitten%20um%20eine%20schnelle%20Dispostion%20bzw.%20eine%20schnelle%20Anfahrt%20des%20Technikers.";
-        string maillinkKomplett="";
-        string maillinkEskalationKomplett="";
         static string ordner = Environment.GetEnvironmentVariable("userprofile") + "\\DPOToolSettings";
         string teammail = "";
         public Form1()
@@ -241,9 +237,7 @@ namespace Unify_DPO_Tool
         private void  Gruppenauswahl_SelectedIndexChanged(object sender, EventArgs e)
         {
             aktuelleWorkgroup.Text = ((team)cb_gruppenauswahl.SelectedItem).prop_workgroup;
-            maillinkKomplett = maillink + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email+";michael.wessolleck@atos.net";
             hotline = ((team)cb_gruppenauswahl.SelectedItem).prop_telefon;
-            maillinkEskalationKomplett = maillinkEskalation + "&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ";" + ((team)cb_gruppenauswahl.SelectedItem).prop_modemail + ";michael.wessolleck@atos.net";
             teammail = ((team)cb_gruppenauswahl.SelectedItem).prop_email;
             felderreload();
             update_ausgabe();
@@ -303,24 +297,6 @@ namespace Unify_DPO_Tool
             try
             {
                 System.Diagnostics.Process.Start("https://mchsrv01.global-intra.net/wiki/index.php5/GO_Work_Instruction:_Erstellung_einer_Dispatch_Order_Field_(DPO_Field)_Grunds%C3%A4tze_und_Regeln");
-            }
-            catch { }
-        }
-
-        private void IBMDispoMail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(maillinkKomplett);
-            }
-            catch { }
-        }
-
-        private void IBMDispoEskalation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(maillinkEskalationKomplett);
             }
             catch { }
         }
@@ -721,16 +697,6 @@ namespace Unify_DPO_Tool
         public void update_ausgabe(object sender, EventArgs e)
         {
             update_ausgabe();
-        }
-
-        private void IBM_AUT_MAIL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            string mailaut="mailto:unifyaut@de.ibm.com?subject=Rückfrage zu Ticket NAxxxxxx KUNDENNAME&bcc=GSI-ProD.IT@unify.com&cc=" + ((team)cb_gruppenauswahl.SelectedItem).prop_email + ";michael.wessoleck@atos.net";
-            try
-            {
-                System.Diagnostics.Process.Start(mailaut);
-            }
-            catch { }
         }
 
         private void MSD_HA_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -82,9 +82,7 @@
             this.labelUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.lb_user = new System.Windows.Forms.ToolStripStatusLabel();
             this.UnifyDPOWiki = new System.Windows.Forms.LinkLabel();
-            this.IBMDispoMail = new System.Windows.Forms.LinkLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.IBMDispoEskalation = new System.Windows.Forms.LinkLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,7 +123,6 @@
             this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_links = new System.Windows.Forms.GroupBox();
             this.UNIFYMSD_HA = new System.Windows.Forms.LinkLabel();
-            this.IBM_AUT_MAIL = new System.Windows.Forms.LinkLabel();
             this.gb_fehler_forderung = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -680,34 +677,12 @@
             this.UnifyDPOWiki.Text = "GO Work Instruction";
             this.UnifyDPOWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UnifyDPOWiki_LinkClicked);
             // 
-            // IBMDispoMail
-            // 
-            this.IBMDispoMail.AutoSize = true;
-            this.IBMDispoMail.Location = new System.Drawing.Point(1, 76);
-            this.IBMDispoMail.Name = "IBMDispoMail";
-            this.IBMDispoMail.Size = new System.Drawing.Size(122, 13);
-            this.IBMDispoMail.TabIndex = 13;
-            this.IBMDispoMail.TabStop = true;
-            this.IBMDispoMail.Text = "Mail an IBM Dispo(GER)";
-            this.IBMDispoMail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMDispoMail_LinkClicked);
-            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Unify DPO Tool";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            // 
-            // IBMDispoEskalation
-            // 
-            this.IBMDispoEskalation.AutoSize = true;
-            this.IBMDispoEskalation.Location = new System.Drawing.Point(0, 96);
-            this.IBMDispoEskalation.Name = "IBMDispoEskalation";
-            this.IBMDispoEskalation.Size = new System.Drawing.Size(152, 13);
-            this.IBMDispoEskalation.TabIndex = 14;
-            this.IBMDispoEskalation.TabStop = true;
-            this.IBMDispoEskalation.Text = "Eskalation an IBM Dispo(GER)";
-            this.IBMDispoEskalation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBMDispoEskalation_LinkClicked);
             // 
             // menuStrip1
             // 
@@ -1020,13 +995,10 @@
             // gb_links
             // 
             this.gb_links.Controls.Add(this.UNIFYMSD_HA);
-            this.gb_links.Controls.Add(this.IBM_AUT_MAIL);
             this.gb_links.Controls.Add(this.UnifyDPOWiki);
-            this.gb_links.Controls.Add(this.IBMDispoEskalation);
-            this.gb_links.Controls.Add(this.IBMDispoMail);
             this.gb_links.Location = new System.Drawing.Point(498, 333);
             this.gb_links.Name = "gb_links";
-            this.gb_links.Size = new System.Drawing.Size(200, 151);
+            this.gb_links.Size = new System.Drawing.Size(200, 65);
             this.gb_links.TabIndex = 21;
             this.gb_links.TabStop = false;
             this.gb_links.Text = "Allgemein";
@@ -1041,17 +1013,6 @@
             this.UNIFYMSD_HA.TabStop = true;
             this.UNIFYMSD_HA.Text = "DPO Handlungsanweisung GO MSD 1";
             this.UNIFYMSD_HA.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MSD_HA_LinkClicked);
-            // 
-            // IBM_AUT_MAIL
-            // 
-            this.IBM_AUT_MAIL.AutoSize = true;
-            this.IBM_AUT_MAIL.Location = new System.Drawing.Point(0, 116);
-            this.IBM_AUT_MAIL.Name = "IBM_AUT_MAIL";
-            this.IBM_AUT_MAIL.Size = new System.Drawing.Size(121, 13);
-            this.IBM_AUT_MAIL.TabIndex = 15;
-            this.IBM_AUT_MAIL.TabStop = true;
-            this.IBM_AUT_MAIL.Text = "Mail an IBM Dispo(AUT)";
-            this.IBM_AUT_MAIL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IBM_AUT_MAIL_LinkClicked);
             // 
             // gb_fehler_forderung
             // 
@@ -1223,7 +1184,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(498, 500);
+            this.label23.Location = new System.Drawing.Point(499, 409);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(69, 13);
             this.label23.TabIndex = 23;
@@ -1325,10 +1286,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel version;
         private System.Windows.Forms.LinkLabel UnifyDPOWiki;
-        private System.Windows.Forms.LinkLabel IBMDispoMail;
         private System.Windows.Forms.ToolStripStatusLabel aktuelleWorkgroup;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.LinkLabel IBMDispoEskalation;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menüToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
@@ -1372,7 +1331,6 @@
         private System.Windows.Forms.GroupBox gb_fehler_forderung;
         private System.Windows.Forms.Label lb_wg_auswahl;
         private System.Windows.Forms.CheckBox cb_technician_sparepart;
-        private System.Windows.Forms.LinkLabel IBM_AUT_MAIL;
         private System.Windows.Forms.LinkLabel UNIFYMSD_HA;
         private System.Windows.Forms.ToolStripMenuItem datenbankserverToolStripMenuItem;
         private System.Windows.Forms.GroupBox gb_Dispo;
