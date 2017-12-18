@@ -372,7 +372,7 @@ namespace Unify_DPO_Tool
                 schreiben.WriteLine("");//Setzen der ersten Gruppe bei Datei Anlegen
                 schreiben.Close();
                 Pfad.Close();
-                MessageBox.Show("Dies ist der erste Programmstart, bitte wähle ein Hauptteam mit dem das Programm immer starten soll." + Environment.NewLine + "Zu finden unter: Einstellungen -> Gruppe ändern");
+                MessageBox.Show("Dies ist der erste Programmstart, bitte wähle ein Hauptteam mit dem das Programm immer starten soll." + Environment.NewLine + "Zu finden unter: Einstellungen -> Gruppe ändern", "Hinweis", MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             confreload();
             
