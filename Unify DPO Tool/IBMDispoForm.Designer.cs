@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IBMDispoForm));
             this.beenden = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.cb_dispo_extern_auswahl = new System.Windows.Forms.ComboBox();
             this.lb_ausgabe = new System.Windows.Forms.ListBox();
             this.bt_copy = new System.Windows.Forms.Button();
@@ -48,31 +46,11 @@
             this.beenden.UseVisualStyleBackColor = true;
             this.beenden.Click += new System.EventHandler(this.beenden_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "IBM Dispo (AUT):";
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(147, 16);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(85, 13);
-            this.linkLabel3.TabIndex = 6;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "+498005116353";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
             // cb_dispo_extern_auswahl
             // 
             this.cb_dispo_extern_auswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_dispo_extern_auswahl.FormattingEnabled = true;
-            this.cb_dispo_extern_auswahl.Location = new System.Drawing.Point(247, 13);
+            this.cb_dispo_extern_auswahl.Location = new System.Drawing.Point(247, 12);
             this.cb_dispo_extern_auswahl.MaxDropDownItems = 25;
             this.cb_dispo_extern_auswahl.Name = "cb_dispo_extern_auswahl";
             this.cb_dispo_extern_auswahl.Size = new System.Drawing.Size(447, 21);
@@ -89,7 +67,7 @@
             // 
             // bt_copy
             // 
-            this.bt_copy.Location = new System.Drawing.Point(12, 139);
+            this.bt_copy.Location = new System.Drawing.Point(12, 197);
             this.bt_copy.Name = "bt_copy";
             this.bt_copy.Size = new System.Drawing.Size(229, 23);
             this.bt_copy.TabIndex = 9;
@@ -99,7 +77,7 @@
             // 
             // opencircuit
             // 
-            this.opencircuit.Location = new System.Drawing.Point(12, 168);
+            this.opencircuit.Location = new System.Drawing.Point(12, 226);
             this.opencircuit.Name = "opencircuit";
             this.opencircuit.Size = new System.Drawing.Size(229, 23);
             this.opencircuit.TabIndex = 10;
@@ -116,8 +94,6 @@
             this.Controls.Add(this.bt_copy);
             this.Controls.Add(this.cb_dispo_extern_auswahl);
             this.Controls.Add(this.lb_ausgabe);
-            this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.beenden);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -126,15 +102,12 @@
             this.ShowInTaskbar = false;
             this.Text = "DPO Tool - IBM Dispo Rufnummern";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button beenden;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.ComboBox cb_dispo_extern_auswahl;
         private System.Windows.Forms.ListBox lb_ausgabe;
         private System.Windows.Forms.Button bt_copy;

@@ -28,18 +28,6 @@ namespace Unify_DPO_Tool
             this.Hide();
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("tel:+498005116353");
-            }
-            catch
-            {
-                MessageBox.Show("Es wurde kein passendes Programm zum Anrufen gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        //Abhier dann neuer kram
         private void cb_dispo_extern_auswahl_SelectedIndexChanged(object sender, EventArgs e)
         {
             lb_ausgabe.Items.Clear();

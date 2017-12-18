@@ -710,7 +710,7 @@
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -726,14 +726,14 @@
             // iBMDispoToolStripMenuItem
             // 
             this.iBMDispoToolStripMenuItem.Name = "iBMDispoToolStripMenuItem";
-            this.iBMDispoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.iBMDispoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.iBMDispoToolStripMenuItem.Text = "IBM Dispo";
             this.iBMDispoToolStripMenuItem.Click += new System.EventHandler(this.iBMDispoToolStripMenuItem_Click);
             // 
             // unifyInternToolStripMenuItem
             // 
             this.unifyInternToolStripMenuItem.Name = "unifyInternToolStripMenuItem";
-            this.unifyInternToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.unifyInternToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unifyInternToolStripMenuItem.Text = "Unify intern";
             this.unifyInternToolStripMenuItem.Click += new System.EventHandler(this.unifyInternToolStripMenuItem_Click);
             // 
@@ -749,14 +749,14 @@
             // fRUAbfrageToolStripMenuItem
             // 
             this.fRUAbfrageToolStripMenuItem.Name = "fRUAbfrageToolStripMenuItem";
-            this.fRUAbfrageToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.fRUAbfrageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fRUAbfrageToolStripMenuItem.Text = "FRU Abfrage";
             this.fRUAbfrageToolStripMenuItem.Click += new System.EventHandler(this.fRUAbfrageToolStripMenuItem_Click);
             // 
             // fRUBildToolStripMenuItem
             // 
             this.fRUBildToolStripMenuItem.Name = "fRUBildToolStripMenuItem";
-            this.fRUBildToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.fRUBildToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fRUBildToolStripMenuItem.Text = "FRU Bild";
             this.fRUBildToolStripMenuItem.Click += new System.EventHandler(this.fRUBildToolStripMenuItem_Click);
             // 
@@ -968,13 +968,13 @@
             // 
             this.hilfesoonToolStripMenuItem.Enabled = false;
             this.hilfesoonToolStripMenuItem.Name = "hilfesoonToolStripMenuItem";
-            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hilfesoonToolStripMenuItem.Text = "Hilfe (soon)";
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.überToolStripMenuItem.Text = "Über";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
