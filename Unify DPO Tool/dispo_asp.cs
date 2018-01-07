@@ -105,7 +105,7 @@ namespace Unify_DPO_Tool
 
         private void bt_loeschen_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Möchten sie wirklich den Ansprechpartner " + ((team)cb_list_asp.SelectedItem).prop_name + " löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Möchten sie wirklich den Ansprechpartner \"" + ((asp)cb_list_asp.SelectedItem).prop_name + "\" löschen?", "Sind sie sicher?", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 sql_dispos.del_hilf_dispo((asp)cb_list_asp.SelectedItem);
