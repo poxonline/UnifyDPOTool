@@ -306,6 +306,7 @@ namespace Unify_DPO_Tool
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
+                ausloggenToolStripMenuItem_Click(sender as Object, e as EventArgs);
                 this.Hide();
                 e.Cancel = true;
                 notifyIcon1.BalloonTipText = "Unify DPO Tool";
