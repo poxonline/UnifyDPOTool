@@ -252,7 +252,7 @@ namespace Unify_DPO_Tool
                 fremdremotesupport.Visible = false;
             }
         }
-
+        //Pflichtfelder prüfen und ggf. Fehler ausgeben, sonst ab in die Zwischenablage
         private void texterzeugen_Click(object sender, EventArgs e)
         {
             update_ausgabe();
@@ -302,6 +302,7 @@ namespace Unify_DPO_Tool
         }
 
         //Bei drücken auf X wird das Fenster minimiert und der Tray Icon der Taskleiste sichtbar.
+        //Und der Admin wird ggf. ausgeloggt
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -319,30 +320,30 @@ namespace Unify_DPO_Tool
             this.WindowState = FormWindowState.Normal;
             this.Activate();     
         }
-
+        //Anwendung beenden
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        //Fremddispo aufrufen
         private void iBMDispoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IBMDispoForm IBMDispo = new IBMDispoForm();
             IBMDispo.Show();
         }
-
+        //Interne Dispo Ressourcen Manager aufrufen
         private void unifyInternToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UnifyDispoIntern UnifyDispo = new UnifyDispoIntern();
             UnifyDispo.Show();
         }
-
+        // FRU Abfrage aufrufen
         private void fRUAbfrageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FruAbfrage IBMFru = new FruAbfrage();
             IBMFru.Show();
         }
-
+        //Bild für die FRUs in Deutschland aufrufen
         private void fRUBildToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FRUKarte IBMKarte = new FRUKarte();
