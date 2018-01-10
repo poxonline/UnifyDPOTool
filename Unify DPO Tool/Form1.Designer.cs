@@ -85,6 +85,14 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vorauswahlÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sachnummernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activitiesSoFarInRemoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestedActionFromFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gruppeÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.konfigurationNeuEinlesenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.datenbankserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rufnummernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iBMDispoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,14 +100,6 @@
             this.iBMFRUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fRUAbfrageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fRUBildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vorauswahlenÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sachnummernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activitiesSoFarInRemoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.requestedActionFromFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gruppeÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.konfigurationKomplettNeuEinlesenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.datenbankserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -690,7 +690,6 @@
             this.menüToolStripMenuItem,
             this.rufnummernToolStripMenuItem,
             this.iBMFRUToolStripMenuItem,
-            this.einstellungenToolStripMenuItem,
             this.adminToolStripMenuItem,
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -702,15 +701,79 @@
             // menüToolStripMenuItem
             // 
             this.menüToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.einstellungenToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
             this.menüToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menüToolStripMenuItem.Text = "Menü";
             // 
+            // einstellungenToolStripMenuItem
+            // 
+            this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vorauswahlÄndernToolStripMenuItem,
+            this.gruppeÄndernToolStripMenuItem,
+            this.konfigurationNeuEinlesenToolStripMenuItem,
+            this.datenbankserverToolStripMenuItem});
+            this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
+            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.einstellungenToolStripMenuItem.Text = "Einstellungen";
+            // 
+            // vorauswahlÄndernToolStripMenuItem
+            // 
+            this.vorauswahlÄndernToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sachnummernToolStripMenuItem,
+            this.activitiesSoFarInRemoteToolStripMenuItem,
+            this.requestedActionFromFieldToolStripMenuItem});
+            this.vorauswahlÄndernToolStripMenuItem.Name = "vorauswahlÄndernToolStripMenuItem";
+            this.vorauswahlÄndernToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.vorauswahlÄndernToolStripMenuItem.Text = "Vorauswahl ändern";
+            // 
+            // sachnummernToolStripMenuItem
+            // 
+            this.sachnummernToolStripMenuItem.Name = "sachnummernToolStripMenuItem";
+            this.sachnummernToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.sachnummernToolStripMenuItem.Text = "Sachnummern";
+            this.sachnummernToolStripMenuItem.Click += new System.EventHandler(this.sachnummernToolStripMenuItem_Click);
+            // 
+            // activitiesSoFarInRemoteToolStripMenuItem
+            // 
+            this.activitiesSoFarInRemoteToolStripMenuItem.Name = "activitiesSoFarInRemoteToolStripMenuItem";
+            this.activitiesSoFarInRemoteToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.activitiesSoFarInRemoteToolStripMenuItem.Text = "Activities so far in Remote";
+            this.activitiesSoFarInRemoteToolStripMenuItem.Click += new System.EventHandler(this.activitiesSoFarInRemoteToolStripMenuItem_Click);
+            // 
+            // requestedActionFromFieldToolStripMenuItem
+            // 
+            this.requestedActionFromFieldToolStripMenuItem.Name = "requestedActionFromFieldToolStripMenuItem";
+            this.requestedActionFromFieldToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.requestedActionFromFieldToolStripMenuItem.Text = "Requested Action from Field";
+            this.requestedActionFromFieldToolStripMenuItem.Click += new System.EventHandler(this.requestedActionFromFieldToolStripMenuItem_Click);
+            // 
+            // gruppeÄndernToolStripMenuItem
+            // 
+            this.gruppeÄndernToolStripMenuItem.Name = "gruppeÄndernToolStripMenuItem";
+            this.gruppeÄndernToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.gruppeÄndernToolStripMenuItem.Text = "Gruppe ändern";
+            this.gruppeÄndernToolStripMenuItem.Click += new System.EventHandler(this.gruppeÄndernToolStripMenuItem_Click);
+            // 
+            // konfigurationNeuEinlesenToolStripMenuItem
+            // 
+            this.konfigurationNeuEinlesenToolStripMenuItem.Name = "konfigurationNeuEinlesenToolStripMenuItem";
+            this.konfigurationNeuEinlesenToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.konfigurationNeuEinlesenToolStripMenuItem.Text = "Konfiguration komplett neu einlesen";
+            this.konfigurationNeuEinlesenToolStripMenuItem.Click += new System.EventHandler(this.konfigurationKomplettNeuEinlesenToolStripMenuItem_Click);
+            // 
+            // datenbankserverToolStripMenuItem
+            // 
+            this.datenbankserverToolStripMenuItem.Name = "datenbankserverToolStripMenuItem";
+            this.datenbankserverToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.datenbankserverToolStripMenuItem.Text = "Datenbankserver";
+            this.datenbankserverToolStripMenuItem.Click += new System.EventHandler(this.datenbankserverToolStripMenuItem_Click);
+            // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -759,69 +822,6 @@
             this.fRUBildToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.fRUBildToolStripMenuItem.Text = "FRU Bild";
             this.fRUBildToolStripMenuItem.Click += new System.EventHandler(this.fRUBildToolStripMenuItem_Click);
-            // 
-            // einstellungenToolStripMenuItem
-            // 
-            this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vorauswahlenÄndernToolStripMenuItem,
-            this.gruppeÄndernToolStripMenuItem,
-            this.konfigurationKomplettNeuEinlesenToolStripMenuItem,
-            this.datenbankserverToolStripMenuItem});
-            this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.einstellungenToolStripMenuItem.Text = "Einstellungen";
-            // 
-            // vorauswahlenÄndernToolStripMenuItem
-            // 
-            this.vorauswahlenÄndernToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sachnummernToolStripMenuItem,
-            this.activitiesSoFarInRemoteToolStripMenuItem,
-            this.requestedActionFromFieldToolStripMenuItem});
-            this.vorauswahlenÄndernToolStripMenuItem.Name = "vorauswahlenÄndernToolStripMenuItem";
-            this.vorauswahlenÄndernToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
-            this.vorauswahlenÄndernToolStripMenuItem.Text = "Vorauswahlen ändern";
-            // 
-            // sachnummernToolStripMenuItem
-            // 
-            this.sachnummernToolStripMenuItem.Name = "sachnummernToolStripMenuItem";
-            this.sachnummernToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.sachnummernToolStripMenuItem.Text = "Sachnummern";
-            this.sachnummernToolStripMenuItem.Click += new System.EventHandler(this.sachnummernToolStripMenuItem_Click);
-            // 
-            // activitiesSoFarInRemoteToolStripMenuItem
-            // 
-            this.activitiesSoFarInRemoteToolStripMenuItem.Name = "activitiesSoFarInRemoteToolStripMenuItem";
-            this.activitiesSoFarInRemoteToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.activitiesSoFarInRemoteToolStripMenuItem.Text = "Activities so far in Remote";
-            this.activitiesSoFarInRemoteToolStripMenuItem.Click += new System.EventHandler(this.activitiesSoFarInRemoteToolStripMenuItem_Click);
-            // 
-            // requestedActionFromFieldToolStripMenuItem
-            // 
-            this.requestedActionFromFieldToolStripMenuItem.Name = "requestedActionFromFieldToolStripMenuItem";
-            this.requestedActionFromFieldToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.requestedActionFromFieldToolStripMenuItem.Text = "Requested Action from Field";
-            this.requestedActionFromFieldToolStripMenuItem.Click += new System.EventHandler(this.requestedActionFromFieldToolStripMenuItem_Click);
-            // 
-            // gruppeÄndernToolStripMenuItem
-            // 
-            this.gruppeÄndernToolStripMenuItem.Name = "gruppeÄndernToolStripMenuItem";
-            this.gruppeÄndernToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
-            this.gruppeÄndernToolStripMenuItem.Text = "Gruppe ändern";
-            this.gruppeÄndernToolStripMenuItem.Click += new System.EventHandler(this.gruppeÄndernToolStripMenuItem_Click);
-            // 
-            // konfigurationKomplettNeuEinlesenToolStripMenuItem
-            // 
-            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Name = "konfigurationKomplettNeuEinlesenToolStripMenuItem";
-            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
-            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Text = "Konfiguration komplett neu einlesen";
-            this.konfigurationKomplettNeuEinlesenToolStripMenuItem.Click += new System.EventHandler(this.konfigurationKomplettNeuEinlesenToolStripMenuItem_Click);
-            // 
-            // datenbankserverToolStripMenuItem
-            // 
-            this.datenbankserverToolStripMenuItem.Name = "datenbankserverToolStripMenuItem";
-            this.datenbankserverToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
-            this.datenbankserverToolStripMenuItem.Text = "Datenbankserver";
-            this.datenbankserverToolStripMenuItem.Click += new System.EventHandler(this.datenbankserverToolStripMenuItem_Click);
             // 
             // adminToolStripMenuItem
             // 
@@ -1300,13 +1300,6 @@
         private System.Windows.Forms.ToolStripMenuItem iBMFRUToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fRUAbfrageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fRUBildToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vorauswahlenÄndernToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sachnummernToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activitiesSoFarInRemoteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem requestedActionFromFieldToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gruppeÄndernToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem konfigurationKomplettNeuEinlesenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem hilfesoonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
@@ -1332,7 +1325,6 @@
         private System.Windows.Forms.Label lb_wg_auswahl;
         private System.Windows.Forms.CheckBox cb_technician_sparepart;
         private System.Windows.Forms.LinkLabel UNIFYMSD_HA;
-        private System.Windows.Forms.ToolStripMenuItem datenbankserverToolStripMenuItem;
         private System.Windows.Forms.GroupBox gb_Dispo;
         private System.Windows.Forms.ToolStripMenuItem dispositionenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disposToolStripMenuItem;
@@ -1352,6 +1344,14 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vorauswahlÄndernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sachnummernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activitiesSoFarInRemoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requestedActionFromFieldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gruppeÄndernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem konfigurationNeuEinlesenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem datenbankserverToolStripMenuItem;
     }
 }
 
