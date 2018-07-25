@@ -64,6 +64,7 @@
             this.lb_ausgabe.Name = "lb_ausgabe";
             this.lb_ausgabe.Size = new System.Drawing.Size(447, 238);
             this.lb_ausgabe.TabIndex = 7;
+            this.lb_ausgabe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_ausgabe_KeyDown);
             // 
             // bt_copy
             // 

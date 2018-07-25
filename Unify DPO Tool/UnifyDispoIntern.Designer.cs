@@ -228,6 +228,7 @@
             this.lb_ausgabe.Name = "lb_ausgabe";
             this.lb_ausgabe.Size = new System.Drawing.Size(447, 238);
             this.lb_ausgabe.TabIndex = 4;
+            this.lb_ausgabe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_ausgabe_KeyDown);
             // 
             // cb_dispo_intern_auswahl
             // 

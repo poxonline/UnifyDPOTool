@@ -140,6 +140,7 @@
             this.ll_infomail = new System.Windows.Forms.LinkLabel();
             this.cb_dispowahl = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sparepart.SuspendLayout();
             this.CustomerSpecificInformationgroup.SuspendLayout();
             this.fremdremotesupport.SuspendLayout();
@@ -715,7 +716,7 @@
             this.konfigurationNeuEinlesenToolStripMenuItem,
             this.datenbankserverToolStripMenuItem});
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.einstellungenToolStripMenuItem.Text = "Einstellungen";
             // 
             // vorauswahlÄndernToolStripMenuItem
@@ -773,7 +774,7 @@
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -959,6 +960,7 @@
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hilfesoonToolStripMenuItem,
+            this.changelogToolStripMenuItem,
             this.überToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
@@ -968,13 +970,13 @@
             // 
             this.hilfesoonToolStripMenuItem.Enabled = false;
             this.hilfesoonToolStripMenuItem.Name = "hilfesoonToolStripMenuItem";
-            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.hilfesoonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hilfesoonToolStripMenuItem.Text = "Hilfe (soon)";
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.überToolStripMenuItem.Text = "Über";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
@@ -1190,6 +1192,13 @@
             this.label23.TabIndex = 23;
             this.label23.Text = "* = Pflichtfeld";
             // 
+            // changelogToolStripMenuItem
+            // 
+            this.changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
+            this.changelogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changelogToolStripMenuItem.Text = "Changelog";
+            this.changelogToolStripMenuItem.Click += new System.EventHandler(this.changelogToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1352,6 +1361,7 @@
         private System.Windows.Forms.ToolStripMenuItem gruppeÄndernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem konfigurationNeuEinlesenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem datenbankserverToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
     }
 }
 

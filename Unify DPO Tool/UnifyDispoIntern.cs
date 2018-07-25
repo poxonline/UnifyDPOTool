@@ -132,5 +132,13 @@ namespace Unify_DPO_Tool
             System.Diagnostics.Process.Start("chrome", "https://eu.yourcircuit.com/#/phone?number=+" + lb_ausgabe.SelectedItem.ToString());
         }
 
+        private void lb_ausgabe_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                Clipboard.SetDataObject(lb_ausgabe.SelectedItem.ToString());
+            }
+        }
+
     }
 }
