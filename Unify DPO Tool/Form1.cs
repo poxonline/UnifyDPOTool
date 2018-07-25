@@ -839,5 +839,11 @@ namespace Unify_DPO_Tool
             else
                 label19.Text = "PLZ:";
         }
+
+        private void changelogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangelogForm fenster = new ChangelogForm();
+            fenster.Show();
+        }
     }
 }
