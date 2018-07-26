@@ -62,7 +62,7 @@
             this.lb_aenderungen.Name = "lb_aenderungen";
             this.lb_aenderungen.Size = new System.Drawing.Size(281, 39);
             this.lb_aenderungen.TabIndex = 2;
-            this.lb_aenderungen.Text = "Version 0.0.10.2:\r\n+ Changelog hinzugefügt\r\n+ Strg + C zum kopieren funktioniert " +
+            this.lb_aenderungen.Text = "Version 0.0.10.1:\r\n+ Changelog hinzugefügt\r\n+ Strg + C zum kopieren funktioniert " +
     "in den Dispo Fenstern";
             // 
             // gb_aenderungen
